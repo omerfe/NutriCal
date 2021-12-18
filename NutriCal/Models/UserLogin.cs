@@ -15,5 +15,7 @@ namespace NutriCal.Models
         public string Password { get; set; }
 
         public virtual User User { get; set; }
+
+        //sfadsasda
     }
 }
