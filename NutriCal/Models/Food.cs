@@ -9,6 +9,7 @@ namespace NutriCal.Models
 {
     public class Food
     {
+        //
         public int FoodId { get; set; }
         public string FoodName { get; set; }
         public double FoodCalories { get; set; }
