@@ -8,8 +8,8 @@ namespace NutriCal.Models
 {
     public class Exercise
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int ExerciseId { get; set; }
+        public string ExerciseName { get; set; }
         public double BurntCalorie { get; set; }
         public TimeSpan TimeSpan { get; set; }
         public virtual ICollection<User> Users { get; set; }

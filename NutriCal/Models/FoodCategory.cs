@@ -9,7 +9,7 @@ namespace NutriCal.Models
     public class FoodCategory
     {
         public int FoodCategoryId { get; set; }
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         public virtual ICollection<Food> Foods { get; set; }
     }
 }

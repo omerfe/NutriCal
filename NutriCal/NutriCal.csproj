@@ -70,8 +70,6 @@
     <Compile Include="Enums\Porsions.cs" />
     <Compile Include="Models\NutriCalDbContext.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserExercise.cs" />
-    <Compile Include="Models\UserFood.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
