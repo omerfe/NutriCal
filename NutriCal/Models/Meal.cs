@@ -12,10 +12,7 @@ namespace NutriCal.Models
         public string MealName { get; set; }
         public DateTime Date { get; set; }
         public double TotalCalories { get; set; }
-        
-        public int? UserId { get; set; }
-        public virtual User User { get; set; }
-
         public virtual ICollection<Food> Foods { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

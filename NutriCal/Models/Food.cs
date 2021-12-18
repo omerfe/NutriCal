@@ -17,7 +17,6 @@ namespace NutriCal.Models
 
         public int? FoodCategoryId { get; set; }
         public virtual FoodCategory FoodCategory { get; set; }
-
         public virtual ICollection<Meal> Meals { get; set; }
     }
 }

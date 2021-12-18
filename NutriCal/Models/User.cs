@@ -16,9 +16,8 @@ namespace NutriCal.Models
         public double Weight { get; set; }
         public int Height { get; set; }
         public Genders Gender { get; set; }
-
-        public virtual ICollection<Meal> Meals { get; set; }
-        public virtual ICollection<Exercise> Exercises { get; set; }
         public virtual UserLogin UserLogin { get; set; }
+        public virtual ICollection<Exercise> Exercises { get; set; }
+        public virtual ICollection<Meal> Meals { get; set; }
     }
 }
