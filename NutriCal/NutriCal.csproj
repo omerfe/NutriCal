@@ -58,12 +58,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExerciseEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExerciseEditForm.Designer.cs">
+      <DependentUpon>ExerciseEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExerciseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExerciseForm.Designer.cs">
+      <DependentUpon>ExerciseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InitialStrategies\DbInitialStrategy.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
@@ -72,9 +85,16 @@
     <Compile Include="Enums\Porsions.cs" />
     <Compile Include="Models\NutriCalDbContext.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserExercise.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExerciseEditForm.resx">
+      <DependentUpon>ExerciseEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExerciseForm.resx">
+      <DependentUpon>ExerciseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

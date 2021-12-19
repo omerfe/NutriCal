@@ -17,12 +17,8 @@ namespace NutriCal
         public Form1()
         {
             InitializeComponent();
-            GetFoods();
         }
 
-        private void GetFoods()
-        {
-            listBox1.DataSource = db.Exercises.ToList();
-        }
+
     }
 }
