@@ -39,11 +39,22 @@ namespace NutriCal
 
         private void CreateExerciseList()
         {
-            List<Exercise> exercises = db.Exercises.Where(x => x.ExerciseRole == "A").ToList();
+            List<Exercise> exercises = null;
+            lsvExercises.Clear();
+            string searchedText = txtSearch.Text.Trim();
+            if (searchedText == string.Empty)
+            {
+                exercises = db.Exercises.Where(x => x.ExerciseRole == "A").ToList();
+            }
+            else
+            {
+                exercises = db.Exercises.Where(x => x.ExerciseRole == "A" && x.ExerciseName.Contains(searchedText)).ToList();
+            }
             for (int i = 0; i < exercises.Count; i++)
             {
                 string exerciseName = exercises[i].ExerciseName;
                 ListViewItem lvi = new ListViewItem(exerciseName);
+                lvi.Tag = exercises[i];
                 lvi.ImageKey = exerciseName;
                 lsvExercises.Items.Add(lvi);
             }
@@ -51,6 +62,7 @@ namespace NutriCal
         private void btnAddCustomExercise_Click(object sender, EventArgs e)
         {
             new ExerciseEditForm(selectedExercise, db, loggedUser).ShowDialog();
+            GetTheMostRecentExercises();
         }
         private void lsvExercises_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -61,5 +73,12 @@ namespace NutriCal
             GetTheMostRecentExercises();
         }
 
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            tcExercises.SelectedIndex = 1;
+            txtSearch.Focus();
+            CreateExerciseList();
+        }
     }
 }

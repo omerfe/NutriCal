@@ -33,13 +33,13 @@ namespace NutriCal
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExerciseForm));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.imgExercises = new System.Windows.Forms.ImageList(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcExercises = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvMostRecents = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lsvExercises = new System.Windows.Forms.ListView();
             this.btnAddCustomExercise = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.tcExercises.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostRecents)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -49,11 +49,12 @@ namespace NutriCal
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(37, 15);
+            this.txtSearch.Location = new System.Drawing.Point(37, 14);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(916, 29);
+            this.txtSearch.Size = new System.Drawing.Size(878, 29);
             this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // imgExercises
             // 
@@ -71,18 +72,18 @@ namespace NutriCal
             this.imgExercises.Images.SetKeyName(9, "jumping rope");
             this.imgExercises.Images.SetKeyName(10, "volleyball");
             // 
-            // tabControl1
+            // tcExercises
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcExercises.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(37, 81);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(916, 604);
-            this.tabControl1.TabIndex = 3;
+            this.tcExercises.Controls.Add(this.tabPage1);
+            this.tcExercises.Controls.Add(this.tabPage2);
+            this.tcExercises.Location = new System.Drawing.Point(37, 81);
+            this.tcExercises.Name = "tcExercises";
+            this.tcExercises.SelectedIndex = 0;
+            this.tcExercises.Size = new System.Drawing.Size(916, 604);
+            this.tcExercises.TabIndex = 3;
             // 
             // tabPage1
             // 
@@ -123,12 +124,11 @@ namespace NutriCal
             // lsvExercises
             // 
             this.lsvExercises.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lsvExercises.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvExercises.HideSelection = false;
             this.lsvExercises.LargeImageList = this.imgExercises;
-            this.lsvExercises.Location = new System.Drawing.Point(3, 3);
+            this.lsvExercises.Location = new System.Drawing.Point(3, 58);
             this.lsvExercises.Name = "lsvExercises";
-            this.lsvExercises.Size = new System.Drawing.Size(902, 561);
+            this.lsvExercises.Size = new System.Drawing.Size(902, 506);
             this.lsvExercises.TabIndex = 2;
             this.lsvExercises.UseCompatibleStateImageBehavior = false;
             this.lsvExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvExercises_MouseDoubleClick);
@@ -153,14 +153,14 @@ namespace NutriCal
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 734);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btnAddCustomExercise);
             this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.tcExercises);
+            this.Controls.Add(this.btnAddCustomExercise);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ExerciseForm";
             this.Text = "EXERCISES";
-            this.tabControl1.ResumeLayout(false);
+            this.tcExercises.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostRecents)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -173,7 +173,7 @@ namespace NutriCal
 
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ImageList imgExercises;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcExercises;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnAddCustomExercise;
