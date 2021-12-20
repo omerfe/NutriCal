@@ -6,23 +6,21 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NutriCal
 {
-    public partial class Form1 : Form
+    public partial class NutriCalMainPage : Form
     {
-        NutriCalDbContext db = new NutriCalDbContext();
-        public Form1()
+        public NutriCalMainPage()
         {
             InitializeComponent();
-            GetFoods();
+            Thread.Sleep(100000);
+            Login login = new Login();
+            login.ShowDialog();
         }
 
-        private void GetFoods()
-        {
-            listBox1.DataSource = db.Exercises.ToList();
-        }
     }
 }
