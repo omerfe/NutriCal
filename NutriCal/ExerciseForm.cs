@@ -14,9 +14,10 @@ namespace NutriCal
     public partial class ExerciseForm : Form
     {
         NutriCalDbContext db = new NutriCalDbContext();
-
+        UserExercise userExercise;
         Exercise selectedExercise;
         User loggedUser;
+        List<UserExercise> exerciseList;
         public ExerciseForm()
         {
             loggedUser = db.Users.ToList()[0];
@@ -27,14 +28,20 @@ namespace NutriCal
 
         private void GetTheMostRecentExercises()
         {
-            var exerciseList = db.UserExercises.OrderByDescending(d => d.ExerciseAddedTime).Where(x => x.UserId == loggedUser.UserId).ToList();
+            exerciseList = db.UserExercises.OrderByDescending(d => d.ExerciseAddedTime).Where(x => x.UserId == loggedUser.UserId).ToList();
             dgvMostRecents.DataSource = exerciseList.Select(x => new
             {
                 x.Exercise.ExerciseName,
-                BurnedEnergy = $"-{x.Exercise.BurnedEnergy} kcal",
+                BurnedEnergy = $"-{x.Exercise.BurnedEnergy} kcal / {x.Exercise.Duration} min",
                 x.ExerciseAddedTime
             }).ToList();
             //TODO: Column'ları kendin ver. Burdaki default değere bırakma.
+            GetTotalBurnedEnergy();
+        }
+
+        private void GetTotalBurnedEnergy()
+        {
+            lblTotalBurnedEnergy.Text = exerciseList.Sum(x => x.Exercise.BurnedEnergy).ToString();
         }
 
         private void CreateExerciseList()
@@ -61,7 +68,7 @@ namespace NutriCal
         }
         private void btnAddCustomExercise_Click(object sender, EventArgs e)
         {
-            new ExerciseEditForm(selectedExercise, db, loggedUser).ShowDialog();
+            new ExerciseEditForm(new Exercise(), db, loggedUser).ShowDialog();
             GetTheMostRecentExercises();
         }
         private void lsvExercises_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -79,6 +86,45 @@ namespace NutriCal
             tcExercises.SelectedIndex = 1;
             txtSearch.Focus();
             CreateExerciseList();
+        }
+
+        private void dgvMostRecents_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                string selectedRecentExercise = dgvMostRecents.SelectedRows[0].Cells[0].Value.ToString();
+                userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseName == selectedRecentExercise);
+                var position = dgvMostRecents.HitTest(e.X, e.Y).RowIndex;
+                if (position >= 0)
+                {
+                    cmsRecentExercises.Show(dgvMostRecents, new Point(e.X, e.Y));
+                    dgvMostRecents.Rows[position].Selected = true;
+                }
+            }
+        }
+
+        private void updateExerciseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExerciseEditForm exerciseEditForm = new ExerciseEditForm(userExercise, db, loggedUser);
+            exerciseEditForm.ShowDialog();
+            GetTheMostRecentExercises();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedUserExercise();
+        }
+
+        private void DeleteSelectedUserExercise()
+        {
+            DialogResult dr = MessageBox.Show($"Are you sure delete {userExercise.Exercise.ExerciseName}?", "Warning", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                db.UserExercises.Remove(userExercise);
+                db.SaveChanges();
+                GetTheMostRecentExercises();
+            }
+
         }
     }
 }

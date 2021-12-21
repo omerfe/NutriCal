@@ -46,7 +46,7 @@ namespace NutriCal
             // txtCustomExerciseName
             // 
             this.txtCustomExerciseName.Location = new System.Drawing.Point(22, 17);
-            this.txtCustomExerciseName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCustomExerciseName.Margin = new System.Windows.Forms.Padding(6);
             this.txtCustomExerciseName.Name = "txtCustomExerciseName";
             this.txtCustomExerciseName.Size = new System.Drawing.Size(253, 29);
             this.txtCustomExerciseName.TabIndex = 18;
@@ -55,7 +55,7 @@ namespace NutriCal
             // btnAddExercise
             // 
             this.btnAddExercise.Location = new System.Drawing.Point(26, 260);
-            this.btnAddExercise.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAddExercise.Margin = new System.Windows.Forms.Padding(6);
             this.btnAddExercise.Name = "btnAddExercise";
             this.btnAddExercise.Size = new System.Drawing.Size(672, 57);
             this.btnAddExercise.TabIndex = 17;
@@ -68,7 +68,7 @@ namespace NutriCal
             this.lblExerciseName.AutoSize = true;
             this.lblExerciseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblExerciseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblExerciseName.Location = new System.Drawing.Point(347, 20);
+            this.lblExerciseName.Location = new System.Drawing.Point(309, 18);
             this.lblExerciseName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblExerciseName.Name = "lblExerciseName";
             this.lblExerciseName.Size = new System.Drawing.Size(99, 29);
@@ -80,7 +80,7 @@ namespace NutriCal
             this.btnHideExerciseDetails.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHideExerciseDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHideExerciseDetails.Location = new System.Drawing.Point(626, 5);
-            this.btnHideExerciseDetails.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnHideExerciseDetails.Margin = new System.Windows.Forms.Padding(6);
             this.btnHideExerciseDetails.Name = "btnHideExerciseDetails";
             this.btnHideExerciseDetails.Size = new System.Drawing.Size(72, 55);
             this.btnHideExerciseDetails.TabIndex = 15;
@@ -91,7 +91,7 @@ namespace NutriCal
             // nmuDuration
             // 
             this.nmuDuration.Location = new System.Drawing.Point(531, 125);
-            this.nmuDuration.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nmuDuration.Margin = new System.Windows.Forms.Padding(6);
             this.nmuDuration.Maximum = new decimal(new int[] {
             240,
             0,
@@ -104,7 +104,7 @@ namespace NutriCal
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(657, 124);
+            this.label3.Location = new System.Drawing.Point(646, 126);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 24);
@@ -130,7 +130,7 @@ namespace NutriCal
             0,
             65536});
             this.nmuBurnedCalorie.Location = new System.Drawing.Point(161, 122);
-            this.nmuBurnedCalorie.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.nmuBurnedCalorie.Margin = new System.Windows.Forms.Padding(6);
             this.nmuBurnedCalorie.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -143,7 +143,7 @@ namespace NutriCal
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(287, 124);
+            this.label2.Location = new System.Drawing.Point(276, 124);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 24);
@@ -178,7 +178,7 @@ namespace NutriCal
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ExerciseEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ExerciseEditForm";

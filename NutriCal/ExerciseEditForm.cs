@@ -14,6 +14,7 @@ namespace NutriCal
     public partial class ExerciseEditForm : Form
     {
         private readonly Exercise exercise;
+        private readonly UserExercise userExercise;
         private readonly NutriCalDbContext db;
         private readonly User user;
 
@@ -25,12 +26,39 @@ namespace NutriCal
             this.user = user;
             if (exercise == null)
             {
-                PrepareAddForm();
+                //user exercise gelmiş demektir
             }
             else
             {
-                PrepareUpdateForm();
+                if (exercise.ExerciseId > 0)
+                {
+                    PrepareUpdateForm();
+
+                }
+                else
+                {
+                    PrepareAddForm();
+                }
             }
+        }
+        public ExerciseEditForm(UserExercise userExercise, NutriCalDbContext db, User user)
+        {
+            InitializeComponent();
+            this.userExercise = userExercise;
+            this.db = db;
+            this.user = user;
+            UpdateUserExercise();
+        }
+
+        private void UpdateUserExercise()
+        {
+            txtCustomExerciseName.Visible = true;
+            Exercise exercise = userExercise.Exercise;
+            lblExerciseName.Text = exercise.ExerciseName;
+            nmuBurnedCalorie.Value = (decimal)exercise.BurnedEnergy;
+            nmuDuration.Value = exercise.Duration;
+            txtCustomExerciseName.Text = exercise.ExerciseName;
+            btnAddExercise.Text = "Save";
         }
 
         private void PrepareAddForm()
@@ -58,25 +86,36 @@ namespace NutriCal
         private void btnAddExercise_Click(object sender, EventArgs e)
         {
             //TODO: Gerekli tokatlamaları yap
-            string exerciseName = (exercise == null) ? txtCustomExerciseName.Text : lblExerciseName.Text;
-            Exercise newExercise = new Exercise()
+            if (exercise != null)
             {
-                ExerciseName = exerciseName,
-                Duration = (int)nmuDuration.Value,
-                ExerciseRole = "U",
-                BurnedEnergy = (double)nmuBurnedCalorie.Value
-            };
-            UserExercise ue = new UserExercise()
+                string exerciseName = (exercise == null) ? txtCustomExerciseName.Text : lblExerciseName.Text;
+                Exercise newExercise = new Exercise()
+                {
+                    ExerciseName = exerciseName,
+                    Duration = (int)nmuDuration.Value,
+                    ExerciseRole = "U",
+                    BurnedEnergy = (double)nmuBurnedCalorie.Value
+                };
+                UserExercise ue = new UserExercise()
+                {
+                    User = user,
+                    Exercise = newExercise,
+                    ExerciseAddedTime = DateTime.Now
+                };
+                MessageBox.Show(ue.ExerciseAddedTime.ToString());
+                db.UserExercises.Add(ue);
+                db.SaveChanges();
+                MessageBox.Show($"{newExercise.ExerciseName} added succesfully!");
+            }
+            else
             {
-                User = user,
-                Exercise = newExercise,
-                ExerciseAddedTime = DateTime.Now
-            };
-            MessageBox.Show(ue.ExerciseAddedTime.ToString());
-            db.UserExercises.Add(ue);
-            db.SaveChanges();
-            MessageBox.Show($"{newExercise.ExerciseName} has been added succesfully!");
-            Close(); 
+                userExercise.Exercise.BurnedEnergy = (double)nmuBurnedCalorie.Value;
+                userExercise.Exercise.Duration = (int)nmuDuration.Value;
+                userExercise.Exercise.ExerciseName = txtCustomExerciseName.Text;
+                db.SaveChanges();
+                MessageBox.Show($"{userExercise.Exercise.ExerciseName} updated successfull!");
+            }
+            Close();
         }
 
         private void txtCustomExerciseName_TextChanged(object sender, EventArgs e)
