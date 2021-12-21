@@ -36,6 +36,8 @@ namespace NutriCal
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbLogin = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -92,11 +94,23 @@ namespace NutriCal
             this.label1.TabIndex = 7;
             this.label1.Text = "Email:";
             // 
+            // pbLogin
+            // 
+            this.pbLogin.BackgroundImage = global::NutriCal.Properties.Resources.GoldU;
+            this.pbLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLogin.Image = global::NutriCal.Properties.Resources.GoldSign;
+            this.pbLogin.Location = new System.Drawing.Point(52, 33);
+            this.pbLogin.Name = "pbLogin";
+            this.pbLogin.Size = new System.Drawing.Size(182, 161);
+            this.pbLogin.TabIndex = 13;
+            this.pbLogin.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 357);
+            this.Controls.Add(this.pbLogin);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.LnkLblRegister);
             this.Controls.Add(this.txtPassword);
@@ -107,6 +121,7 @@ namespace NutriCal
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +135,6 @@ namespace NutriCal
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbLogin;
     }
 }

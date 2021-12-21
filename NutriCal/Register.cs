@@ -18,8 +18,8 @@ namespace NutriCal
         bool isValidLength, isContainNumber, isContainUpperCase, isContainLowerCase, isContainSpecial;
         public Register(NutriCalDbContext db)
         {
-            this.db = db;
             InitializeComponent();
+            this.db = db;
         }
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -33,6 +33,10 @@ namespace NutriCal
                 txtPassword.PasswordChar = '*';
                 txtConfirmPassword.PasswordChar = '*';
             }
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
@@ -72,60 +76,43 @@ namespace NutriCal
             foreach (var item in pwd.Distinct())
             {
                 if (!lowerCase.Contains(item))
-                {
                     isContainLowerCase = false;
-                    lblPC2.ForeColor = Color.Red;
-                }
                 else
-                {
                     isContainLowerCase = true;
-                    lblPC2.ForeColor = Color.Green;
-                }
-
             }
-            //for upper case
+            if (isContainLowerCase == true)
+                lblPC2.ForeColor = Color.Green;
+            ////for upper case
             foreach (var item in pwd.Distinct())
             {
                 if (!upperCase.Contains(item))
-                {
                     isContainUpperCase = false;
-                    lblPC3.ForeColor = Color.Red;
-                }
                 else
-                {
                     isContainUpperCase = true;
-                    lblPC3.ForeColor = Color.Green;
-                }
             }
+            if (isContainUpperCase == true)
+                lblPC3.ForeColor = Color.Green;
             //for numbers
             foreach (var item in pwd.Distinct())
             {
                 if (!numbers.Contains(item))
-                {
                     isContainNumber = false;
-                    lblPC4.ForeColor = Color.Red;
-                }
                 else
-                {
                     isContainNumber = true;
-                    lblPC4.ForeColor = Color.Green;
-                }
             }
+            if (isContainNumber == true)
+                lblPC4.ForeColor = Color.Green;
             //for special characters
             foreach (var item in pwd.Distinct())
             {
                 if (!specialCharacters.Contains(item))
-                {
                     isContainSpecial = false;
-                    lblPC5.ForeColor = Color.Red;
-                }
                 else
-                {
                     isContainSpecial = true;
-                    lblPC5.ForeColor = Color.Green;
-                }
             }
-        } //sorun var, hepsini aynı anda yapamıyo
+            if (isContainSpecial == true)
+                lblPC5.ForeColor = Color.Green;
+        } //silindiğinde yeşil kalıyo
         private void btnRegister_Click(object sender, EventArgs e)
         {
             UserLogin userLogin = new UserLogin();
@@ -165,7 +152,9 @@ namespace NutriCal
             {
                 if (item.Email == userLogin.Email)
                 {
-                    MessageBox.Show("User already registered!");
+                    MessageBox.Show("User already registered! Please LOG IN!!!");
+                    ClearRegisterForm();
+                    btnLogin.Visible = true;
                     return;
                 }
             }
@@ -173,8 +162,29 @@ namespace NutriCal
             db.UserLogins.Add(userLogin);
             db.SaveChanges();
             MessageBox.Show("Success! Your account has been created!");
-            Close();
+            ClearRegisterForm();
+            btnLogin.Visible = true;
+            //Close();
         } //sorun var 
+        private void ClearRegisterForm()
+        {
+            txtEmail.Clear();
+            lblControlEmail.Visible = false;
+            txtPassword.Clear();
+            lblControlPassword.Visible = false;
+            txtConfirmPassword.Clear();
+            lblControlConfirm.Visible = false;
+            chkShowPassword.Checked = false;
+            lblPC1.ForeColor = Color.Silver;
+            lblPC2.ForeColor = Color.Silver;
+            lblPC3.ForeColor = Color.Silver;
+            lblPC4.ForeColor = Color.Silver;
+            lblPC5.ForeColor = Color.Silver;
+            lblControlConfirm.Visible = false;
+            lblControlTotalPwd.Visible = false;
+            btnLogin.Visible = false;
+        }
 
+        //User bilgilerini değiştirme özelliği ekleyecek miyiz?
     }
 }

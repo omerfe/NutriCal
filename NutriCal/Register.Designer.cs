@@ -47,6 +47,7 @@ namespace NutriCal
             this.lblPC5 = new System.Windows.Forms.Label();
             this.lblControlEmail = new System.Windows.Forms.Label();
             this.lblControlPassword = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblControlConfirm
@@ -62,7 +63,7 @@ namespace NutriCal
             // btnRegister
             // 
             this.btnRegister.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnRegister.Location = new System.Drawing.Point(225, 295);
+            this.btnRegister.Location = new System.Drawing.Point(406, 290);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(100, 23);
             this.btnRegister.TabIndex = 18;
@@ -75,7 +76,7 @@ namespace NutriCal
             this.txtConfirmPassword.Location = new System.Drawing.Point(140, 190);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(214, 20);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(366, 20);
             this.txtConfirmPassword.TabIndex = 17;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
             // 
@@ -93,7 +94,7 @@ namespace NutriCal
             this.txtPassword.Location = new System.Drawing.Point(140, 77);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(214, 20);
+            this.txtPassword.Size = new System.Drawing.Size(251, 20);
             this.txtPassword.TabIndex = 15;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -110,7 +111,7 @@ namespace NutriCal
             // 
             this.txtEmail.Location = new System.Drawing.Point(140, 34);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(214, 20);
+            this.txtEmail.Size = new System.Drawing.Size(366, 20);
             this.txtEmail.TabIndex = 13;
             // 
             // label2
@@ -137,7 +138,7 @@ namespace NutriCal
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(360, 80);
+            this.chkShowPassword.Location = new System.Drawing.Point(404, 80);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(102, 17);
             this.chkShowPassword.TabIndex = 21;
@@ -148,7 +149,7 @@ namespace NutriCal
             // lblPC1
             // 
             this.lblPC1.AutoSize = true;
-            this.lblPC1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPC1.ForeColor = System.Drawing.Color.Silver;
             this.lblPC1.Location = new System.Drawing.Point(137, 119);
             this.lblPC1.Name = "lblPC1";
             this.lblPC1.Size = new System.Drawing.Size(225, 13);
@@ -158,7 +159,7 @@ namespace NutriCal
             // lblPC2
             // 
             this.lblPC2.AutoSize = true;
-            this.lblPC2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPC2.ForeColor = System.Drawing.Color.Silver;
             this.lblPC2.Location = new System.Drawing.Point(137, 132);
             this.lblPC2.Name = "lblPC2";
             this.lblPC2.Size = new System.Drawing.Size(252, 13);
@@ -168,7 +169,7 @@ namespace NutriCal
             // lblPC3
             // 
             this.lblPC3.AutoSize = true;
-            this.lblPC3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPC3.ForeColor = System.Drawing.Color.Silver;
             this.lblPC3.Location = new System.Drawing.Point(137, 145);
             this.lblPC3.Name = "lblPC3";
             this.lblPC3.Size = new System.Drawing.Size(254, 13);
@@ -178,7 +179,7 @@ namespace NutriCal
             // lblPC4
             // 
             this.lblPC4.AutoSize = true;
-            this.lblPC4.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPC4.ForeColor = System.Drawing.Color.Silver;
             this.lblPC4.Location = new System.Drawing.Point(137, 158);
             this.lblPC4.Name = "lblPC4";
             this.lblPC4.Size = new System.Drawing.Size(210, 13);
@@ -188,7 +189,7 @@ namespace NutriCal
             // lblPC5
             // 
             this.lblPC5.AutoSize = true;
-            this.lblPC5.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblPC5.ForeColor = System.Drawing.Color.Silver;
             this.lblPC5.Location = new System.Drawing.Point(137, 171);
             this.lblPC5.Name = "lblPC5";
             this.lblPC5.Size = new System.Drawing.Size(369, 13);
@@ -215,11 +216,24 @@ namespace NutriCal
             this.lblControlPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblControlPassword.Visible = false;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLogin.Location = new System.Drawing.Point(34, 395);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(100, 23);
+            this.btnLogin.TabIndex = 30;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Visible = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 332);
+            this.ClientSize = new System.Drawing.Size(545, 430);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblControlPassword);
             this.Controls.Add(this.lblControlEmail);
             this.Controls.Add(this.lblPC5);
@@ -265,5 +279,6 @@ namespace NutriCal
         private System.Windows.Forms.Label lblPC5;
         private System.Windows.Forms.Label lblControlEmail;
         private System.Windows.Forms.Label lblControlPassword;
+        private System.Windows.Forms.Button btnLogin;
     }
 }

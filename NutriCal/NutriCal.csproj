@@ -101,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
@@ -119,7 +120,78 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\CLetter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Confetti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldenConfetti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Golden Stars Rain Falling.B10.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold Ring.G03.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Soda Splash.G03.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Olive Oil Drops.G03.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold Splash.G03.watermarked.2k %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water Splash.G04.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\White Splash.G07.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coffee Beans.G01.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Falling Candy Canes.G03.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Marquee Sign Letter C.G03.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold Vortex.G03.watermarked.2k.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldSign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gold Splash.G03.watermarked.2k.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

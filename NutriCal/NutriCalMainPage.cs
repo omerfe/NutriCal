@@ -17,10 +17,14 @@ namespace NutriCal
         public NutriCalMainPage()
         {
             InitializeComponent();
-            Thread.Sleep(100000);
-            Login login = new Login();
-            login.ShowDialog();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
+        }
     }
 }
