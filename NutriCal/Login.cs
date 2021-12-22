@@ -33,6 +33,7 @@ namespace NutriCal
             }
             else
             {
+                MessageBox.Show("Kayıt başarılı!");
                 //TODO: Uygulamanın açılacak ilk sayfası gelecek
 
                 //XXX xxx = new XXX(db);

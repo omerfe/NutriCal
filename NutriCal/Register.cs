@@ -1,4 +1,5 @@
-﻿using NutriCal.Models;
+﻿using NutriCal.Enums;
+using NutriCal.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,14 @@ namespace NutriCal
         {
             InitializeComponent();
             this.db = db;
+            LoadGenders();
+        }
+        private void LoadGenders()
+        {
+            cmbUserGender.DataSource = null;
+            cmbUserGender.DataSource = Enum.GetNames(typeof(Genders)).ToArray();
+            //cmbUserGender.DataSource = Enum.GetValues(typeof(Genders));
+            //bunu yapınca güncelleme yaparken selected item'ı user.Genders yapılmadı o yüzden string olarak tutunca çözüldü
         }
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -61,64 +70,68 @@ namespace NutriCal
             string lowerCase = "abcdefghijklmnopqrstuvwxyz";
             string specialCharacters = "!@#/+%^-&*()";
 
-            //for length
             if (pwd.Length < 8)
             {
                 isValidLength = false;
-                lblPC1.ForeColor = Color.Red;
             }
             else
             {
                 isValidLength = true;
                 lblPC1.ForeColor = Color.Green;
             }
-            //for lower case
             foreach (var item in pwd.Distinct())
             {
-                if (!lowerCase.Contains(item))
-                    isContainLowerCase = false;
-                else
+                if (lowerCase.Contains(item))
+                {
                     isContainLowerCase = true;
-            }
-            if (isContainLowerCase == true)
-                lblPC2.ForeColor = Color.Green;
-            ////for upper case
-            foreach (var item in pwd.Distinct())
-            {
-                if (!upperCase.Contains(item))
-                    isContainUpperCase = false;
-                else
+                    lblPC2.ForeColor = Color.Green;
+                }
+                else if (upperCase.Contains(item))
+                {
                     isContainUpperCase = true;
-            }
-            if (isContainUpperCase == true)
-                lblPC3.ForeColor = Color.Green;
-            //for numbers
-            foreach (var item in pwd.Distinct())
-            {
-                if (!numbers.Contains(item))
-                    isContainNumber = false;
-                else
+                    lblPC3.ForeColor = Color.Green;
+                }
+                else if (numbers.Contains(item))
+                {
                     isContainNumber = true;
-            }
-            if (isContainNumber == true)
-                lblPC4.ForeColor = Color.Green;
-            //for special characters
-            foreach (var item in pwd.Distinct())
-            {
-                if (!specialCharacters.Contains(item))
-                    isContainSpecial = false;
-                else
+                    lblPC4.ForeColor = Color.Green;
+                }
+                else if (specialCharacters.Contains(item))
+                {
                     isContainSpecial = true;
+                    lblPC5.ForeColor = Color.Green;
+                }
             }
-            if (isContainSpecial == true)
-                lblPC5.ForeColor = Color.Green;
-        } //silindiğinde yeşil kalıyo
+        }
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            User user = new User();
+            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtUserSurname.Text))
+            {
+                lblPersonalInfoCheck.Visible = true;
+                lblPersonalInfoCheck.ForeColor = Color.Gold;
+                lblPersonalInfoCheck.Text = "These fields cannot be empty!";
+                return;
+            }
+            user.UserName = txtUserName.Text.Trim();
+            user.UserSurname = txtUserSurname.Text.Trim();
+            user.BirthDate = dtpUserBirthDate.Value;
+            user.Weight = (double)nudUserWeight.Value;
+            user.Height = (int)nudUserHeight.Value;
+            if (cmbUserGender.SelectedIndex != -1)
+            {
+                string gender = (string)cmbUserGender.SelectedItem;
+                user.Gender = (Genders)Enum.Parse(typeof(Genders), gender);
+            }
+            else
+            {
+                lblPersonalInfoCheck.Visible = true;
+                lblPersonalInfoCheck.ForeColor = Color.Gold;
+                lblPersonalInfoCheck.Text = "These fields cannot be empty!";
+                return;
+            }
+            
             UserLogin userLogin = new UserLogin();
-            userLogin.Email = txtEmail.Text.Trim();
-            userLogin.Password = txtPassword.Text;
-
             if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtConfirmPassword.Text))
             {
                 if (string.IsNullOrEmpty(txtEmail.Text))
@@ -141,8 +154,10 @@ namespace NutriCal
                 }
                 return;
             }
+            userLogin.Email = txtEmail.Text.Trim();
+            userLogin.Password = txtPassword.Text;
 
-            if (isValidLength == false || isContainNumber == false || isContainUpperCase == false || isContainLowerCase == false && isContainSpecial == false)
+            if (isValidLength == false || isContainNumber == false || isContainUpperCase == false || isContainLowerCase == false || isContainSpecial == false)
             {
                 lblControlTotalPwd.Visible = true;
                 return;
@@ -160,12 +175,12 @@ namespace NutriCal
             }
 
             db.UserLogins.Add(userLogin);
+            db.Users.Add(user);
             db.SaveChanges();
             MessageBox.Show("Success! Your account has been created!");
             ClearRegisterForm();
-            btnLogin.Visible = true;
-            //Close();
-        } //sorun var 
+            Close();
+        }
         private void ClearRegisterForm()
         {
             txtEmail.Clear();
@@ -183,8 +198,11 @@ namespace NutriCal
             lblControlConfirm.Visible = false;
             lblControlTotalPwd.Visible = false;
             btnLogin.Visible = false;
+            txtUserName.Clear();
+            txtUserSurname.Clear();
+            dtpUserBirthDate.Value = DateTime.Now;
+            nudUserWeight.Value = 50;
+            nudUserHeight.Value = 150;
         }
-
-        //User bilgilerini değiştirme özelliği ekleyecek miyiz?
     }
 }

@@ -42,7 +42,7 @@ namespace NutriCal
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(159, 284);
+            this.btnLogin.Location = new System.Drawing.Point(159, 296);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 12;
