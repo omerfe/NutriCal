@@ -20,6 +20,7 @@ namespace NutriCal
         List<UserExercise> exerciseList;
         public ExerciseForm()
         {
+            
             loggedUser = db.Users.ToList()[0];
             InitializeComponent();
             CreateExerciseList();

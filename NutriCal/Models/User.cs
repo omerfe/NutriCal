@@ -12,7 +12,7 @@ namespace NutriCal.Models
     {
         public User()
         {
-            //Exercises = new List<Exercise>();
+           // Meals = new List<Meal>();
         
         }
         [Key]

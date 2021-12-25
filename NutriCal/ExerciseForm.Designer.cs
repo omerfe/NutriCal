@@ -45,6 +45,7 @@ namespace NutriCal
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalBurnedEnergy = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tcExercises.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostRecents)).BeginInit();
@@ -89,7 +90,7 @@ namespace NutriCal
             this.tcExercises.Location = new System.Drawing.Point(37, 81);
             this.tcExercises.Name = "tcExercises";
             this.tcExercises.SelectedIndex = 0;
-            this.tcExercises.Size = new System.Drawing.Size(672, 530);
+            this.tcExercises.Size = new System.Drawing.Size(672, 570);
             this.tcExercises.TabIndex = 3;
             // 
             // tabPage1
@@ -98,7 +99,7 @@ namespace NutriCal
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(664, 493);
+            this.tabPage1.Size = new System.Drawing.Size(664, 533);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Most Recent";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -114,7 +115,7 @@ namespace NutriCal
             this.dgvMostRecents.Name = "dgvMostRecents";
             this.dgvMostRecents.RowHeadersVisible = false;
             this.dgvMostRecents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMostRecents.Size = new System.Drawing.Size(658, 487);
+            this.dgvMostRecents.Size = new System.Drawing.Size(658, 527);
             this.dgvMostRecents.TabIndex = 0;
             this.dgvMostRecents.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvMostRecents_MouseClick);
             // 
@@ -124,7 +125,7 @@ namespace NutriCal
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(691, 380);
+            this.tabPage2.Size = new System.Drawing.Size(664, 493);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Browse All";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@ namespace NutriCal
             this.lsvExercises.LargeImageList = this.imgExercises;
             this.lsvExercises.Location = new System.Drawing.Point(3, 3);
             this.lsvExercises.Name = "lsvExercises";
-            this.lsvExercises.Size = new System.Drawing.Size(685, 374);
+            this.lsvExercises.Size = new System.Drawing.Size(658, 487);
             this.lsvExercises.TabIndex = 2;
             this.lsvExercises.UseCompatibleStateImageBehavior = false;
             this.lsvExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvExercises_MouseDoubleClick);
@@ -185,7 +186,7 @@ namespace NutriCal
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(423, 626);
+            this.label2.Location = new System.Drawing.Point(423, 666);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 24);
             this.label2.TabIndex = 4;
@@ -196,7 +197,7 @@ namespace NutriCal
             this.lblTotalBurnedEnergy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalBurnedEnergy.AutoSize = true;
             this.lblTotalBurnedEnergy.ForeColor = System.Drawing.Color.YellowGreen;
-            this.lblTotalBurnedEnergy.Location = new System.Drawing.Point(606, 626);
+            this.lblTotalBurnedEnergy.Location = new System.Drawing.Point(606, 666);
             this.lblTotalBurnedEnergy.Name = "lblTotalBurnedEnergy";
             this.lblTotalBurnedEnergy.Size = new System.Drawing.Size(55, 24);
             this.lblTotalBurnedEnergy.TabIndex = 5;
@@ -207,17 +208,26 @@ namespace NutriCal
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label3.Location = new System.Drawing.Point(667, 626);
+            this.label3.Location = new System.Drawing.Point(667, 666);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "kcal";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePicker1.Location = new System.Drawing.Point(217, 661);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
             // ExerciseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 671);
+            this.ClientSize = new System.Drawing.Size(765, 711);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotalBurnedEnergy);
             this.Controls.Add(this.label2);
@@ -254,5 +264,6 @@ namespace NutriCal
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotalBurnedEnergy;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

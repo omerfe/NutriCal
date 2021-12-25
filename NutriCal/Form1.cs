@@ -18,7 +18,5 @@ namespace NutriCal
         {
             InitializeComponent();
         }
-
-
     }
 }
