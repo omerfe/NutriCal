@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace NutriCal
         List<UserExercise> exerciseList;
         public ExerciseForm()
         {
-            
+
             loggedUser = db.Users.ToList()[0];
             InitializeComponent();
             CreateExerciseList();
@@ -29,7 +30,11 @@ namespace NutriCal
 
         private void GetTheMostRecentExercises()
         {
-            exerciseList = db.UserExercises.OrderByDescending(d => d.ExerciseAddedTime).Where(x => x.UserId == loggedUser.UserId).ToList();
+            DateTime exerciseDate = dtpExerciseDate.Value.Date;
+            exerciseList = db.UserExercises
+                .OrderByDescending(d => d.ExerciseAddedTime)
+                .Where(x => x.UserId == loggedUser.UserId && DbFunctions.TruncateTime(x.ExerciseAddedTime) == exerciseDate)
+                .ToList();
             dgvMostRecents.DataSource = exerciseList.Select(x => new
             {
                 x.Exercise.ExerciseName,
@@ -101,7 +106,7 @@ namespace NutriCal
                 }
                 string selectedRecentExercise = dgvMostRecents.SelectedRows[0].Cells[0].Value.ToString();
                 userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseName == selectedRecentExercise);
-               
+
             }
         }
 
@@ -115,7 +120,7 @@ namespace NutriCal
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteSelectedUserExercise();
-            //TODO: Seçili exercise silmiyor. Önce sol tıklaman gerekiyor. Düzelt
+
         }
 
         private void DeleteSelectedUserExercise()
@@ -128,6 +133,16 @@ namespace NutriCal
                 GetTheMostRecentExercises();
             }
 
+        }
+
+        private void ExerciseForm_Load(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void dtpExerciseDate_ValueChanged(object sender, EventArgs e)
+        {
+            GetTheMostRecentExercises();
         }
     }
 }

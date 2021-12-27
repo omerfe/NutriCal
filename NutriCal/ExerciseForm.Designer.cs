@@ -45,7 +45,7 @@ namespace NutriCal
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalBurnedEnergy = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpExerciseDate = new System.Windows.Forms.DateTimePicker();
             this.tcExercises.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostRecents)).BeginInit();
@@ -87,7 +87,7 @@ namespace NutriCal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcExercises.Controls.Add(this.tabPage1);
             this.tcExercises.Controls.Add(this.tabPage2);
-            this.tcExercises.Location = new System.Drawing.Point(37, 81);
+            this.tcExercises.Location = new System.Drawing.Point(37, 93);
             this.tcExercises.Name = "tcExercises";
             this.tcExercises.SelectedIndex = 0;
             this.tcExercises.Size = new System.Drawing.Size(672, 570);
@@ -125,7 +125,7 @@ namespace NutriCal
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(664, 493);
+            this.tabPage2.Size = new System.Drawing.Size(664, 533);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Browse All";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@ namespace NutriCal
             this.lsvExercises.LargeImageList = this.imgExercises;
             this.lsvExercises.Location = new System.Drawing.Point(3, 3);
             this.lsvExercises.Name = "lsvExercises";
-            this.lsvExercises.Size = new System.Drawing.Size(658, 487);
+            this.lsvExercises.Size = new System.Drawing.Size(658, 527);
             this.lsvExercises.TabIndex = 2;
             this.lsvExercises.UseCompatibleStateImageBehavior = false;
             this.lsvExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvExercises_MouseDoubleClick);
@@ -214,20 +214,21 @@ namespace NutriCal
             this.label3.TabIndex = 6;
             this.label3.Text = "kcal";
             // 
-            // dateTimePicker1
+            // dtpExerciseDate
             // 
-            this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTimePicker1.Location = new System.Drawing.Point(217, 661);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpExerciseDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtpExerciseDate.Location = new System.Drawing.Point(41, 56);
+            this.dtpExerciseDate.Name = "dtpExerciseDate";
+            this.dtpExerciseDate.Size = new System.Drawing.Size(277, 29);
+            this.dtpExerciseDate.TabIndex = 7;
+            this.dtpExerciseDate.ValueChanged += new System.EventHandler(this.dtpExerciseDate_ValueChanged);
             // 
             // ExerciseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 711);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpExerciseDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotalBurnedEnergy);
             this.Controls.Add(this.label2);
@@ -237,7 +238,9 @@ namespace NutriCal
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ExerciseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EXERCISES";
+            this.Load += new System.EventHandler(this.ExerciseForm_Load);
             this.tcExercises.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostRecents)).EndInit();
@@ -264,6 +267,6 @@ namespace NutriCal
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotalBurnedEnergy;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpExerciseDate;
     }
 }
