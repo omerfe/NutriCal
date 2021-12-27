@@ -93,14 +93,15 @@ namespace NutriCal
         {
             if (e.Button == MouseButtons.Right)
             {
-                string selectedRecentExercise = dgvMostRecents.SelectedRows[0].Cells[0].Value.ToString();
-                userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseName == selectedRecentExercise);
                 var position = dgvMostRecents.HitTest(e.X, e.Y).RowIndex;
                 if (position >= 0)
                 {
                     cmsRecentExercises.Show(dgvMostRecents, new Point(e.X, e.Y));
                     dgvMostRecents.Rows[position].Selected = true;
                 }
+                string selectedRecentExercise = dgvMostRecents.SelectedRows[0].Cells[0].Value.ToString();
+                userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseName == selectedRecentExercise);
+               
             }
         }
 
@@ -114,6 +115,7 @@ namespace NutriCal
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteSelectedUserExercise();
+            //TODO: Seçili exercise silmiyor. Önce sol tıklaman gerekiyor. Düzelt
         }
 
         private void DeleteSelectedUserExercise()

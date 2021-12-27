@@ -102,7 +102,6 @@ namespace NutriCal
                     Exercise = newExercise,
                     ExerciseAddedTime = DateTime.Now
                 };
-                MessageBox.Show(ue.ExerciseAddedTime.ToString());
                 db.UserExercises.Add(ue);
                 db.SaveChanges();
                 MessageBox.Show($"{newExercise.ExerciseName} added succesfully!");
