@@ -30,25 +30,23 @@ namespace NutriCal
 
         private void GetTheMostRecentExercises()
         {
-            DateTime exerciseDate = dtpExerciseDate.Value.Date;
             exerciseList = db.UserExercises
                 .OrderByDescending(d => d.ExerciseAddedTime)
-                .Where(x => x.UserId == loggedUser.UserId && DbFunctions.TruncateTime(x.ExerciseAddedTime) == exerciseDate)
+                .Where(x => x.UserId == loggedUser.UserId)
                 .ToList();
             dgvMostRecents.DataSource = exerciseList.Select(x => new
             {
-                x.Exercise.ExerciseName,
-                BurnedEnergy = $"-{x.Exercise.BurnedEnergy} kcal / {x.Exercise.Duration} min",
-                x.ExerciseAddedTime
+                x.Exercise.ExerciseId,
+                Name = x.Exercise.ExerciseName,
+                Energy = x.Exercise.BurnedEnergy + "kcal",
+                Duration = x.Exercise.Duration + "mins"
             }).ToList();
+
+            dgvMostRecents.Columns[0].Visible = false;
             //TODO: Column'ları kendin ver. Burdaki default değere bırakma.
-            GetTotalBurnedEnergy();
         }
 
-        private void GetTotalBurnedEnergy()
-        {
-            lblTotalBurnedEnergy.Text = exerciseList.Sum(x => x.Exercise.BurnedEnergy).ToString();
-        }
+
 
         private void CreateExerciseList()
         {
@@ -71,11 +69,6 @@ namespace NutriCal
                 lvi.ImageKey = exerciseName;
                 lsvExercises.Items.Add(lvi);
             }
-        }
-        private void btnAddCustomExercise_Click(object sender, EventArgs e)
-        {
-            new ExerciseEditForm(new Exercise(), db, loggedUser).ShowDialog();
-            GetTheMostRecentExercises();
         }
         private void lsvExercises_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -104,10 +97,16 @@ namespace NutriCal
                     cmsRecentExercises.Show(dgvMostRecents, new Point(e.X, e.Y));
                     dgvMostRecents.Rows[position].Selected = true;
                 }
-                string selectedRecentExercise = dgvMostRecents.SelectedRows[0].Cells[0].Value.ToString();
-                userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseName == selectedRecentExercise);
 
+                int selectedRecentExercise = (int)dgvMostRecents.SelectedRows[0].Cells[0].Value;
+                userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseId == selectedRecentExercise);
             }
+        }
+        private void btnAddCustomExercise_Click(object sender, EventArgs e)
+        {
+            new ExerciseEditForm(new Exercise(), db, loggedUser).ShowDialog();
+            GetTheMostRecentExercises();
+            Close();
         }
 
         private void updateExerciseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,6 +114,7 @@ namespace NutriCal
             ExerciseEditForm exerciseEditForm = new ExerciseEditForm(userExercise, db, loggedUser);
             exerciseEditForm.ShowDialog();
             GetTheMostRecentExercises();
+            Close();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,14 +135,11 @@ namespace NutriCal
 
         }
 
-        private void ExerciseForm_Load(object sender, EventArgs e)
-        {
-            //
-        }
 
         private void dtpExerciseDate_ValueChanged(object sender, EventArgs e)
         {
             GetTheMostRecentExercises();
         }
+
     }
 }

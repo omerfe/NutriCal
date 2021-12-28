@@ -50,17 +50,6 @@ namespace NutriCal
             UpdateUserExercise();
         }
 
-        private void UpdateUserExercise()
-        {
-            txtCustomExerciseName.Visible = true;
-            Exercise exercise = userExercise.Exercise;
-            lblExerciseName.Text = exercise.ExerciseName;
-            nmuBurnedCalorie.Value = (decimal)exercise.BurnedEnergy;
-            nmuDuration.Value = exercise.Duration;
-            txtCustomExerciseName.Text = exercise.ExerciseName;
-            btnAddExercise.Text = "Save";
-        }
-
         private void PrepareAddForm()
         {
             lblExerciseName.Text = "";
@@ -103,7 +92,6 @@ namespace NutriCal
                     ExerciseAddedTime = DateTime.Now
                 };
                 db.UserExercises.Add(ue);
-                db.SaveChanges();
                 MessageBox.Show($"{newExercise.ExerciseName} added succesfully!");
             }
             else
@@ -111,10 +99,21 @@ namespace NutriCal
                 userExercise.Exercise.BurnedEnergy = (double)nmuBurnedCalorie.Value;
                 userExercise.Exercise.Duration = (int)nmuDuration.Value;
                 userExercise.Exercise.ExerciseName = txtCustomExerciseName.Text;
-                db.SaveChanges();
                 MessageBox.Show($"{userExercise.Exercise.ExerciseName} updated successfull!");
             }
+            db.SaveChanges();
             Close();
+        }
+
+        private void UpdateUserExercise()
+        {
+            txtCustomExerciseName.Visible = true;
+            Exercise exercise = userExercise.Exercise;
+            lblExerciseName.Text = exercise.ExerciseName;
+            nmuBurnedCalorie.Value = (decimal)exercise.BurnedEnergy;
+            nmuDuration.Value = exercise.Duration;
+            txtCustomExerciseName.Text = exercise.ExerciseName;
+            btnAddExercise.Text = "Save";
         }
 
         private void txtCustomExerciseName_TextChanged(object sender, EventArgs e)

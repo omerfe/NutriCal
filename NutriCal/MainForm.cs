@@ -29,6 +29,8 @@ namespace NutriCal
         {
             dgvSummary.Rows.Clear();
             var dt = DateTime.Now.Date;
+            
+            var deneme = db.Exercises.ToList();
             var exerciseList = db.UserExercises
                 .OrderByDescending(d => d.ExerciseAddedTime)
                 .Where(x => x.UserId == user.UserId && DbFunctions.TruncateTime(x.ExerciseAddedTime) == dt)
