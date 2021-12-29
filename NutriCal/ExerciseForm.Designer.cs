@@ -55,7 +55,7 @@ namespace NutriCal
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(15, 14);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6);
@@ -82,8 +82,8 @@ namespace NutriCal
             // 
             // tcExercises
             // 
-            this.tcExercises.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tcExercises.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcExercises.Controls.Add(this.tabPage1);
             this.tcExercises.Controls.Add(this.tabPage2);
@@ -125,7 +125,7 @@ namespace NutriCal
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(716, 448);
+            this.tabPage2.Size = new System.Drawing.Size(696, 472);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Browse All";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@ namespace NutriCal
             this.lsvExercises.LargeImageList = this.imgExercises;
             this.lsvExercises.Location = new System.Drawing.Point(3, 3);
             this.lsvExercises.Name = "lsvExercises";
-            this.lsvExercises.Size = new System.Drawing.Size(710, 442);
+            this.lsvExercises.Size = new System.Drawing.Size(690, 466);
             this.lsvExercises.TabIndex = 2;
             this.lsvExercises.UseCompatibleStateImageBehavior = false;
             this.lsvExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvExercises_MouseDoubleClick);
@@ -164,21 +164,21 @@ namespace NutriCal
             this.updateExerciseToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.cmsRecentExercises.Name = "cmsRecentExercises";
-            this.cmsRecentExercises.Size = new System.Drawing.Size(158, 48);
+            this.cmsRecentExercises.Size = new System.Drawing.Size(110, 48);
             // 
             // updateExerciseToolStripMenuItem
             // 
             this.updateExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.update;
             this.updateExerciseToolStripMenuItem.Name = "updateExerciseToolStripMenuItem";
-            this.updateExerciseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.updateExerciseToolStripMenuItem.Text = "Update Exercise";
+            this.updateExerciseToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.updateExerciseToolStripMenuItem.Text = "Details";
             this.updateExerciseToolStripMenuItem.Click += new System.EventHandler(this.updateExerciseToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::NutriCal.Properties.Resources.delete;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 

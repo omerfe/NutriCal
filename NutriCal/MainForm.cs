@@ -27,6 +27,7 @@ namespace NutriCal
         private void SortHiddenTimesOnDataGrid() => dgvSummary.Sort(dataGridViewColumn: dgvSummary.Columns[dgvSummary.ColumnCount - 1], direction: ListSortDirection.Descending);
         private void GetAllSummary()
         {
+          
             dgvSummary.Rows.Clear();
             var dt = DateTime.Now.Date;
             

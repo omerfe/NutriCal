@@ -38,8 +38,8 @@ namespace NutriCal
             {
                 x.Exercise.ExerciseId,
                 Name = x.Exercise.ExerciseName,
-                Energy = x.Exercise.BurnedEnergy + "kcal",
-                Duration = x.Exercise.Duration + "mins"
+                Energy = x.Exercise.BurnedEnergy + " kcal",
+                Duration = x.Exercise.Duration + " mins"
             }).ToList();
 
             dgvMostRecents.Columns[0].Visible = false;
@@ -140,6 +140,5 @@ namespace NutriCal
         {
             GetTheMostRecentExercises();
         }
-
     }
 }

@@ -24,22 +24,12 @@ namespace NutriCal
             this.exercise = exercise;
             this.db = db;
             this.user = user;
-            if (exercise == null)
-            {
-                //user exercise gelmiş demektir
-            }
-            else
-            {
-                if (exercise.ExerciseId > 0)
-                {
-                    PrepareUpdateForm();
 
-                }
-                else
-                {
-                    PrepareAddForm();
-                }
-            }
+            if (exercise.ExerciseId > 0)
+                PrepareUpdateForm();
+            else
+                PrepareAddForm();
+
         }
         public ExerciseEditForm(UserExercise userExercise, NutriCalDbContext db, User user)
         {
@@ -57,6 +47,8 @@ namespace NutriCal
             txtCustomExerciseName.Text = "Custom Exercise";
             txtCustomExerciseName.Focus();
             txtCustomExerciseName.SelectAll();
+            chbAddAsNew.Visible = false;
+
         }
 
         private void PrepareUpdateForm()
@@ -65,6 +57,8 @@ namespace NutriCal
             lblExerciseName.Text = exercise.ExerciseName;
             nmuBurnedCalorie.Value = (decimal)exercise.BurnedEnergy;
             nmuDuration.Value = exercise.Duration;
+            chbAddAsNew.Visible = false;
+
         }
 
         private void btnHideExerciseDetails_Click(object sender, EventArgs e)
@@ -75,7 +69,10 @@ namespace NutriCal
         private void btnAddExercise_Click(object sender, EventArgs e)
         {
             //TODO: Gerekli tokatlamaları yap
-            if (exercise != null)
+            bool isAddAsNewChecked = chbAddAsNew.Checked;
+
+
+            if (exercise != null || isAddAsNewChecked)
             {
                 string exerciseName = (exercise == null) ? txtCustomExerciseName.Text : lblExerciseName.Text;
                 Exercise newExercise = new Exercise()
@@ -114,6 +111,7 @@ namespace NutriCal
             nmuDuration.Value = exercise.Duration;
             txtCustomExerciseName.Text = exercise.ExerciseName;
             btnAddExercise.Text = "Save";
+            chbAddAsNew.Visible = true;
         }
 
         private void txtCustomExerciseName_TextChanged(object sender, EventArgs e)

@@ -39,6 +39,7 @@ namespace NutriCal
             this.nmuBurnedCalorie = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.chbAddAsNew = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nmuDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmuBurnedCalorie)).BeginInit();
             this.SuspendLayout();
@@ -160,12 +161,24 @@ namespace NutriCal
             this.label1.TabIndex = 10;
             this.label1.Text = "Burned Energy";
             // 
+            // chbAddAsNew
+            // 
+            this.chbAddAsNew.AutoSize = true;
+            this.chbAddAsNew.Location = new System.Drawing.Point(26, 65);
+            this.chbAddAsNew.Name = "chbAddAsNew";
+            this.chbAddAsNew.Size = new System.Drawing.Size(206, 28);
+            this.chbAddAsNew.TabIndex = 19;
+            this.chbAddAsNew.Text = "Add as new exercise";
+            this.chbAddAsNew.UseVisualStyleBackColor = true;
+            this.chbAddAsNew.Visible = false;
+            // 
             // ExerciseEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(742, 349);
+            this.Controls.Add(this.chbAddAsNew);
             this.Controls.Add(this.txtCustomExerciseName);
             this.Controls.Add(this.btnAddExercise);
             this.Controls.Add(this.lblExerciseName);
@@ -201,5 +214,6 @@ namespace NutriCal
         private System.Windows.Forms.NumericUpDown nmuBurnedCalorie;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbAddAsNew;
     }
 }

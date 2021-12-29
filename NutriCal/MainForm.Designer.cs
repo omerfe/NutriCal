@@ -34,14 +34,14 @@ namespace NutriCal
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +78,21 @@ namespace NutriCal
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // addFoodToolStripMenuItem
+            // 
+            this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
+            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
+            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
+            this.addFoodToolStripMenuItem.Text = "Add Food";
+            // 
+            // addExerciseToolStripMenuItem
+            // 
+            this.addExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.exercise;
+            this.addExerciseToolStripMenuItem.Name = "addExerciseToolStripMenuItem";
+            this.addExerciseToolStripMenuItem.Size = new System.Drawing.Size(125, 25);
+            this.addExerciseToolStripMenuItem.Text = "Add Exercise";
+            this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
+            // 
             // dgvSummary
             // 
             this.dgvSummary.AllowUserToAddRows = false;
@@ -101,27 +116,12 @@ namespace NutriCal
             this.dgvSummary.Name = "dgvSummary";
             this.dgvSummary.ReadOnly = true;
             this.dgvSummary.RowHeadersVisible = false;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSummary.Size = new System.Drawing.Size(810, 460);
+            this.dgvSummary.Size = new System.Drawing.Size(652, 460);
             this.dgvSummary.TabIndex = 1;
             this.dgvSummary.SizeChanged += new System.EventHandler(this.dgvSummary_SizeChanged);
-            // 
-            // addFoodToolStripMenuItem
-            // 
-            this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
-            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
-            this.addFoodToolStripMenuItem.Text = "Add Food";
-            // 
-            // addExerciseToolStripMenuItem
-            // 
-            this.addExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.exercise;
-            this.addExerciseToolStripMenuItem.Name = "addExerciseToolStripMenuItem";
-            this.addExerciseToolStripMenuItem.Size = new System.Drawing.Size(125, 25);
-            this.addExerciseToolStripMenuItem.Text = "Add Exercise";
-            this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
             // 
             // Column4
             // 
@@ -144,8 +144,8 @@ namespace NutriCal
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.FillWeight = 30F;
             this.Column3.HeaderText = "Amount";
             this.Column3.Name = "Column3";
@@ -164,16 +164,16 @@ namespace NutriCal
             // 
             // Unit
             // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Unit.HeaderText = "Energy (kcal)";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
             // 
             // AddedTime
             // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle3;
             this.AddedTime.HeaderText = "Time";
             this.AddedTime.Name = "AddedTime";
             this.AddedTime.ReadOnly = true;
@@ -278,7 +278,7 @@ namespace NutriCal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 679);
+            this.ClientSize = new System.Drawing.Size(770, 679);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblBudget);
             this.Controls.Add(this.lblBudgetInfo);
