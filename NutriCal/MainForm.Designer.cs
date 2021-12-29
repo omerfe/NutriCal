@@ -59,6 +59,8 @@ namespace NutriCal
             this.lblBudget = new System.Windows.Forms.Label();
             this.lblBudgetInfo = new System.Windows.Forms.Label();
             this.tlpRecomended = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mcDate = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +72,7 @@ namespace NutriCal
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addFoodToolStripMenuItem,
             this.addExerciseToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(72, 17);
+            this.menuStrip1.Location = new System.Drawing.Point(434, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -110,7 +112,7 @@ namespace NutriCal
             this.Unit,
             this.AddedTime,
             this.Column5});
-            this.dgvSummary.Location = new System.Drawing.Point(51, 56);
+            this.dgvSummary.Location = new System.Drawing.Point(341, 63);
             this.dgvSummary.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSummary.MultiSelect = false;
             this.dgvSummary.Name = "dgvSummary";
@@ -119,7 +121,7 @@ namespace NutriCal
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSummary.Size = new System.Drawing.Size(652, 460);
+            this.dgvSummary.Size = new System.Drawing.Size(728, 460);
             this.dgvSummary.TabIndex = 1;
             this.dgvSummary.SizeChanged += new System.EventHandler(this.dgvSummary_SizeChanged);
             // 
@@ -274,11 +276,30 @@ namespace NutriCal
             this.tlpRecomended.ReshowDelay = 100;
             this.tlpRecomended.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(12, 262);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(320, 182);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Energy History";
+            // 
+            // mcDate
+            // 
+            this.mcDate.Location = new System.Drawing.Point(64, 63);
+            this.mcDate.MaxSelectionCount = 1;
+            this.mcDate.Name = "mcDate";
+            this.mcDate.TabIndex = 10;
+            this.mcDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcDate_DateChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 679);
+            this.ClientSize = new System.Drawing.Size(1084, 679);
+            this.Controls.Add(this.mcDate);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblBudget);
             this.Controls.Add(this.lblBudgetInfo);
@@ -327,5 +348,7 @@ namespace NutriCal
         private System.Windows.Forms.Label lblBudget;
         private System.Windows.Forms.Label lblBudgetInfo;
         private System.Windows.Forms.ToolTip tlpRecomended;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MonthCalendar mcDate;
     }
 }

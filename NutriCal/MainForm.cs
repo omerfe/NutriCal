@@ -20,16 +20,17 @@ namespace NutriCal
             user = db.Users.ToList()[0];
             //TODO: giriş yapan user
             InitializeComponent();
+            
             SetWidthDataGrid();
-            GetAllSummary();
+            GetAllSummary(DateTime.Now.Date);
             SortHiddenTimesOnDataGrid();
         }
         private void SortHiddenTimesOnDataGrid() => dgvSummary.Sort(dataGridViewColumn: dgvSummary.Columns[dgvSummary.ColumnCount - 1], direction: ListSortDirection.Descending);
-        private void GetAllSummary()
+        private void GetAllSummary(DateTime dt)
         {
           
             dgvSummary.Rows.Clear();
-            var dt = DateTime.Now.Date;
+       
             
             var deneme = db.Exercises.ToList();
             var exerciseList = db.UserExercises
@@ -41,7 +42,7 @@ namespace NutriCal
                 dgvSummary.Rows.Add(Resources.exercise, exerciseList[i - 1].Exercise.ExerciseName, exerciseList[i - 1].Exercise.Duration, "Minute", 0 - exerciseList[i - 1].Exercise.BurnedEnergy, exerciseList[i - 1].ExerciseAddedTime.ToString("HH:mm"), exerciseList[i - 1].ExerciseAddedTime.ToString("HH:mm"));
 
             Dictionary<Meal, List<Food>> mealFoodList = new Dictionary<Meal, List<Food>>();
-            var mealList = user.Meals.Where(x => x.Date.Date == DateTime.Now.Date).ToList();
+            var mealList = user.Meals.Where(x => x.Date.Date == dt).ToList();
 
 
             
@@ -53,7 +54,7 @@ namespace NutriCal
                     dgvSummary.Rows.Add(Resources.food, food.FoodName, food.Quantity, food.Porsion, food.FoodCalories, meal.Key.MealName, meal.Key.Date.ToString("HH:mm"));
 
             SortHiddenTimesOnDataGrid();
-
+            dgvSummary.Rows[0].Selected = true;
             CalculateBurnedConsumedEnergy(exerciseList, mealFoodList);
         }
 
@@ -91,9 +92,20 @@ namespace NutriCal
         {
             ExerciseForm exerciseForm = new ExerciseForm();
             exerciseForm.ShowDialog();
-            GetAllSummary();
+            GetAllSummary(DateTime.Now.Date);
         }
 
-       
+        private void mcDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            if (mcDate.SelectionRange.Start < DateTime.Now)
+            {
+            GetAllSummary(mcDate.SelectionRange.Start);
+
+            }
+            else
+            {
+                MessageBox.Show("Test");
+            }
+        }
     }
 }
