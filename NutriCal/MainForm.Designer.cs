@@ -60,9 +60,12 @@ namespace NutriCal
             this.lblBudgetInfo = new System.Windows.Forms.Label();
             this.tlpRecomended = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.mcDate = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -112,7 +115,7 @@ namespace NutriCal
             this.Unit,
             this.AddedTime,
             this.Column5});
-            this.dgvSummary.Location = new System.Drawing.Point(341, 63);
+            this.dgvSummary.Location = new System.Drawing.Point(295, 63);
             this.dgvSummary.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSummary.MultiSelect = false;
             this.dgvSummary.Name = "dgvSummary";
@@ -121,7 +124,7 @@ namespace NutriCal
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSummary.Size = new System.Drawing.Size(728, 460);
+            this.dgvSummary.Size = new System.Drawing.Size(774, 460);
             this.dgvSummary.TabIndex = 1;
             this.dgvSummary.SizeChanged += new System.EventHandler(this.dgvSummary_SizeChanged);
             // 
@@ -190,7 +193,7 @@ namespace NutriCal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 539);
+            this.label1.Location = new System.Drawing.Point(467, 547);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 24);
             this.label1.TabIndex = 2;
@@ -199,7 +202,7 @@ namespace NutriCal
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(285, 539);
+            this.label2.Location = new System.Drawing.Point(670, 547);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 24);
             this.label2.TabIndex = 2;
@@ -208,7 +211,7 @@ namespace NutriCal
             // lblConsumed
             // 
             this.lblConsumed.AutoSize = true;
-            this.lblConsumed.Location = new System.Drawing.Point(128, 586);
+            this.lblConsumed.Location = new System.Drawing.Point(513, 594);
             this.lblConsumed.Name = "lblConsumed";
             this.lblConsumed.Size = new System.Drawing.Size(20, 24);
             this.lblConsumed.TabIndex = 3;
@@ -217,7 +220,7 @@ namespace NutriCal
             // lblBurned
             // 
             this.lblBurned.AutoSize = true;
-            this.lblBurned.Location = new System.Drawing.Point(318, 586);
+            this.lblBurned.Location = new System.Drawing.Point(703, 594);
             this.lblBurned.Name = "lblBurned";
             this.lblBurned.Size = new System.Drawing.Size(20, 24);
             this.lblBurned.TabIndex = 3;
@@ -226,7 +229,7 @@ namespace NutriCal
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(116, 610);
+            this.label3.Location = new System.Drawing.Point(501, 618);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 24);
             this.label3.TabIndex = 4;
@@ -235,7 +238,7 @@ namespace NutriCal
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 610);
+            this.label4.Location = new System.Drawing.Point(691, 618);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 24);
             this.label4.TabIndex = 4;
@@ -244,7 +247,7 @@ namespace NutriCal
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(460, 610);
+            this.label5.Location = new System.Drawing.Point(845, 618);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 24);
             this.label5.TabIndex = 7;
@@ -253,7 +256,7 @@ namespace NutriCal
             // lblBudget
             // 
             this.lblBudget.AutoSize = true;
-            this.lblBudget.Location = new System.Drawing.Point(472, 586);
+            this.lblBudget.Location = new System.Drawing.Point(857, 594);
             this.lblBudget.Name = "lblBudget";
             this.lblBudget.Size = new System.Drawing.Size(20, 24);
             this.lblBudget.TabIndex = 6;
@@ -263,7 +266,7 @@ namespace NutriCal
             // 
             this.lblBudgetInfo.AutoSize = true;
             this.lblBudgetInfo.Cursor = System.Windows.Forms.Cursors.Help;
-            this.lblBudgetInfo.Location = new System.Drawing.Point(439, 539);
+            this.lblBudgetInfo.Location = new System.Drawing.Point(824, 547);
             this.lblBudgetInfo.Name = "lblBudgetInfo";
             this.lblBudgetInfo.Size = new System.Drawing.Size(87, 24);
             this.lblBudgetInfo.TabIndex = 5;
@@ -278,16 +281,43 @@ namespace NutriCal
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 262);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Location = new System.Drawing.Point(26, 301);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 182);
+            this.groupBox1.Size = new System.Drawing.Size(260, 182);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Energy History";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Exercises (Burned)",
+            "Meals and what you eat (Consumed)",
+            "Both (Net)"});
+            this.comboBox1.Location = new System.Drawing.Point(26, 49);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(212, 32);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Last 1 Week",
+            "Last 2 Weeks",
+            "Last 1 Month",
+            "Last 3 Months"});
+            this.comboBox2.Location = new System.Drawing.Point(26, 119);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(212, 32);
+            this.comboBox2.TabIndex = 1;
+            // 
             // mcDate
             // 
-            this.mcDate.Location = new System.Drawing.Point(64, 63);
+            this.mcDate.Location = new System.Drawing.Point(41, 64);
             this.mcDate.MaxSelectionCount = 1;
             this.mcDate.Name = "mcDate";
             this.mcDate.TabIndex = 10;
@@ -320,6 +350,7 @@ namespace NutriCal
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,6 +380,8 @@ namespace NutriCal
         private System.Windows.Forms.Label lblBudgetInfo;
         private System.Windows.Forms.ToolTip tlpRecomended;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.MonthCalendar mcDate;
     }
 }

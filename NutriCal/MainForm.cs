@@ -54,7 +54,11 @@ namespace NutriCal
                     dgvSummary.Rows.Add(Resources.food, food.FoodName, food.Quantity, food.Porsion, food.FoodCalories, meal.Key.MealName, meal.Key.Date.ToString("HH:mm"));
 
             SortHiddenTimesOnDataGrid();
+            if (dgvSummary.Rows.Count !=0)
+            {
             dgvSummary.Rows[0].Selected = true;
+
+            }
             CalculateBurnedConsumedEnergy(exerciseList, mealFoodList);
         }
 
@@ -98,14 +102,7 @@ namespace NutriCal
         private void mcDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             if (mcDate.SelectionRange.Start < DateTime.Now)
-            {
-            GetAllSummary(mcDate.SelectionRange.Start);
-
-            }
-            else
-            {
-                MessageBox.Show("Test");
-            }
+               GetAllSummary(mcDate.SelectionRange.Start);
         }
     }
 }
