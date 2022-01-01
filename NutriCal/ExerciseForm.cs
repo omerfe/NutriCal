@@ -106,7 +106,7 @@ namespace NutriCal
         {
             new ExerciseEditForm(new Exercise(), db, loggedUser).ShowDialog();
             GetTheMostRecentExercises();
-            Close();
+            //Close();
         }
 
         private void updateExerciseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace NutriCal
             ExerciseEditForm exerciseEditForm = new ExerciseEditForm(userExercise, db, loggedUser);
             exerciseEditForm.ShowDialog();
             GetTheMostRecentExercises();
-            Close();
+            //Close();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
