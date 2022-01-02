@@ -1,0 +1,21 @@
+- Açılış sayfası tasarla
+
+- Yeni kullanıcı oluşturma ve kullanıcı girişi
+	-Aynı kullanıcı adı alınamaz
+	-Kullanıcı adı mail olmalı
+	-Şifre güvenli olmalı
+
+-Öğün, yemek kategorisi, porsiyon gibi temel ögeler tanıtılmalı
+
+-Yemek çeşitleri olmalı, resimleri eklenmeli
+
+-Giriş yaptıktan sonra o gün yediği öğünleri görebilecek
+	-Öğüne yiyecek ekleyebilir, öğünü düzenleyebilir ya yiyeceği silebilir
+	-Öğünü tamamen de silebilir
+
+-Gün sonu öğünler ve toplam olarak kaloriler gösterilecek
+
+-Haftalık/aylık her kişi için öğün ve kategori bazlı kıyaslama raporlanılacak
+
+-Hangi yemekler hangi öğünlerde ne kadar yenmiş raporlanılacak
+	-En çok yenen yemekler raporlanacak
