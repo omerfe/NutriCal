@@ -8,10 +8,6 @@ namespace NutriCal.Models
 {
     public class Meal
     {
-        public Meal()
-        {
-            //Users = new List<User>();
-        }
         public int MealId { get; set; }
         public string MealName { get; set; }
         public DateTime Date { get; set; }

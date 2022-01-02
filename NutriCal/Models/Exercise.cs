@@ -9,10 +9,6 @@ namespace NutriCal.Models
 {
     public class Exercise
     {
-        public Exercise()
-        {
-           // Users = new List<User>();
-        }
         [Key]
         public int ExerciseId { get; set; }
         public string ExerciseName { get; set; }
@@ -20,7 +16,5 @@ namespace NutriCal.Models
         public int Duration { get; set; }
         public string ExerciseRole { get; set; }
         public virtual ICollection<UserExercise> UserExercises { get; set; }
-
-
     }
 }
