@@ -163,14 +163,9 @@ namespace NutriCal
             lblConsumed.Text = consumedTotalEnergy.ToString();
         }
 
-
-
-
-
-
         private void addExerciseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ExerciseForm exerciseForm = new ExerciseForm();
+            ExerciseForm exerciseForm = new ExerciseForm(db);
             exerciseForm.ShowDialog();
             GetBothFoodExerciseOfToday();
         }

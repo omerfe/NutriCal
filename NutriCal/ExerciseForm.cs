@@ -14,14 +14,16 @@ namespace NutriCal
 {
     public partial class ExerciseForm : Form
     {
-        NutriCalDbContext db = new NutriCalDbContext();
         UserExercise userExercise;
         Exercise selectedExercise;
         User loggedUser;
         List<UserExercise> exerciseList;
-        public ExerciseForm()
+        private readonly NutriCalDbContext db;
+
+        public ExerciseForm(NutriCalDbContext db)
         {
 
+            this.db = db;
             loggedUser = db.Users.ToList()[0];
             InitializeComponent();
             CreateExerciseList();
@@ -54,13 +56,10 @@ namespace NutriCal
             lsvExercises.Clear();
             string searchedText = txtSearch.Text.Trim();
             if (searchedText == string.Empty)
-            {
                 exercises = db.Exercises.Where(x => x.ExerciseRole == "A").ToList();
-            }
             else
-            {
                 exercises = db.Exercises.Where(x => x.ExerciseRole == "A" && x.ExerciseName.Contains(searchedText)).ToList();
-            }
+
             for (int i = 0; i < exercises.Count; i++)
             {
                 string exerciseName = exercises[i].ExerciseName;
@@ -106,7 +105,6 @@ namespace NutriCal
         {
             new ExerciseEditForm(new Exercise(), db, loggedUser).ShowDialog();
             GetTheMostRecentExercises();
-            //Close();
         }
 
         private void updateExerciseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,13 +112,11 @@ namespace NutriCal
             ExerciseEditForm exerciseEditForm = new ExerciseEditForm(userExercise, db, loggedUser);
             exerciseEditForm.ShowDialog();
             GetTheMostRecentExercises();
-            //Close();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteSelectedUserExercise();
-
         }
 
         private void DeleteSelectedUserExercise()
@@ -134,8 +130,6 @@ namespace NutriCal
             }
 
         }
-
-
         private void dtpExerciseDate_ValueChanged(object sender, EventArgs e)
         {
             GetTheMostRecentExercises();

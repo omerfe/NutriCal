@@ -97,6 +97,7 @@ namespace NutriCal
                 userExercise.Exercise.Duration = (int)nmuDuration.Value;
                 userExercise.Exercise.ExerciseName = txtCustomExerciseName.Text;
                 MessageBox.Show($"{userExercise.Exercise.ExerciseName} updated successfull!");
+                //db.UserExercises = userExercise;
             }
             db.SaveChanges();
             Close();
