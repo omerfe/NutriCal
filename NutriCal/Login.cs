@@ -21,19 +21,18 @@ namespace NutriCal
         private void LnkLblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Register register = new Register(db);
-            register.ShowDialog();
+            register.Show();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             UserLogin loggedIn = db.UserLogins.FirstOrDefault(x => x.Email == txtEmail.Text && x.Password == txtPassword.Text);
-
+            User user = db.Users.FirstOrDefault(x => x.UserId == loggedIn.UserLoginId);
             if (loggedIn == null)
             {
                 MessageBox.Show("Username or password is incorrect!");
             }
             else
             {
-                MessageBox.Show("Kayıt başarılı!");
                 //TODO: Uygulamanın açılacak ilk sayfası gelecek
 
                 //XXX xxx = new XXX(db);

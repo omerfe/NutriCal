@@ -275,7 +275,7 @@ namespace NutriCal
             // lblPersonalInfoCheck
             // 
             this.lblPersonalInfoCheck.AutoSize = true;
-            this.lblPersonalInfoCheck.ForeColor = System.Drawing.Color.Gold;
+            this.lblPersonalInfoCheck.ForeColor = System.Drawing.Color.Orange;
             this.lblPersonalInfoCheck.Location = new System.Drawing.Point(64, 322);
             this.lblPersonalInfoCheck.Name = "lblPersonalInfoCheck";
             this.lblPersonalInfoCheck.Size = new System.Drawing.Size(149, 13);

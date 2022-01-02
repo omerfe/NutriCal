@@ -106,22 +106,15 @@ namespace NutriCal
         private void btnRegister_Click(object sender, EventArgs e)
         {
             User user = new User();
-            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtUserSurname.Text))
-            {
-                lblPersonalInfoCheck.Visible = true;
-                lblPersonalInfoCheck.ForeColor = Color.Gold;
-                lblPersonalInfoCheck.Text = "These fields cannot be empty!";
-                return;
-            }
-            user.UserName = txtUserName.Text.Trim();
-            user.UserSurname = txtUserSurname.Text.Trim();
-            user.BirthDate = dtpUserBirthDate.Value;
-            user.Weight = (double)nudUserWeight.Value;
-            user.Height = (int)nudUserHeight.Value;
-            if (cmbUserGender.SelectedIndex != -1)
+            if (cmbUserGender.SelectedIndex != -1 && !string.IsNullOrEmpty(txtUserName.Text) && !string.IsNullOrEmpty(txtUserSurname.Text))
             {
                 string gender = (string)cmbUserGender.SelectedItem;
                 user.Gender = (Genders)Enum.Parse(typeof(Genders), gender);
+                user.UserName = txtUserName.Text.Trim();
+                user.UserSurname = txtUserSurname.Text.Trim();
+                user.BirthDate = dtpUserBirthDate.Value;
+                user.Weight = (double)nudUserWeight.Value;
+                user.Height = (int)nudUserHeight.Value;
             }
             else
             {
