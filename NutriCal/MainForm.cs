@@ -25,9 +25,6 @@ namespace NutriCal
             GetFoodsByChoosenTime(DateTime.Now);
             GetExercisesByChoosenTime(DateTime.Now);
             SortHiddenTimesOnDataGrid();
-
-
-
         }
         #region DataGridViewArea
         private void SortHiddenTimesOnDataGrid() => dgvSummary.Sort(dataGridViewColumn: dgvSummary.Columns[dgvSummary.ColumnCount - 1], direction: ListSortDirection.Descending);
@@ -82,7 +79,6 @@ namespace NutriCal
         #region ExerciseArea
         private void GetExercisesByChoosenTime(DateTime dt)
         {
-
             var deneme = db.Exercises.ToList();
             var exerciseList = db.UserExercises
                 .OrderByDescending(d => d.ExerciseAddedTime)
@@ -90,12 +86,9 @@ namespace NutriCal
                 .ToList();
             GetExercises(exerciseList);
             CalculateBurnedConsumedEnergy(exerciseList: exerciseList);
-
-
         }
         private void GetExercisesByChoosenTime(DateTime start, DateTime end)
         {
-
             var deneme = db.Exercises.ToList();
             var exerciseList = db.UserExercises
                 .OrderByDescending(d => d.ExerciseAddedTime)
@@ -114,30 +107,21 @@ namespace NutriCal
 
             for (int i = 1; i <= exerciseList.Count; i++)
                 dgvSummary.Rows.Add(Resources.exercise, exerciseList[i - 1].Exercise.ExerciseName, exerciseList[i - 1].Exercise.Duration, "Minute", 0 - exerciseList[i - 1].Exercise.BurnedEnergy, exerciseList[i - 1].ExerciseAddedTime.ToString("HH:mm"), exerciseList[i - 1].ExerciseAddedTime.ToString("dd.MM.yyyy"));
-
             SortHiddenTimesOnDataGrid();
-
-            //TODO: AŞAĞIYA BİLGİLENDİRME MESAJLARINI YAZACAK BİR METOT OLUŞTUR. LABELLERE
         }
         #endregion
 
-        private void GetBothFoodExerciseOfToday()
-        {
-            dgvSummary.Rows.Clear();
-            GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
-            GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
-        }
-
+        #region Energy Calculation
         private void CalculateBurnedConsumedEnergy(List<Meal> mealList = null, List<UserExercise> exerciseList = null)
         {
             double recomendedCalorieOfUser = 2000; //UNDONE: Kullanıcıya önerilen kalori buraya verilecek.
             string recommendMessage = $"We recommend you to get {recomendedCalorieOfUser}kcal per a day.\r\nYou currently have a kcal surplus/deficit of {recomendedCalorieOfUser} Calories.";
             tlpRecomended.SetToolTip(lblBudgetInfo, recommendMessage);
- 
+
 
             double burnedEnergy = 0, consumedEnergy = 0;
 
-            if (mealList != null) 
+            if (mealList != null)
             {
                 consumedEnergy = mealList.Sum(x => x.TotalCalories);
                 lblConsumed.Text = consumedEnergy.ToString();
@@ -151,7 +135,6 @@ namespace NutriCal
             double budget = Convert.ToDouble(lblBurned.Text) + Convert.ToDouble(lblConsumed.Text);
             lblBudget.Text = budget.ToString();
         }
-
         private void CalculateBurnedEnergy(List<UserExercise> exerciseList)
         {
             double burnedTotalEnergy = exerciseList.Sum(x => 0 - x.Exercise.BurnedEnergy);
@@ -162,7 +145,9 @@ namespace NutriCal
             double consumedTotalEnergy = mealList.Sum(x => x.TotalCalories);
             lblConsumed.Text = consumedTotalEnergy.ToString();
         }
+        #endregion
 
+        #region All Form Control Events
         private void addExerciseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExerciseForm exerciseForm = new ExerciseForm(db);
@@ -170,17 +155,21 @@ namespace NutriCal
             GetBothFoodExerciseOfToday();
         }
 
-
-
         private void mcDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             if (mcDate.SelectionRange.Start < DateTime.Now)
                 GetBothFoodExerciseOfToday();
+            lblDateInfo.Text = "";
+            //cmbCalorieBurnType.SelectedIndex = -1;
+            //cmbDateScala.SelectedIndex = -1;
+            //cmbDateScala.Enabled = false;
+            //dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = false;
+
         }
 
         private void cmbCalorieBurnType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             cmbDateScala.Enabled = true;
             dgvSummary.Rows.Clear();
             switch (cmbCalorieBurnType.SelectedIndex)
@@ -209,7 +198,6 @@ namespace NutriCal
                     pnlBurned.Show();
                     pnlBudget.Show();
                     GetBothFoodExerciseOfToday();
-
                     break;
             }
         }
@@ -270,6 +258,13 @@ namespace NutriCal
             cmbDateScala.Enabled = false;
             dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = false;
 
+        } 
+        #endregion
+        private void GetBothFoodExerciseOfToday()
+        {
+            dgvSummary.Rows.Clear();
+            GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
+            GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
         }
     }
 }

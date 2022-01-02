@@ -34,14 +34,21 @@ namespace NutriCal
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblConsumed = new System.Windows.Forms.Label();
@@ -53,18 +60,11 @@ namespace NutriCal
             this.lblBudgetInfo = new System.Windows.Forms.Label();
             this.tlpRecomended = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblShowToday = new System.Windows.Forms.LinkLabel();
             this.cmbDateScala = new System.Windows.Forms.ComboBox();
             this.cmbCalorieBurnType = new System.Windows.Forms.ComboBox();
             this.mcDate = new System.Windows.Forms.MonthCalendar();
             this.lblDateInfo = new System.Windows.Forms.Label();
-            this.lblShowToday = new System.Windows.Forms.LinkLabel();
-            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddedTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlConsumed = new System.Windows.Forms.Panel();
             this.pnlBurned = new System.Windows.Forms.Panel();
             this.pnlBudget = new System.Windows.Forms.Panel();
@@ -129,12 +129,74 @@ namespace NutriCal
             this.dgvSummary.Name = "dgvSummary";
             this.dgvSummary.ReadOnly = true;
             this.dgvSummary.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSummary.Size = new System.Drawing.Size(861, 469);
             this.dgvSummary.TabIndex = 1;
             this.dgvSummary.SizeChanged += new System.EventHandler(this.dgvSummary_SizeChanged);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Image";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column4.Width = 27;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.FillWeight = 300F;
+            this.Column1.HeaderText = "Name";
+            this.Column1.MinimumWidth = 20;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column3.FillWeight = 30F;
+            this.Column3.HeaderText = "Amount";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 55;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.FillWeight = 30F;
+            this.Column2.HeaderText = "Unit";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.Width = 56;
+            // 
+            // Unit
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Unit.HeaderText = "Energy (kcal)";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // AddedTime
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle3;
+            this.AddedTime.HeaderText = "Time";
+            this.AddedTime.Name = "AddedTime";
+            this.AddedTime.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Date";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
             // 
             // label1
             // 
@@ -175,7 +237,7 @@ namespace NutriCal
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 59);
+            this.label3.Location = new System.Drawing.Point(85, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 24);
             this.label3.TabIndex = 4;
@@ -184,7 +246,7 @@ namespace NutriCal
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(86, 59);
+            this.label4.Location = new System.Drawing.Point(90, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 24);
             this.label4.TabIndex = 4;
@@ -193,7 +255,7 @@ namespace NutriCal
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 59);
+            this.label5.Location = new System.Drawing.Point(87, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 24);
             this.label5.TabIndex = 7;
@@ -236,6 +298,19 @@ namespace NutriCal
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Energy History";
+            // 
+            // lblShowToday
+            // 
+            this.lblShowToday.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblShowToday.AutoSize = true;
+            this.lblShowToday.LinkColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblShowToday.Location = new System.Drawing.Point(175, 194);
+            this.lblShowToday.Name = "lblShowToday";
+            this.lblShowToday.Size = new System.Drawing.Size(63, 24);
+            this.lblShowToday.TabIndex = 2;
+            this.lblShowToday.TabStop = true;
+            this.lblShowToday.Text = "Today";
+            this.lblShowToday.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowToday_LinkClicked);
             // 
             // cmbDateScala
             // 
@@ -282,81 +357,6 @@ namespace NutriCal
             this.lblDateInfo.Name = "lblDateInfo";
             this.lblDateInfo.Size = new System.Drawing.Size(0, 17);
             this.lblDateInfo.TabIndex = 11;
-            // 
-            // lblShowToday
-            // 
-            this.lblShowToday.ActiveLinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblShowToday.AutoSize = true;
-            this.lblShowToday.LinkColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblShowToday.Location = new System.Drawing.Point(175, 194);
-            this.lblShowToday.Name = "lblShowToday";
-            this.lblShowToday.Size = new System.Drawing.Size(63, 24);
-            this.lblShowToday.TabIndex = 2;
-            this.lblShowToday.TabStop = true;
-            this.lblShowToday.Text = "Today";
-            this.lblShowToday.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowToday_LinkClicked);
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Image";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column4.Width = 27;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.FillWeight = 300F;
-            this.Column1.HeaderText = "Name";
-            this.Column1.MinimumWidth = 20;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 200;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column3.FillWeight = 30F;
-            this.Column3.HeaderText = "Amount";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 55;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.FillWeight = 30F;
-            this.Column2.HeaderText = "Unit";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column2.Width = 56;
-            // 
-            // Unit
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Unit.HeaderText = "Energy (kcal)";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
-            // AddedTime
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle11;
-            this.AddedTime.HeaderText = "Time";
-            this.AddedTime.Name = "AddedTime";
-            this.AddedTime.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Date";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
             // 
             // pnlConsumed
             // 

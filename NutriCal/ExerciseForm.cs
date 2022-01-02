@@ -96,7 +96,6 @@ namespace NutriCal
                     cmsRecentExercises.Show(dgvMostRecents, new Point(e.X, e.Y));
                     dgvMostRecents.Rows[position].Selected = true;
                 }
-
                 int selectedRecentExercise = (int)dgvMostRecents.SelectedRows[0].Cells[0].Value;
                 userExercise = exerciseList.FirstOrDefault(x => x.Exercise.ExerciseId == selectedRecentExercise);
             }
