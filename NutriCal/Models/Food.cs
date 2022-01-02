@@ -1,9 +1,6 @@
 ﻿using NutriCal.Enums;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NutriCal.Models
 {
@@ -19,5 +16,11 @@ namespace NutriCal.Models
         public int? FoodCategoryId { get; set; }
         public virtual FoodCategory FoodCategory { get; set; }
         public virtual ICollection<Meal> Meals { get; set; }
+
+        [NotMapped]
+        public string CategoryName => FoodCategory.CategoryName;
+
+        [NotMapped]
+        public double TotalCalory { get; set; }
     }
 }

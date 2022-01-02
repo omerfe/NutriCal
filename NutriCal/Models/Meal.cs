@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NutriCal.Models
 {
@@ -12,7 +9,7 @@ namespace NutriCal.Models
         //YEİSLFİSFLSİsd
         public int MealId { get; set; }
         public string MealName { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public double TotalCalories { get; set; }
         public virtual ICollection<Food> Foods { get; set; }
         public virtual ICollection<User> Users { get; set; }

@@ -58,12 +58,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodsForm.Designer.cs">
+      <DependentUpon>FoodsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MealsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MealsForm.Designer.cs">
+      <DependentUpon>MealsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112291543386_init.cs" />
+    <Compile Include="Migrations\202112291543386_init.designer.cs">
+      <DependentUpon>202112291543386_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
@@ -75,8 +92,17 @@
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FoodsForm.resx">
+      <DependentUpon>FoodsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MealsForm.resx">
+      <DependentUpon>MealsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112291543386_init.resx">
+      <DependentUpon>202112291543386_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,6 +112,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -101,7 +128,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\afternoonsnack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\breakfast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dinner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lunch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\morningsnack.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -17,12 +17,20 @@ namespace NutriCal
         public Form1()
         {
             InitializeComponent();
-            GetFoods();
+            
         }
 
-        private void GetFoods()
+        private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.DataSource = db.Exercises.ToList();
+            
+            MealsForm form = new MealsForm();
+            form.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserMeals form = new UserMeals();
+            form.ShowDialog();
         }
     }
 }
