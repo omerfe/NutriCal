@@ -37,7 +37,7 @@ namespace NutriCal
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(62, 26);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(345, 355);
+            this.listBox1.Size = new System.Drawing.Size(345, 173);
             this.listBox1.TabIndex = 0;
             // 
             // Form1
