@@ -17,6 +17,14 @@ namespace NutriCal
         public NutriCalMainPage()
         {
             InitializeComponent();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            MealsForm form = new MealsForm();
+            form.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
