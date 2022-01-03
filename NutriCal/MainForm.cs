@@ -20,8 +20,8 @@ namespace NutriCal
         {
             this.db = db;
             this.user = user;
-            
-           
+
+
             InitializeComponent();
 
             SetWidthDataGrid();
@@ -154,7 +154,7 @@ namespace NutriCal
         #region All Form Control Events
         private void addExerciseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ExerciseForm exerciseForm = new ExerciseForm(db,user);
+            ExerciseForm exerciseForm = new ExerciseForm(db, user);
             exerciseForm.ShowDialog();
             GetBothFoodExerciseOfToday();
         }
@@ -164,53 +164,134 @@ namespace NutriCal
             if (mcDate.SelectionRange.Start < DateTime.Now)
                 GetBothFoodExerciseOfToday();
             lblDateInfo.Text = "";
-            //cmbCalorieBurnType.SelectedIndex = -1;
-            //cmbDateScala.SelectedIndex = -1;
-            //cmbDateScala.Enabled = false;
-            //dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = false;
+            cmbCalorieBurnType.SelectedIndex = -1;
+            cmbDateScala.SelectedIndex = -1;
+            dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = false;
 
         }
 
-        private void cmbCalorieBurnType_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-            cmbDateScala.Enabled = true;
+
+        private void lblShowToday_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            mcDate.SelectionRange.Start = DateTime.Now;
+            GetBothFoodExerciseOfToday();
+            lblDateInfo.Text = "";
+            cmbCalorieBurnType.SelectedIndex = -1;
+            cmbDateScala.SelectedIndex = -1;
+
+            dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = false;
+
+        }
+        #endregion
+        private void GetBothFoodExerciseOfToday()
+        {
             dgvSummary.Rows.Clear();
-            switch (cmbCalorieBurnType.SelectedIndex)
-            {
-                case 0:
-                    GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
-                    pnlBurned.Show();
-                    pnlConsumed.Hide();
-                    pnlBudget.Hide();
-                    break;
-                case 1:
-                    pnlConsumed.Show();
-                    pnlBurned.Hide();
-                    pnlBudget.Hide();
-                    GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
-                    break;
-                case 2:
-                    pnlConsumed.Show();
-                    pnlBurned.Show();
-                    pnlBudget.Show();
-                    GetBothFoodExerciseOfToday();
-                    break;
-
-                default:
-                    pnlConsumed.Show();
-                    pnlBurned.Show();
-                    pnlBudget.Show();
-                    GetBothFoodExerciseOfToday();
-                    break;
-            }
+            GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
+            GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
         }
 
-        private void cmbDateScala_SelectedIndexChanged(object sender, EventArgs e)
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
+            this.Close();
+        }
+
+
+
+        //private void cmbCalorieBurnType_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    cmbDateScala.Enabled = true;
+        //    dgvSummary.Rows.Clear();
+        //    switch (cmbCalorieBurnType.SelectedIndex)
+        //    {
+        //        case 0:
+        //            GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
+        //            pnlBurned.Show();
+        //            pnlConsumed.Hide();
+        //            pnlBudget.Hide();
+        //            break;
+        //        case 1:
+        //            pnlConsumed.Show();
+        //            pnlBurned.Hide();
+        //            pnlBudget.Hide();
+        //            GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
+        //            break;
+        //        case 2:
+        //            pnlConsumed.Show();
+        //            pnlBurned.Show();
+        //            pnlBudget.Show();
+        //            GetBothFoodExerciseOfToday();
+        //            break;
+
+        //        default:
+        //            pnlConsumed.Show();
+        //            pnlBurned.Show();
+        //            pnlBudget.Show();
+        //            GetBothFoodExerciseOfToday();
+        //            break;
+        //    }
+        //}
+
+        //private void cmbDateScala_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //    DateTime dt = DateTime.Now;
+        //    dgvSummary.Rows.Clear();
+        //    dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = true;
+        //    switch (cmbDateScala.SelectedIndex)
+        //    {
+        //        case 0:
+        //            dt = dt.AddDays(-7);
+        //            break;
+        //        case 1:
+        //            dt = dt.AddDays(-14);
+        //            break;
+        //        case 2:
+        //            dt = dt.AddMonths(-1);
+        //            break;
+        //        case 3:
+        //            dt = dt.AddMonths(-3);
+        //            break;
+        //        default:
+        //            GetExercisesByChoosenTime(dt, DateTime.Now);
+        //            GetFoodsByChoosenTime(dt, DateTime.Now);
+        //            return;
+        //    }
+        //    string infoEnergyBurnType = "";
+        //    if (cmbCalorieBurnType.SelectedIndex == 0)
+        //    {
+        //        GetExercisesByChoosenTime(dt, DateTime.Now);
+        //        infoEnergyBurnType = "exercises";
+        //    }
+        //    else if (cmbCalorieBurnType.SelectedIndex == 1)
+        //    {
+
+        //        GetFoodsByChoosenTime(dt, DateTime.Now);
+        //        infoEnergyBurnType = "foods";
+        //    }
+        //    else
+        //    {
+        //        GetExercisesByChoosenTime(dt, DateTime.Now);
+        //        GetFoodsByChoosenTime(dt, DateTime.Now);
+        //        infoEnergyBurnType = "everything";
+        //    }
+
+        //    lblDateInfo.Text = $"Showing up ({dgvSummary.Rows.Count}) your {infoEnergyBurnType} you have done from {dt.ToString("dd.MM.yyyy")} till today.";
+        //}
+
+        private void btnGetEnergyHistory_Click(object sender, EventArgs e)
+        {
+            if (cmbCalorieBurnType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Test");
+                return;
+            }
             dgvSummary.Rows.Clear();
             dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = true;
+            DateTime dt = DateTime.Now;
+            string infoEnergyBurnType = "";
+
             switch (cmbDateScala.SelectedIndex)
             {
                 case 0:
@@ -225,55 +306,37 @@ namespace NutriCal
                 case 3:
                     dt = dt.AddMonths(-3);
                     break;
-                default:
+            }
+            switch (cmbCalorieBurnType.SelectedIndex)
+            {
+                case 0:
+                    pnlBurned.Show();
+                    pnlConsumed.Hide();
+                    pnlBudget.Hide();
+                    GetExercisesByChoosenTime(dt, DateTime.Now);
+                    infoEnergyBurnType = "exercises";
+                    break;
+                case 1:
+                    pnlConsumed.Show();
+                    pnlBurned.Hide();
+                    pnlBudget.Hide();
+                    GetFoodsByChoosenTime(dt, DateTime.Now);
+                    infoEnergyBurnType = "foods";
+                    break;
+
+                case 2:
+                    pnlConsumed.Show();
+                    pnlBurned.Show();
+                    pnlBudget.Show();
                     GetExercisesByChoosenTime(dt, DateTime.Now);
                     GetFoodsByChoosenTime(dt, DateTime.Now);
-                    return;
-            }
-            string infoEnergyBurnType = "";
-            if (cmbCalorieBurnType.SelectedIndex == 0)
-            {
-                GetExercisesByChoosenTime(dt, DateTime.Now);
-                infoEnergyBurnType = "exercises";
-            }
-            else if (cmbCalorieBurnType.SelectedIndex == 1)
-            {
+                    infoEnergyBurnType = "everything";
+                    break;
 
-                GetFoodsByChoosenTime(dt, DateTime.Now);
-                infoEnergyBurnType = "foods";
-            }
-            else
-            {
-                GetExercisesByChoosenTime(dt, DateTime.Now);
-                GetFoodsByChoosenTime(dt, DateTime.Now);
-                infoEnergyBurnType = "everything";
             }
 
             lblDateInfo.Text = $"Showing up ({dgvSummary.Rows.Count}) your {infoEnergyBurnType} you have done from {dt.ToString("dd.MM.yyyy")} till today.";
-        }
 
-        private void lblShowToday_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            mcDate.SelectionRange.Start = DateTime.Now;
-            GetBothFoodExerciseOfToday();
-            lblDateInfo.Text = "";
-            cmbCalorieBurnType.SelectedIndex = -1;
-            cmbDateScala.SelectedIndex = -1;
-            cmbDateScala.Enabled = false;
-            dgvSummary.Columns[dgvSummary.ColumnCount - 1].Visible = false;
-
-        } 
-        #endregion
-        private void GetBothFoodExerciseOfToday()
-        {
-            dgvSummary.Rows.Clear();
-            GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
-            GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
-        }
-
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
