@@ -13,12 +13,15 @@ namespace NutriCal
 {
     public partial class MainForm : Form
     {
-        NutriCalDbContext db = new NutriCalDbContext();
-        User user;
-        public MainForm()
+        private readonly NutriCalDbContext db;
+        private readonly User user;
+
+        public MainForm(NutriCalDbContext db, User user)
         {
-            user = db.Users.ToList()[0];
-            //TODO: giriş yapan user
+            this.db = db;
+            this.user = user;
+            
+           
             InitializeComponent();
 
             SetWidthDataGrid();

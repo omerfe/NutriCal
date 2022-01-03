@@ -29,7 +29,6 @@ namespace NutriCal
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.btnLogin = new System.Windows.Forms.Button();
             this.LnkLblRegister = new System.Windows.Forms.LinkLabel();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -68,6 +67,7 @@ namespace NutriCal
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 10;
+            this.txtPassword.Text = "burak123*3aeaiaeA";
             // 
             // txtEmail
             // 
@@ -75,6 +75,7 @@ namespace NutriCal
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.Text = "burakyuzz@gmail.com";
             // 
             // label2
             // 
@@ -117,7 +118,6 @@ namespace NutriCal
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";

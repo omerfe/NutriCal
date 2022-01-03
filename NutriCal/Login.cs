@@ -33,10 +33,9 @@ namespace NutriCal
             }
             else
             {
-                //TODO: Uygulamanın açılacak ilk sayfası gelecek
-
-                //XXX xxx = new XXX(db);
-                //xxx.ShowDialog();
+                MainForm mainForm = new MainForm(db,user);
+                mainForm.Show();
+               
             }
         }
 
