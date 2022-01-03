@@ -28,6 +28,7 @@ namespace NutriCal
             GetFoodsByChoosenTime(DateTime.Now);
             GetExercisesByChoosenTime(DateTime.Now);
             SortHiddenTimesOnDataGrid();
+            Text = $"Welcome {user.UserName} {user.UserSurname.ToUpper()}";
         }
         #region DataGridViewArea
         private void SortHiddenTimesOnDataGrid() => dgvSummary.Sort(dataGridViewColumn: dgvSummary.Columns[dgvSummary.ColumnCount - 1], direction: ListSortDirection.Descending);
@@ -73,7 +74,7 @@ namespace NutriCal
 
             foreach (var meal in mealFoodList)
                 foreach (var food in meal.Value)
-                    dgvSummary.Rows.Add(Resources.food, food.FoodName, food.Quantity, food.Porsion, food.FoodCalories, meal.Key.MealName, meal.Key.Date.ToString("dd.MM.yyyy"));
+                    dgvSummary.Rows.Add(Resources.food, food.FoodName, food.Quantity, food.Porsion, food.FoodCalories, meal.Key.MealName, meal.Key.Date);
 
             SortHiddenTimesOnDataGrid();
         }
@@ -109,7 +110,7 @@ namespace NutriCal
                 dgvSummary.Rows[0].Selected = true;
 
             for (int i = 1; i <= exerciseList.Count; i++)
-                dgvSummary.Rows.Add(Resources.exercise, exerciseList[i - 1].Exercise.ExerciseName, exerciseList[i - 1].Exercise.Duration, "Minute", 0 - exerciseList[i - 1].Exercise.BurnedEnergy, exerciseList[i - 1].ExerciseAddedTime.ToString("HH:mm"), exerciseList[i - 1].ExerciseAddedTime.ToString("dd.MM.yyyy"));
+                dgvSummary.Rows.Add(Resources.exercise, exerciseList[i - 1].Exercise.ExerciseName, exerciseList[i - 1].Exercise.Duration, "Minute", 0 - exerciseList[i - 1].Exercise.BurnedEnergy, exerciseList[i - 1].ExerciseAddedTime.ToString("HH:mm"), exerciseList[i - 1].ExerciseAddedTime);
             SortHiddenTimesOnDataGrid();
         }
         #endregion
@@ -153,7 +154,7 @@ namespace NutriCal
         #region All Form Control Events
         private void addExerciseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ExerciseForm exerciseForm = new ExerciseForm(db);
+            ExerciseForm exerciseForm = new ExerciseForm(db,user);
             exerciseForm.ShowDialog();
             GetBothFoodExerciseOfToday();
         }
@@ -268,6 +269,11 @@ namespace NutriCal
             dgvSummary.Rows.Clear();
             GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
             GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

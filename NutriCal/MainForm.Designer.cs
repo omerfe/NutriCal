@@ -14,10 +14,6 @@ namespace NutriCal
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -34,13 +30,11 @@ namespace NutriCal
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +62,9 @@ namespace NutriCal
             this.pnlConsumed = new System.Windows.Forms.Panel();
             this.pnlBurned = new System.Windows.Forms.Panel();
             this.pnlBudget = new System.Windows.Forms.Panel();
+            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -78,33 +75,20 @@ namespace NutriCal
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addFoodToolStripMenuItem,
-            this.addExerciseToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(9, 9);
+            this.addExerciseToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(842, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(243, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(330, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // addFoodToolStripMenuItem
-            // 
-            this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
-            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
-            this.addFoodToolStripMenuItem.Text = "Add Food";
-            // 
-            // addExerciseToolStripMenuItem
-            // 
-            this.addExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.exercise;
-            this.addExerciseToolStripMenuItem.Name = "addExerciseToolStripMenuItem";
-            this.addExerciseToolStripMenuItem.Size = new System.Drawing.Size(125, 25);
-            this.addExerciseToolStripMenuItem.Text = "Add Exercise";
-            this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
             // 
             // dgvSummary
             // 
@@ -129,8 +113,8 @@ namespace NutriCal
             this.dgvSummary.Name = "dgvSummary";
             this.dgvSummary.ReadOnly = true;
             this.dgvSummary.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSummary.Size = new System.Drawing.Size(861, 469);
             this.dgvSummary.TabIndex = 1;
@@ -157,8 +141,8 @@ namespace NutriCal
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column3.FillWeight = 30F;
             this.Column3.HeaderText = "Amount";
             this.Column3.Name = "Column3";
@@ -177,16 +161,16 @@ namespace NutriCal
             // 
             // Unit
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle10;
             this.Unit.HeaderText = "Energy (kcal)";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
             // 
             // AddedTime
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle11;
             this.AddedTime.HeaderText = "Time";
             this.AddedTime.Name = "AddedTime";
             this.AddedTime.ReadOnly = true;
@@ -388,6 +372,29 @@ namespace NutriCal
             this.pnlBudget.Size = new System.Drawing.Size(157, 123);
             this.pnlBudget.TabIndex = 13;
             // 
+            // addFoodToolStripMenuItem
+            // 
+            this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
+            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
+            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
+            this.addFoodToolStripMenuItem.Text = "Add Food";
+            // 
+            // addExerciseToolStripMenuItem
+            // 
+            this.addExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.exercise;
+            this.addExerciseToolStripMenuItem.Name = "addExerciseToolStripMenuItem";
+            this.addExerciseToolStripMenuItem.Size = new System.Drawing.Size(125, 25);
+            this.addExerciseToolStripMenuItem.Text = "Add Exercise";
+            this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Image = global::NutriCal.Properties.Resources.logout;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(87, 25);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -455,5 +462,6 @@ namespace NutriCal
         private System.Windows.Forms.Panel pnlConsumed;
         private System.Windows.Forms.Panel pnlBurned;
         private System.Windows.Forms.Panel pnlBudget;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

@@ -16,15 +16,15 @@ namespace NutriCal
     {
         UserExercise userExercise;
         Exercise selectedExercise;
-        User loggedUser;
         List<UserExercise> exerciseList;
         private readonly NutriCalDbContext db;
+        private readonly User loggedUser;
 
-        public ExerciseForm(NutriCalDbContext db)
+        public ExerciseForm(NutriCalDbContext db, User user)
         {
 
             this.db = db;
-            loggedUser = db.Users.ToList()[0];
+            loggedUser = user;
             InitializeComponent();
             CreateExerciseList();
             GetTheMostRecentExercises();

@@ -25,17 +25,21 @@ namespace NutriCal
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //TODO: Enter tuşuyla giriş.
             UserLogin loggedIn = db.UserLogins.FirstOrDefault(x => x.Email == txtEmail.Text && x.Password == txtPassword.Text);
             User user = db.Users.FirstOrDefault(x => x.UserId == loggedIn.UserLoginId);
+
             if (loggedIn == null)
             {
                 MessageBox.Show("Username or password is incorrect!");
             }
             else
             {
-                MainForm mainForm = new MainForm(db,user);
+                MainForm mainForm = new MainForm(db, user);
                 mainForm.Show();
-               
+                txtEmail.Text = "";
+                txtPassword.Text = "";
+
             }
         }
 
