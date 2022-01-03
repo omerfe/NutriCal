@@ -115,6 +115,20 @@ namespace NutriCal
                 user.BirthDate = dtpUserBirthDate.Value;
                 user.Weight = (double)nudUserWeight.Value;
                 user.Height = (int)nudUserHeight.Value;
+
+                switch (user.Gender)
+                {
+                    case Genders.NotSpecified:
+                        user.RecomendedCalorie = 0;
+                        break;
+                    case Genders.Female:
+                        user.RecomendedCalorie = (10 * user.Weight) + (6.25 * user.Height) - (5 * (DateTime.Now.Year - user.BirthDate.Year)) - 161;
+                        break;
+                    case Genders.Male:
+               
+                        user.RecomendedCalorie = (10 * user.Weight) + (6.25 * user.Height) - (5 * (DateTime.Now.Year - user.BirthDate.Year)) + 5;
+                        break;
+                }
             }
             else
             {

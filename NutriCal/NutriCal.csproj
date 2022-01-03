@@ -88,6 +88,10 @@
     <Compile Include="FoodsForm.Designer.cs">
       <DependentUpon>FoodsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201031237318_RecomendedCalorie.cs" />
+    <Compile Include="Migrations\202201031237318_RecomendedCalorie.designer.cs">
+      <DependentUpon>202201031237318_RecomendedCalorie.cs</DependentUpon>
+    </Compile>
     <Compile Include="NutriCalMainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +150,9 @@
     <EmbeddedResource Include="Migrations\202112221851432_QuantityAdded.resx">
       <DependentUpon>202112221851432_QuantityAdded.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201031237318_RecomendedCalorie.resx">
+      <DependentUpon>202201031237318_RecomendedCalorie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -156,6 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -206,6 +216,7 @@
     <Content Include="Resources\GoldT.png" />
     <Content Include="Resources\GoldU.png" />
     <None Include="Resources\logout.png" />
+    <None Include="Resources\info.png" />
     <Content Include="Resources\lunch.png" />
     <Content Include="Resources\Marquee Sign Letter C.G03.watermarked.2k.png" />
     <Content Include="Resources\morningsnack.png" />

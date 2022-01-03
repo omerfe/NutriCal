@@ -29,7 +29,6 @@ namespace NutriCal
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.lblControlConfirm = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
@@ -74,7 +73,7 @@ namespace NutriCal
             this.lblControlConfirm.Location = new System.Drawing.Point(98, 217);
             this.lblControlConfirm.Name = "lblControlConfirm";
             this.lblControlConfirm.Size = new System.Drawing.Size(369, 16);
-            this.lblControlConfirm.TabIndex = 19;
+            this.lblControlConfirm.TabIndex = 3;
             this.lblControlConfirm.Text = "Confirm Control";
             this.lblControlConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblControlConfirm.Visible = false;
@@ -85,7 +84,7 @@ namespace NutriCal
             this.btnRegister.Location = new System.Drawing.Point(183, 452);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(90, 23);
-            this.btnRegister.TabIndex = 18;
+            this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -114,7 +113,7 @@ namespace NutriCal
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(251, 20);
-            this.txtPassword.TabIndex = 15;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label3
@@ -131,7 +130,7 @@ namespace NutriCal
             this.txtEmail.Location = new System.Drawing.Point(101, 38);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(366, 20);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 0;
             // 
             // label2
             // 
@@ -220,7 +219,7 @@ namespace NutriCal
             this.lblControlEmail.Location = new System.Drawing.Point(98, 61);
             this.lblControlEmail.Name = "lblControlEmail";
             this.lblControlEmail.Size = new System.Drawing.Size(369, 16);
-            this.lblControlEmail.TabIndex = 28;
+            this.lblControlEmail.TabIndex = 1;
             this.lblControlEmail.Text = "Email Control";
             this.lblControlEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblControlEmail.Visible = false;
@@ -241,7 +240,7 @@ namespace NutriCal
             this.btnLogin.Location = new System.Drawing.Point(5, 452);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(90, 23);
-            this.btnLogin.TabIndex = 30;
+            this.btnLogin.TabIndex = 15;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Visible = false;
@@ -431,7 +430,7 @@ namespace NutriCal
             this.groupBox2.Location = new System.Drawing.Point(3, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(473, 481);
-            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Register";
             // 
@@ -443,7 +442,6 @@ namespace NutriCal
             this.ClientSize = new System.Drawing.Size(769, 505);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-           // this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Register";
