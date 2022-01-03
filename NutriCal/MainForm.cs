@@ -28,7 +28,9 @@ namespace NutriCal
             GetFoodsByChoosenTime(DateTime.Now);
             GetExercisesByChoosenTime(DateTime.Now);
             SortHiddenTimesOnDataGrid();
-            Text = $"Welcome {user.UserName} {user.UserSurname.ToUpper()}";
+            string userNameUpper = user.UserName.Substring(0, 1).ToUpper() + user.UserName.Substring(1);
+
+            Text = $"Welcome {userNameUpper} {user.UserSurname.ToUpper()}";
         }
         #region DataGridViewArea
         private void SortHiddenTimesOnDataGrid() => dgvSummary.Sort(dataGridViewColumn: dgvSummary.Columns[dgvSummary.ColumnCount - 1], direction: ListSortDirection.Descending);
@@ -119,7 +121,8 @@ namespace NutriCal
         private void CalculateBurnedConsumedEnergy(List<Meal> mealList = null, List<UserExercise> exerciseList = null)
         {
             double recomendedCalorieOfUser = user.RecomendedCalorie;
-         
+
+           
 
 
             double burnedEnergy = 0, consumedEnergy = 0;
@@ -142,7 +145,7 @@ namespace NutriCal
             //double result = (budget < 0) ? budget + recomendedCalorieOfUser : recomendedCalorieOfUser - budget;
             double result = recomendedCalorieOfUser - budget;
 
-            string recommendMessage = $"We recommend you to get {recomendedCalorieOfUser}kcal per a day.\r\nYou currently have a kcal  {surplusOrDeficit}  of {result} Calories.";
+            string recommendMessage = $"We recommend you to get {recomendedCalorieOfUser}kcal per a day.\r\nYou currently have a kcal  {surplusOrDeficit} of {result} Calories.";
             tlpRecomended.SetToolTip(pcbInfo, recommendMessage);
 
         }
@@ -198,7 +201,7 @@ namespace NutriCal
         {
             if (cmbCalorieBurnType.SelectedIndex == -1)
             {
-                MessageBox.Show("Test");
+                MessageBox.Show("Please choose energy type and time difference.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             dgvSummary.Rows.Clear();

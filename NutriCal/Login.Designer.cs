@@ -67,7 +67,7 @@ namespace NutriCal
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 10;
-            this.txtPassword.Text = "burak123*3aeaiaeA";
+            this.txtPassword.Text = "123Aa*00";
             // 
             // txtEmail
             // 

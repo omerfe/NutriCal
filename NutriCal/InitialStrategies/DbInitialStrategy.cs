@@ -19,14 +19,14 @@ namespace NutriCal.InitialStrategies
                    new Exercise()
                    {
                        ExerciseName= "Running",
-                       BurnedEnergy = 91.7,
+                       BurnedEnergy = 125.0,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Walking",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 71.4,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
@@ -40,56 +40,112 @@ namespace NutriCal.InitialStrategies
                      new Exercise()
                    {
                        ExerciseName= "Basketball",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 125.0,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Cleaning",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 28.6,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Cycling",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 101.1,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Dancing",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 242.9,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Gym",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 130.5,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Hunting",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 37.5,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Jumping Rope",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 278.6,
                        Duration = 30,
                        ExerciseRole = "A"
                    },
                      new Exercise()
                    {
                        ExerciseName= "Volleyball",
-                       BurnedEnergy = 71.5,
+                       BurnedEnergy = 107.2,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Billiards",
+                       BurnedEnergy = 53.6,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Bowling",
+                       BurnedEnergy = 100.0,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Diving",
+                       BurnedEnergy = 71.4,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Polo",
+                       BurnedEnergy = 250.0,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Soccer",
+                       BurnedEnergy = 214.3,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Surfing",
+                       BurnedEnergy = 71.4,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Windsurfing",
+                       BurnedEnergy = 142.9,
+                       Duration = 30,
+                       ExerciseRole = "A"
+                   },
+                     new Exercise()
+                   {
+                       ExerciseName= "Yoga",
+                       BurnedEnergy = 51.2,
                        Duration = 30,
                        ExerciseRole = "A"
                    }

@@ -79,6 +79,14 @@ namespace NutriCal
             this.imgExercises.Images.SetKeyName(8, "hunting");
             this.imgExercises.Images.SetKeyName(9, "jumping rope");
             this.imgExercises.Images.SetKeyName(10, "volleyball");
+            this.imgExercises.Images.SetKeyName(11, "Billiards");
+            this.imgExercises.Images.SetKeyName(12, "Bowling");
+            this.imgExercises.Images.SetKeyName(13, "Diving");
+            this.imgExercises.Images.SetKeyName(14, "Polo");
+            this.imgExercises.Images.SetKeyName(15, "Soccer");
+            this.imgExercises.Images.SetKeyName(16, "Surfing");
+            this.imgExercises.Images.SetKeyName(17, "Windsurfing");
+            this.imgExercises.Images.SetKeyName(18, "Yoga");
             // 
             // tcExercises
             // 
@@ -178,7 +186,7 @@ namespace NutriCal
             // 
             this.deleteToolStripMenuItem.Image = global::NutriCal.Properties.Resources.delete;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
