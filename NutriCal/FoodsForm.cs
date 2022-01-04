@@ -13,52 +13,75 @@ namespace NutriCal
 {
     public partial class FoodsForm : Form
     {
-        NutriCalDbContext db = new NutriCalDbContext();
-
-        private readonly string buttonText;
+        //NutriCalDbContext db = new NutriCalDbContext();
+        //User loggedUser;
+        private readonly NutriCalDbContext db;
+        private readonly Meal meal;
+        private readonly User user;
         private readonly Image mealPicture;
-        User loggedUser;
-        FoodCategory selectedCategory = new FoodCategory();
-        Food selectedFood = new Food();
-        List<Food> addedFoods = new List<Food>();
+        //--------------------------
+        //FoodCategory selectedCategory = new FoodCategory();
+        //Food selectedFood = new Food();
+        //List<Food> addedFoods = new List<Food>();
 
-        public FoodsForm(string buttonText, Image mealPicture)
+
+        public FoodsForm(NutriCalDbContext db, Meal meal, Image mealPicture)
         {
-            loggedUser = db.Users.ToList()[0];
             InitializeComponent();
-            this.buttonText = buttonText;
+            this.db = db;
+            this.meal = meal;
             this.mealPicture = mealPicture;
-            lblMealName.Text = buttonText;
+            lblMealName.Text = meal.MealName;
             pboSelectedMeal.Image = mealPicture;
+
             CreateFoodCategoryList();
+            UpdateFoods();
+
             btnAdd.Enabled = false;
             dgvFood.AutoGenerateColumns = false;
+        }
+
+        private void UpdateFoods()
+        {
+            dataGridView1.DataSource = meal.Foods.Select(x => new
+            {
+
+                Name = x.FoodName,
+                Porsion = x.Porsion,
+                Category = x.CategoryName,
+                Calory = $"{(decimal)x.FoodCalories * nudPorsion.Value}kcal"
+
+            }).ToList();
         }
 
         private void CreateFoodCategoryList()
         {
             cboFoodCategories.DataSource = db.FoodCategories.ToList();
             cboFoodCategories.DisplayMember = "CategoryName";
-            cboFoods.DisplayMember = "FoodName";
+
+            //cboFoods.DisplayMember = "FoodName";
         }
 
-        private void cboFoodCategories_SelectedValueChanged(object sender, EventArgs e)
-        {
-            selectedCategory = cboFoodCategories.SelectedItem as FoodCategory;
-            cboFoods.DataSource = db.Foods.Where(x => x.FoodCategoryId == selectedCategory.FoodCategoryId).ToList();
-        }
-        private void cboFoods_SelectedValueChanged(object sender, EventArgs e)
-        {
-            selectedFood = cboFoods.SelectedItem as Food;
-            lblPorsion.Text = $"Porsion \t({selectedFood.Porsion})";
 
-        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var food = db.Foods.FirstOrDefault(x => x.FoodId == selectedFood.FoodId);
-            food.TotalCalory = (double)nudPorsion.Value * food.FoodCalories;
-            addedFoods.Add(db.Foods.FirstOrDefault(x => x.FoodId == selectedFood.FoodId));
-            dgvFood.DataSource = addedFoods.ToList();
+            Food selectedFood = (Food)cboFoods.SelectedItem;
+            meal.Foods.Add(selectedFood);
+            meal.TotalCalories += selectedFood.FoodCalories;
+
+
+            MessageBox.Show("Test");
+            db.SaveChanges();
+            UpdateFoods();
+
+            //var food = db.Foods.FirstOrDefault(x => x.FoodId == selectedFood.FoodId);
+
+            //food.TotalCalory = (double)nudPorsion.Value * food.FoodCalories;
+
+            //addedFoods.Add(db.Foods.FirstOrDefault(x => x.FoodId == selectedFood.FoodId));
+            //dgvFood.DataSource = addedFoods.ToList();
+
         }
 
         private void nudPorsion_ValueChanged(object sender, EventArgs e)
@@ -66,6 +89,18 @@ namespace NutriCal
             btnAdd.Enabled = true;
         }
 
+        private void cboFoodCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FoodCategory selectedCategory = cboFoodCategories.SelectedItem as FoodCategory;
+            cboFoods.DisplayMember = "FoodName";
+            cboFoods.DataSource = db.Foods.Where(x => x.FoodCategoryId == selectedCategory.FoodCategoryId).ToList();
+        }
+
+        private void cboFoods_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Food selectedFood = cboFoods.SelectedItem as Food;
+            lblPorsion.Text = $"Porsion \t({selectedFood.Porsion})";
+        }
     }
 }
 

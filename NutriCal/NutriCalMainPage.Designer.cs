@@ -149,11 +149,11 @@ namespace NutriCal
             // lblCalorieCalc
             // 
             this.lblCalorieCalc.AutoSize = true;
-            this.lblCalorieCalc.Font = new System.Drawing.Font("Showcard Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCalorieCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCalorieCalc.ForeColor = System.Drawing.Color.Tan;
             this.lblCalorieCalc.Location = new System.Drawing.Point(59, 486);
             this.lblCalorieCalc.Name = "lblCalorieCalc";
-            this.lblCalorieCalc.Size = new System.Drawing.Size(353, 40);
+            this.lblCalorieCalc.Size = new System.Drawing.Size(272, 37);
             this.lblCalorieCalc.TabIndex = 9;
             this.lblCalorieCalc.Text = "Calorie Calculator";
             this.lblCalorieCalc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -162,7 +162,6 @@ namespace NutriCal
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // NutriCalMainPage

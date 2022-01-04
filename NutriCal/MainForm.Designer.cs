@@ -30,10 +30,10 @@ namespace NutriCal
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -63,10 +63,10 @@ namespace NutriCal
             this.pnlConsumed = new System.Windows.Forms.Panel();
             this.pnlBurned = new System.Windows.Forms.Panel();
             this.pnlBudget = new System.Windows.Forms.Panel();
+            this.pcbInfo = new System.Windows.Forms.PictureBox();
             this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pcbInfo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,7 +89,7 @@ namespace NutriCal
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(330, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(450, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -116,8 +116,8 @@ namespace NutriCal
             this.dgvSummary.Name = "dgvSummary";
             this.dgvSummary.ReadOnly = true;
             this.dgvSummary.RowHeadersVisible = false;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvSummary.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSummary.Size = new System.Drawing.Size(861, 469);
             this.dgvSummary.TabIndex = 1;
@@ -144,8 +144,8 @@ namespace NutriCal
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.FillWeight = 30F;
             this.Column3.HeaderText = "Amount";
             this.Column3.Name = "Column3";
@@ -164,16 +164,16 @@ namespace NutriCal
             // 
             // Unit
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Unit.HeaderText = "Energy (kcal)";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
             // 
             // AddedTime
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.AddedTime.DefaultCellStyle = dataGridViewCellStyle3;
             this.AddedTime.HeaderText = "Time";
             this.AddedTime.Name = "AddedTime";
             this.AddedTime.ReadOnly = true;
@@ -390,12 +390,24 @@ namespace NutriCal
             this.pnlBudget.Size = new System.Drawing.Size(157, 123);
             this.pnlBudget.TabIndex = 13;
             // 
+            // pcbInfo
+            // 
+            this.pcbInfo.Cursor = System.Windows.Forms.Cursors.Help;
+            this.pcbInfo.Image = global::NutriCal.Properties.Resources.info;
+            this.pcbInfo.Location = new System.Drawing.Point(123, 10);
+            this.pcbInfo.Name = "pcbInfo";
+            this.pcbInfo.Size = new System.Drawing.Size(20, 20);
+            this.pcbInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbInfo.TabIndex = 14;
+            this.pcbInfo.TabStop = false;
+            // 
             // addFoodToolStripMenuItem
             // 
             this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
             this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
             this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
             this.addFoodToolStripMenuItem.Text = "Add Food";
+            this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
             // 
             // addExerciseToolStripMenuItem
             // 
@@ -412,17 +424,6 @@ namespace NutriCal
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(87, 25);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // pcbInfo
-            // 
-            this.pcbInfo.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pcbInfo.Image = global::NutriCal.Properties.Resources.info;
-            this.pcbInfo.Location = new System.Drawing.Point(123, 10);
-            this.pcbInfo.Name = "pcbInfo";
-            this.pcbInfo.Size = new System.Drawing.Size(20, 20);
-            this.pcbInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbInfo.TabIndex = 14;
-            this.pcbInfo.TabStop = false;
             // 
             // MainForm
             // 

@@ -10,7 +10,7 @@ namespace NutriCal.Models
         public int FoodId { get; set; }
         public string FoodName { get; set; }
         public double FoodCalories { get; set; }
-        public int Quantity { get; set; } //Ömer de ekledi, karışıklık olmasın.
+        public int Quantity { get; set; } 
         public Porsions Porsion { get; set; }
         public string FoodImage { get; set; }
 

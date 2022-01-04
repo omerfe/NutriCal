@@ -263,6 +263,11 @@ namespace NutriCal
             GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
         }
 
- 
+        private void addFoodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MealsForm mealsForm = new MealsForm(user, db);
+            mealsForm.ShowDialog();
+            GetBothFoodExerciseOfToday();
+        }
     }
 }

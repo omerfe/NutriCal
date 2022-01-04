@@ -53,10 +53,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(118, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 28);
+            this.label1.Size = new System.Drawing.Size(98, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "MEALS";
             // 
@@ -143,7 +143,7 @@
             this.btnMorningSnack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMorningSnack.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold);
+            this.btnMorningSnack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnMorningSnack.Location = new System.Drawing.Point(25, 262);
             this.btnMorningSnack.Name = "btnMorningSnack";
             this.btnMorningSnack.Size = new System.Drawing.Size(100, 53);
@@ -157,7 +157,7 @@
             this.btnAfternoonSnack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAfternoonSnack.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAfternoonSnack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAfternoonSnack.Location = new System.Drawing.Point(25, 534);
             this.btnAfternoonSnack.Name = "btnAfternoonSnack";
             this.btnAfternoonSnack.Size = new System.Drawing.Size(100, 53);
@@ -171,7 +171,7 @@
             this.btnBreakfast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBreakfast.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBreakfast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBreakfast.Location = new System.Drawing.Point(25, 125);
             this.btnBreakfast.Name = "btnBreakfast";
             this.btnBreakfast.Size = new System.Drawing.Size(100, 53);
@@ -185,7 +185,7 @@
             this.btnLunch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLunch.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnLunch.Location = new System.Drawing.Point(25, 401);
             this.btnLunch.Name = "btnLunch";
             this.btnLunch.Size = new System.Drawing.Size(100, 53);
@@ -199,7 +199,7 @@
             this.btnDinner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDinner.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnDinner.Location = new System.Drawing.Point(25, 667);
             this.btnDinner.Name = "btnDinner";
             this.btnDinner.Size = new System.Drawing.Size(100, 53);
@@ -228,6 +228,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MealsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meals";
             ((System.ComponentModel.ISupportInitialize)(this.pboBreakfast)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboMorningSnack)).EndInit();
