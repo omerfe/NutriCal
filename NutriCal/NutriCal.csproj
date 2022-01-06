@@ -70,6 +70,12 @@
     <Compile Include="ExerciseForm.Designer.cs">
       <DependentUpon>ExerciseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FoodEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodEditForm.Designer.cs">
+      <DependentUpon>FoodEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,10 +94,11 @@
     <Compile Include="FoodsForm.Designer.cs">
       <DependentUpon>FoodsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201031237318_RecomendedCalorie.cs" />
-    <Compile Include="Migrations\202201031237318_RecomendedCalorie.designer.cs">
-      <DependentUpon>202201031237318_RecomendedCalorie.cs</DependentUpon>
+    <Compile Include="Migrations\202201052040313_foodFormEdited.cs" />
+    <Compile Include="Migrations\202201052040313_foodFormEdited.designer.cs">
+      <DependentUpon>202201052040313_foodFormEdited.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NutriCalMainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,15 +118,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202112191855186_InitialCreate.cs" />
-    <Compile Include="Migrations\202112191855186_InitialCreate.designer.cs">
-      <DependentUpon>202112191855186_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112221851432_QuantityAdded.cs" />
-    <Compile Include="Migrations\202112221851432_QuantityAdded.designer.cs">
-      <DependentUpon>202112221851432_QuantityAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
@@ -138,6 +136,9 @@
     <EmbeddedResource Include="ExerciseForm.resx">
       <DependentUpon>ExerciseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FoodEditForm.resx">
+      <DependentUpon>FoodEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoodsForm.resx">
       <DependentUpon>FoodsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,14 +151,8 @@
     <EmbeddedResource Include="MealsForm.resx">
       <DependentUpon>MealsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112191855186_InitialCreate.resx">
-      <DependentUpon>202112191855186_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112221851432_QuantityAdded.resx">
-      <DependentUpon>202112221851432_QuantityAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201031237318_RecomendedCalorie.resx">
-      <DependentUpon>202201031237318_RecomendedCalorie.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201052040313_foodFormEdited.resx">
+      <DependentUpon>202201052040313_foodFormEdited.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NutriCalMainPage.resx">
       <DependentUpon>NutriCalMainPage.cs</DependentUpon>

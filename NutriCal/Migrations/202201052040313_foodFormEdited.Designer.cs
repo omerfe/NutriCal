@@ -7,13 +7,13 @@ namespace NutriCal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class foodFormEdited : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(foodFormEdited));
         
         string IMigrationMetadata.Id
         {
-            get { return "202112291543386_init"; }
+            get { return "202201052040313_foodFormEdited"; }
         }
         
         string IMigrationMetadata.Source

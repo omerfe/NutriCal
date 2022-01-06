@@ -54,9 +54,12 @@ namespace NutriCal
         #region Food Area
         private void GetFoodsByChoosenTime(DateTime dt)
         {
-            var mealList = user.Meals.Where(x => x.Date.Date == dt).ToList();
-            GetFoods(mealList);
-            CalculateBurnedConsumedEnergy(mealList: mealList);
+            if (user.Meals.Count > 0)
+            {
+                var mealList = user.Meals.Where(x => x.Date.Date == dt).ToList();
+                GetFoods(mealList);
+                CalculateBurnedConsumedEnergy(mealList: mealList);
+            }
         }
 
         private void GetFoodsByChoosenTime(DateTime start, DateTime end)
@@ -122,7 +125,7 @@ namespace NutriCal
         {
             double recomendedCalorieOfUser = user.RecomendedCalorie;
 
-           
+
 
 
             double burnedEnergy = 0, consumedEnergy = 0;
@@ -201,7 +204,7 @@ namespace NutriCal
         {
             if (cmbCalorieBurnType.SelectedIndex == -1)
             {
-                MessageBox.Show("Please choose energy type and time difference.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Please choose energy type and time difference.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             dgvSummary.Rows.Clear();

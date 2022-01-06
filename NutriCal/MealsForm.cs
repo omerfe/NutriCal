@@ -16,6 +16,7 @@ namespace NutriCal
     {
         private readonly NutriCalDbContext db;
         private readonly User user;
+        Meal selectedMeal;
 
         public MealsForm( User user,NutriCalDbContext db)
         {
@@ -26,12 +27,11 @@ namespace NutriCal
 
         private void btnBreakfast_Click(object sender, EventArgs e)
         {
-
             DateTime dt = DateTime.Now.Date;
 
-            Meal selectedMeal = db.Meals.FirstOrDefault(x => x.MealName == "Breakfast" &&  DbFunctions.TruncateTime(x.Date) == dt && x.Users.Any(u => u.UserId == user.UserId));
+            selectedMeal = db.Meals.FirstOrDefault(x => x.MealName == "Breakfast" &&  DbFunctions.TruncateTime(x.Date) == dt && x.Users.Any(u => u.UserId == user.UserId));
 
-            if (selectedMeal == null) // kahvaltı yok. yeni oluturmamız lazım.
+            if (selectedMeal == null) 
             {
                 selectedMeal = new Meal()
                 {
@@ -40,34 +40,90 @@ namespace NutriCal
                 user.Meals.Add(selectedMeal);
                 db.SaveChanges();
             }
-      
 
-            FoodsForm foodsForm = new FoodsForm(db,selectedMeal, pboBreakfast.Image);
+            FoodsForm foodsForm = new FoodsForm(db,selectedMeal, pboBreakfast.Image, user);
             foodsForm.ShowDialog();
         }
 
+
         private void btnMorningSnack_Click(object sender, EventArgs e)
         {
-            //FoodsForm foodsForm = new FoodsForm(btnMorningSnack.Text, pboMorningSnack.Image);
-            //foodsForm.ShowDialog();
+            DateTime dt = DateTime.Now.Date;
+
+            selectedMeal = db.Meals.FirstOrDefault(x => x.MealName == "Morning Snack" && DbFunctions.TruncateTime(x.Date) == dt && x.Users.Any(u => u.UserId == user.UserId));
+
+            if (selectedMeal == null) 
+            {
+                selectedMeal = new Meal()
+                {
+                    MealName = "Morning Snack"
+                };
+                user.Meals.Add(selectedMeal);
+                db.SaveChanges();
+            }
+
+            FoodsForm foodsForm = new FoodsForm(db, selectedMeal, pboMorningSnack.Image, user);
+            foodsForm.ShowDialog();
         }
 
         private void btnLunch_Click(object sender, EventArgs e)
         {
-            //FoodsForm foodsForm = new FoodsForm(btnLunch.Text, pboLunch.Image);
-            //foodsForm.ShowDialog();
+            DateTime dt = DateTime.Now.Date;
+
+            selectedMeal = db.Meals.FirstOrDefault(x => x.MealName == "Lunch" && DbFunctions.TruncateTime(x.Date) == dt && x.Users.Any(u => u.UserId == user.UserId));
+
+            if (selectedMeal == null) 
+            {
+                selectedMeal = new Meal()
+                {
+                    MealName = "Lunch"
+                };
+                user.Meals.Add(selectedMeal);
+                db.SaveChanges();
+            }
+
+            FoodsForm foodsForm = new FoodsForm(db, selectedMeal, pboLunch.Image, user);
+            foodsForm.ShowDialog();
         }
 
         private void btnAfternoonSnack_Click(object sender, EventArgs e)
         {
-            //FoodsForm foodsForm = new FoodsForm(btnAfternoonSnack.Text, pboAfternoonSnack.Image);
-            //foodsForm.ShowDialog();
+            DateTime dt = DateTime.Now.Date;
+
+            selectedMeal = db.Meals.FirstOrDefault(x => x.MealName == "Afternoon Snack" && DbFunctions.TruncateTime(x.Date) == dt && x.Users.Any(u => u.UserId == user.UserId));
+
+            if (selectedMeal == null) 
+            {
+                selectedMeal = new Meal()
+                {
+                    MealName = "Afternoon Snack"
+                };
+                user.Meals.Add(selectedMeal);
+                db.SaveChanges();
+            }
+
+            FoodsForm foodsForm = new FoodsForm(db, selectedMeal, pboAfternoonSnack.Image, user);
+            foodsForm.ShowDialog();
         }
 
         private void btnDinner_Click(object sender, EventArgs e)
         {
-            //FoodsForm foodsForm = new FoodsForm(btnDinner.Text, pboDinner.Image);
-            //foodsForm.ShowDialog();
+            DateTime dt = DateTime.Now.Date;
+
+            selectedMeal = db.Meals.FirstOrDefault(x => x.MealName == "Dinner" && DbFunctions.TruncateTime(x.Date) == dt && x.Users.Any(u => u.UserId == user.UserId));
+
+            if (selectedMeal == null) 
+            {
+                selectedMeal = new Meal()
+                {
+                    MealName = "Dinner"
+                };
+                user.Meals.Add(selectedMeal);
+                db.SaveChanges();
+            }
+
+            FoodsForm foodsForm = new FoodsForm(db, selectedMeal, pboDinner.Image, user);
+            foodsForm.ShowDialog();
         }
     }
 }

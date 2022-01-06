@@ -67,7 +67,7 @@ namespace NutriCal
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 10;
-            this.txtPassword.Text = "123Aa*00";
+            this.txtPassword.Text = "Aa1234**";
             // 
             // txtEmail
             // 
@@ -75,7 +75,7 @@ namespace NutriCal
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 9;
-            this.txtEmail.Text = "burakyuzz@gmail.com";
+            this.txtEmail.Text = "sa@gmail.com";
             // 
             // label2
             // 
