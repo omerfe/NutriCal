@@ -27,7 +27,6 @@ namespace NutriCal
         {
             //TODO: Enter tuşuyla giriş.
             UserLogin loggedIn = db.UserLogins.FirstOrDefault(x => x.Email == txtEmail.Text && x.Password == txtPassword.Text);
-            User user = db.Users.FirstOrDefault(x => x.UserId == loggedIn.UserLoginId);
 
             if (loggedIn == null)
             {
@@ -35,6 +34,7 @@ namespace NutriCal
             }
             else
             {
+                User user = db.Users.FirstOrDefault(x => x.UserId == loggedIn.UserLoginId);
                 MainForm mainForm = new MainForm(db, user);
                 mainForm.Show();
                 txtEmail.Text = "";

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class foodFormEdited : DbMigration
     {
         public override void Up()
         {
@@ -44,6 +44,7 @@
                         Weight = c.Double(nullable: false),
                         Height = c.Int(nullable: false),
                         Gender = c.Int(nullable: false),
+                        RecomendedCalorie = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId);
             
@@ -65,8 +66,10 @@
                         FoodId = c.Int(nullable: false, identity: true),
                         FoodName = c.String(),
                         FoodCalories = c.Double(nullable: false),
+                        Quantity = c.Int(nullable: false),
                         Porsion = c.Int(nullable: false),
                         FoodImage = c.String(),
+                        FoodRole = c.String(),
                         FoodCategoryId = c.Int(),
                     })
                 .PrimaryKey(t => t.FoodId)

@@ -65,9 +65,12 @@ namespace NutriCal
         #region Food Area
         private void GetFoodsByChoosenTime(DateTime dt)
         {
-            var mealList = user.Meals.Where(x => x.Date.Date == dt).ToList();
-            GetFoods(mealList);
-            CalculateBurnedConsumedEnergy(mealList: mealList);
+            if (user.Meals.Count > 0)
+            {
+                var mealList = user.Meals.Where(x => x.Date.Date == dt).ToList();
+                GetFoods(mealList);
+                CalculateBurnedConsumedEnergy(mealList: mealList);
+            }
         }
 
         private void GetFoodsByChoosenTime(DateTime start, DateTime end)
