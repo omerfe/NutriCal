@@ -31,7 +31,18 @@ namespace NutriCal
             string userNameUpper = user.UserName.Substring(0, 1).ToUpper() + user.UserName.Substring(1);
 
             Text = $"Welcome {userNameUpper} {user.UserSurname.ToUpper()}";
+
+            AddReportOptions();
         }
+        private void AddReportOptions()
+        {
+            cmbReport.Items.Add("Case 0");
+            cmbReport.Items.Add("Case 1");
+            cmbReport.Items.Add("Case 2");
+            cmbReport.Items.Add("Case 3");
+            cmbReport.SelectedIndex = -1;
+        }
+
         #region DataGridViewArea
         private void SortHiddenTimesOnDataGrid() => dgvSummary.Sort(dataGridViewColumn: dgvSummary.Columns[dgvSummary.ColumnCount - 1], direction: ListSortDirection.Descending);
         private void SetWidthDataGrid()
@@ -102,7 +113,6 @@ namespace NutriCal
                 .ToList();
             GetExercises(exerciseList);
             CalculateBurnedEnergy(exerciseList);
-
         }
 
         private void GetExercises(List<UserExercise> exerciseList)
@@ -122,7 +132,7 @@ namespace NutriCal
         {
             double recomendedCalorieOfUser = user.RecomendedCalorie;
 
-           
+
 
 
             double burnedEnergy = 0, consumedEnergy = 0;
@@ -180,8 +190,6 @@ namespace NutriCal
 
         }
 
-
-
         private void lblShowToday_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             mcDate.SelectionRange.Start = DateTime.Now;
@@ -201,7 +209,7 @@ namespace NutriCal
         {
             if (cmbCalorieBurnType.SelectedIndex == -1)
             {
-                MessageBox.Show("Please choose energy type and time difference.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Please choose energy type and time difference.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             dgvSummary.Rows.Clear();
@@ -249,7 +257,6 @@ namespace NutriCal
                     GetFoodsByChoosenTime(dt, DateTime.Now);
                     infoEnergyBurnType = "everything";
                     break;
-
             }
 
             lblDateInfo.Text = $"Showing up ({dgvSummary.Rows.Count}) your {infoEnergyBurnType} you have done from {dt.ToString("dd.MM.yyyy")} till today.";
@@ -268,6 +275,23 @@ namespace NutriCal
             MealsForm mealsForm = new MealsForm(user, db);
             mealsForm.ShowDialog();
             GetBothFoodExerciseOfToday();
+        }
+
+        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistoryForm historyForm = new HistoryForm(db, user);
+            historyForm.ShowDialog();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            //if (cmbReport.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Please choose one of these.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //HistoryForm historyForm = new HistoryForm(db, cmbReport.SelectedIndex, user);
+            //historyForm.ShowDialog();
         }
     }
 }

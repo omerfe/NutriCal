@@ -12,6 +12,7 @@ namespace NutriCal.Models
     {
         public User()
         {
+            Meals = new List<Meal>();
             switch (Gender)
             {
                 case Genders.NotSpecified:

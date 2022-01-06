@@ -3,8 +3,13 @@ using System.Collections.Generic;
 
 namespace NutriCal.Models
 {
+    
     public class Meal
     {
+        public Meal()
+        {
+            Foods = new List<Food>();
+        }
         public int MealId { get; set; }
         public string MealName { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;

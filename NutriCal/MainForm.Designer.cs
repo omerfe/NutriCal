@@ -63,10 +63,13 @@ namespace NutriCal
             this.pnlConsumed = new System.Windows.Forms.Panel();
             this.pnlBurned = new System.Windows.Forms.Panel();
             this.pnlBudget = new System.Windows.Forms.Panel();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pcbInfo = new System.Windows.Forms.PictureBox();
             this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbReport = new System.Windows.Forms.ComboBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,14 +85,15 @@ namespace NutriCal
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.historyToolStripMenuItem,
             this.addFoodToolStripMenuItem,
             this.addExerciseToolStripMenuItem,
             this.logoutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(842, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(634, 8);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(11, 4, 0, 4);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(450, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(402, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -390,6 +394,13 @@ namespace NutriCal
             this.pnlBudget.Size = new System.Drawing.Size(157, 123);
             this.pnlBudget.TabIndex = 13;
             // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
+            this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            // 
             // pcbInfo
             // 
             this.pcbInfo.Cursor = System.Windows.Forms.Cursors.Help;
@@ -425,11 +436,32 @@ namespace NutriCal
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // cmbReport
+            // 
+            this.cmbReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReport.FormattingEnabled = true;
+            this.cmbReport.Location = new System.Drawing.Point(52, 603);
+            this.cmbReport.Name = "cmbReport";
+            this.cmbReport.Size = new System.Drawing.Size(212, 32);
+            this.cmbReport.TabIndex = 14;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(143, 641);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(121, 35);
+            this.btnReport.TabIndex = 15;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 688);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.cmbReport);
             this.Controls.Add(this.pnlBudget);
             this.Controls.Add(this.pnlBurned);
             this.Controls.Add(this.pnlConsumed);
@@ -496,5 +528,8 @@ namespace NutriCal
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.Button btnGetEnergyHistory;
         private System.Windows.Forms.PictureBox pcbInfo;
+        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cmbReport;
+        private System.Windows.Forms.Button btnReport;
     }
 }
