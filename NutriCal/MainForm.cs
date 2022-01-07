@@ -28,10 +28,6 @@ namespace NutriCal
             string userNameUpper = user.UserName.Substring(0, 1).ToUpper() + user.UserName.Substring(1);
             GetBothFoodExerciseOfToday();
             Text = $"Welcome {userNameUpper} {user.UserSurname.ToUpper()}";
-<<<<<<< HEAD
-
-=======
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
         }
 
 
@@ -272,9 +268,6 @@ namespace NutriCal
             HistoryForm historyForm = new HistoryForm(db, user);
             historyForm.ShowDialog();
         }
-<<<<<<< HEAD
-
-=======
         #endregion
         private void GetBothFoodExerciseOfToday()
         {

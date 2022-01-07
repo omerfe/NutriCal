@@ -35,15 +35,9 @@ namespace NutriCal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-<<<<<<< HEAD
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-=======
             this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -101,27 +95,12 @@ namespace NutriCal
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-<<<<<<< HEAD
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
-            this.historyToolStripMenuItem.Text = "History";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
-            // 
-=======
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
             // addFoodToolStripMenuItem
             // 
             this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
             this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
-<<<<<<< HEAD
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
-            this.addFoodToolStripMenuItem.Text = "Add Food";
-=======
             this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(104, 25);
             this.addFoodToolStripMenuItem.Text = "Add Meal";
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
             this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
             // 
             // addExerciseToolStripMenuItem
@@ -132,8 +111,6 @@ namespace NutriCal
             this.addExerciseToolStripMenuItem.Text = "Add Exercise";
             this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
             // 
-<<<<<<< HEAD
-=======
             // historyToolStripMenuItem
             // 
             this.historyToolStripMenuItem.Image = global::NutriCal.Properties.Resources.reports;
@@ -142,7 +119,6 @@ namespace NutriCal
             this.historyToolStripMenuItem.Text = "Reports";
             this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
             // 
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Image = global::NutriCal.Properties.Resources.logout;
