@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace NutriCal
 {
-    public partial class Register : Form
+    public partial class RegisterForm : Form
     {
         private readonly NutriCalDbContext db;
-        bool isValidLength, isContainNumber, isContainUpperCase, isContainLowerCase, isContainSpecial;
-        public Register(NutriCalDbContext db)
+        bool isEmail = false, isValidLength, isContainNumber, isContainUpperCase, isContainLowerCase, isContainSpecial;
+        public RegisterForm(NutriCalDbContext db)
         {
             InitializeComponent();
             this.db = db;
@@ -27,8 +27,6 @@ namespace NutriCal
         {
             cmbUserGender.DataSource = null;
             cmbUserGender.DataSource = Enum.GetNames(typeof(Genders)).ToArray();
-            //cmbUserGender.DataSource = Enum.GetValues(typeof(Genders));
-            //bunu yapınca güncelleme yaparken selected item'ı user.Genders yapılmadı o yüzden string olarak tutunca çözüldü
         }
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -47,6 +45,30 @@ namespace NutriCal
         {
             this.Close();
         }
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            lblControlEmail.Visible = false;
+            char[] pwd = txtEmail.Text.ToCharArray();
+            string specialChar = "@";
+            isEmail = false;
+            if (!isEmail)
+            {
+                foreach (var item in pwd.Distinct())
+                {
+                    if (!specialChar.Contains(item))
+                    {
+                        lblControlEmail.Visible = true;
+                        lblControlEmail.ForeColor = Color.Red;
+                        lblControlEmail.Text = "This field must be e-mail!";
+                    }
+                    else
+                    {
+                        isEmail = true;
+                        lblControlEmail.Visible = false;
+                    }
+                }
+            } 
+        }
         private void txtConfirmPassword_TextChanged(object sender, EventArgs e)
         {
             if (txtPassword.Text != txtConfirmPassword.Text)
@@ -64,6 +86,12 @@ namespace NutriCal
         }
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+            lblPC1.ForeColor = Color.Silver;
+            lblPC2.ForeColor = Color.Silver;
+            lblPC3.ForeColor = Color.Silver;
+            lblPC4.ForeColor = Color.Silver;
+            lblPC5.ForeColor = Color.Silver;
+
             char[] pwd = txtPassword.Text.ToCharArray();
             string numbers = "0123456789";
             string upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -106,7 +134,7 @@ namespace NutriCal
         private void btnRegister_Click(object sender, EventArgs e)
         {
             User user = new User();
-            if (cmbUserGender.SelectedIndex != -1 && !string.IsNullOrEmpty(txtUserName.Text) && !string.IsNullOrEmpty(txtUserSurname.Text))
+            if (cmbUserGender.SelectedIndex != -1 && !string.IsNullOrEmpty(txtUserName.Text) && !string.IsNullOrEmpty(txtUserSurname.Text) && isEmail == true)
             {
                 string gender = (string)cmbUserGender.SelectedItem;
                 user.Gender = (Genders)Enum.Parse(typeof(Genders), gender);
@@ -125,7 +153,7 @@ namespace NutriCal
                         user.RecomendedCalorie = (10 * user.Weight) + (6.25 * user.Height) - (5 * (DateTime.Now.Year - user.BirthDate.Year)) - 161;
                         break;
                     case Genders.Male:
-               
+
                         user.RecomendedCalorie = (10 * user.Weight) + (6.25 * user.Height) - (5 * (DateTime.Now.Year - user.BirthDate.Year)) + 5;
                         break;
                 }
@@ -137,7 +165,7 @@ namespace NutriCal
                 lblPersonalInfoCheck.Text = "These fields cannot be empty!";
                 return;
             }
-            
+
             UserLogin userLogin = new UserLogin();
             if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtConfirmPassword.Text))
             {

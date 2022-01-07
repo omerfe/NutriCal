@@ -35,6 +35,10 @@ namespace NutriCal
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,13 +67,7 @@ namespace NutriCal
             this.pnlConsumed = new System.Windows.Forms.Panel();
             this.pnlBurned = new System.Windows.Forms.Panel();
             this.pnlBudget = new System.Windows.Forms.Panel();
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pcbInfo = new System.Windows.Forms.PictureBox();
-            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbReport = new System.Windows.Forms.ComboBox();
-            this.btnReport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,6 +94,37 @@ namespace NutriCal
             this.menuStrip1.Size = new System.Drawing.Size(402, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
+            this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            // 
+            // addFoodToolStripMenuItem
+            // 
+            this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
+            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
+            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
+            this.addFoodToolStripMenuItem.Text = "Add Food";
+            this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
+            // 
+            // addExerciseToolStripMenuItem
+            // 
+            this.addExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.exercise;
+            this.addExerciseToolStripMenuItem.Name = "addExerciseToolStripMenuItem";
+            this.addExerciseToolStripMenuItem.Size = new System.Drawing.Size(125, 25);
+            this.addExerciseToolStripMenuItem.Text = "Add Exercise";
+            this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Image = global::NutriCal.Properties.Resources.logout;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(87, 25);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // dgvSummary
             // 
@@ -394,13 +423,6 @@ namespace NutriCal
             this.pnlBudget.Size = new System.Drawing.Size(157, 123);
             this.pnlBudget.TabIndex = 13;
             // 
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
-            this.historyToolStripMenuItem.Text = "History";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
-            // 
             // pcbInfo
             // 
             this.pcbInfo.Cursor = System.Windows.Forms.Cursors.Help;
@@ -412,56 +434,11 @@ namespace NutriCal
             this.pcbInfo.TabIndex = 14;
             this.pcbInfo.TabStop = false;
             // 
-            // addFoodToolStripMenuItem
-            // 
-            this.addFoodToolStripMenuItem.Image = global::NutriCal.Properties.Resources.food;
-            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
-            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(105, 25);
-            this.addFoodToolStripMenuItem.Text = "Add Food";
-            this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
-            // 
-            // addExerciseToolStripMenuItem
-            // 
-            this.addExerciseToolStripMenuItem.Image = global::NutriCal.Properties.Resources.exercise;
-            this.addExerciseToolStripMenuItem.Name = "addExerciseToolStripMenuItem";
-            this.addExerciseToolStripMenuItem.Size = new System.Drawing.Size(125, 25);
-            this.addExerciseToolStripMenuItem.Text = "Add Exercise";
-            this.addExerciseToolStripMenuItem.Click += new System.EventHandler(this.addExerciseToolStripMenuItem_Click);
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Image = global::NutriCal.Properties.Resources.logout;
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(87, 25);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // cmbReport
-            // 
-            this.cmbReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbReport.FormattingEnabled = true;
-            this.cmbReport.Location = new System.Drawing.Point(52, 603);
-            this.cmbReport.Name = "cmbReport";
-            this.cmbReport.Size = new System.Drawing.Size(212, 32);
-            this.cmbReport.TabIndex = 14;
-            // 
-            // btnReport
-            // 
-            this.btnReport.Location = new System.Drawing.Point(143, 641);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(121, 35);
-            this.btnReport.TabIndex = 15;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 688);
-            this.Controls.Add(this.btnReport);
-            this.Controls.Add(this.cmbReport);
             this.Controls.Add(this.pnlBudget);
             this.Controls.Add(this.pnlBurned);
             this.Controls.Add(this.pnlConsumed);
@@ -529,7 +506,5 @@ namespace NutriCal
         private System.Windows.Forms.Button btnGetEnergyHistory;
         private System.Windows.Forms.PictureBox pcbInfo;
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cmbReport;
-        private System.Windows.Forms.Button btnReport;
     }
 }

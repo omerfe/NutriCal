@@ -25,7 +25,7 @@ namespace NutriCal
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-            Login login = new Login();
+            LoginForm login = new LoginForm();
             login.ShowDialog();
             this.Close();
         }

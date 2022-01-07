@@ -1,4 +1,5 @@
-﻿using NutriCal.Enums;
+﻿using MassTransit.Util;
+using NutriCal.Enums;
 using NutriCal.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,6 @@ namespace NutriCal
         private readonly NutriCalDbContext db;
         private readonly User user;
         List<string> mealNames;
-
         public HistoryForm(NutriCalDbContext db, User user)
         {
             InitializeComponent();
@@ -28,56 +28,57 @@ namespace NutriCal
             {
                 "Breakfast", "Morning Snack","Lunch","Afternoon Snack","Dinner"
             };
-
-            //CreateReportBySelection(); //ilk yaptığım kısım
             DailyCaloriesByMeals();
-            //Gün sonunda kişisel olarak yediğimiz öğünlerde bulunan kaloriyi öğün bazlı ve toplam olarak görmek isteriz.
-
-            ListFoodsByMeals();
-            //Hangi yemeklerin hangi öğünlerde ne kadar yendiğini gösteren bir rapor hazırlansın.
-            //En çok yenen yemekler raporu çıksın.
-            //Sayılarını ekle!
-
-            //ListMeals();
-            //Yediğimiz öğünleri haftalık/aylık bazda tüm kişiler ile öğün bazlı ve yemek kategorisi bazlı kıyaslamasını raporlasın.
-           
         }
-
-
-        //private void ListMeals()
-        //{
-        //Öğünlerin haftalık/aylık kalori ortalaması (kendisi ve tüm kişiler)
-        //Comboboxtan kategori seçip foodları listele
-        //    //Öğünleri haftalık/aylık, öğün ve yemek kategorisi bazlı(TÜM KİŞİLER)
-        //    List<Meal> mealList = new List<Meal>();
-        //    DateTime dt = DateTime.Now;
-
-        //    switch (cmbTimeInt.SelectedIndex)
-        //    {
-        //        case 0: //şuan last 1week, seçilen hafta için haftalık yapılacak?
-        //            dt = dt.AddDays(-7);
-        //            break;
-        //        case 1: //şuan last 1 month, seçilen ay için aylık yapılacak?
-        //            dt = dt.AddMonths(-1);
-        //            break;
-        //    }
-        //    switch (cmbBy.SelectedIndex)
-        //    {
-        //        case 0: //Öğün bazlı
-        //            dgvXXX.DataSource = mealList.OrderByDescending(x => x.MealName);
-        //            break;
-        //        case 1: //yemek kategorisi bazlı
-        //            dgvXXX.DataSource = mealList.OrderByDescending(x => x.CategoryName); //Foods->FoodCategories.CategoryName???
-        //            break;
-        //    }
-        //}
-
-        private void ListFoodsByMeals()
+        private void DailyCaloriesByMeals()
         {
-            //Tüm yemekleri öğünlere göre listeleyeceğiz(TÜM KİŞİLER)
-            //Breakfast harici diğer öğünleri yap!
+            var dt = DateTime.Now.Date;
+            gbDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
+            lblUser.Text = $"{user.UserName} {user.UserSurname}'s Daily Consumption";
+
+            double totalBreakfastCal = 0, totalMorningSnackCal = 0, totalLunchCal = 0, totalAfternoonSnackCal = 0, totalDinnerCal = 0;
+            var userBreakfast = user.Meals.FirstOrDefault(x => x.MealName == "Breakfast" && x.Date.Date == dt);
+            if (userBreakfast != null)
+            {
+                totalBreakfastCal = userBreakfast.Foods.Sum(x => x.FoodCalories);
+                lblBreakfast.Text = $"{totalBreakfastCal} kcal";
+            }
+
+            var userMorningSnack = user.Meals.FirstOrDefault(x => x.MealName == "Morning Snack" && x.Date.Date == dt);
+            if (userMorningSnack != null)
+            {
+                totalMorningSnackCal = userMorningSnack.Foods.Sum(x => x.FoodCalories);
+                lblMorningSnack.Text = $"{totalMorningSnackCal} kcal";
+            }
+
+            var userLunch = user.Meals.FirstOrDefault(x => x.MealName == "Lunch" && x.Date.Date == dt);
+            if (userLunch != null)
+            {
+                totalLunchCal = userLunch.Foods.Sum(x => x.FoodCalories);
+                lblLunch.Text = $"{totalLunchCal} kcal";
+            }
+
+            var userAfternoonSnack = user.Meals.FirstOrDefault(x => x.MealName == "Afternoon Snack" && x.Date.Date == dt);
+            if (userAfternoonSnack != null)
+            {
+                totalAfternoonSnackCal = userAfternoonSnack.Foods.Sum(x => x.FoodCalories);
+                lblAfternoonSnack.Text = $"{totalAfternoonSnackCal} kcal";
+            }
+
+            var userDinner = user.Meals.FirstOrDefault(x => x.MealName == "Dinner" && x.Date.Date == dt);
+            if (userDinner != null)
+            {
+                totalDinnerCal = userDinner.Foods.Sum(x => x.FoodCalories);
+                lblDinner.Text = $"{totalDinnerCal} kcal";
+            }
+
+            double totalCal = totalBreakfastCal + totalMorningSnackCal + totalLunchCal + totalAfternoonSnackCal + totalDinnerCal;
+            lblTotalCalories.Text = $"{totalCal} kcal";
+        }
+        private void cmbMeals_SelectedIndexChanged(object sender, EventArgs e)
+        {
             List<Food> foodList = new List<Food>();
-            string selectedText ="";
+            string selectedText = "";
             switch (cmbByMeal.SelectedIndex)
             {
                 case 0:
@@ -96,113 +97,109 @@ namespace NutriCal
                     selectedText = "Dinner";
                     break;
             }
+
             List<Meal> mealList = db.Meals.Where(x => x.MealName == selectedText).ToList();
             foreach (var meal in mealList)
-            {
                 foreach (var food in meal.Foods)
-                {
                     foodList.Add(food);
-                }
-            }
 
-            dgvFoods.DataSource = foodList.Select(x => new
-            { 
-                x.FoodName,
-                x.FoodCalories
-            }).ToList();
+            var listbyCat = foodList.GroupBy(x => x.FoodName).Select(y => new
+            {
+                Name = y.Key,
+                Count = y.Sum(p => p.Quantity)
+            }).OrderByDescending(z => z.Count).ToList();
+
+            dgvFoods.DataSource = listbyCat;
         }
-
-        private void DailyCaloriesByMeals()
-        {
-            //Boş olduğunda label isimleri görünüyo düzelt
-            var dt = DateTime.Now.Date;
-            gbDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
-            lblUser.Text = $"{user.UserName} {user.UserSurname}'s Daily Consumption";
-
-
-            double totalBreakfastCal = 0, totalMorningSnackCal = 0, totalLunchCal = 0, totalAfternoonSnackCal = 0, totalDinnerCal = 0;
-            var userBreakfast = user.Meals.FirstOrDefault(x => x.MealName == "Breakfast" && x.Date.Date == dt);
-            if (userBreakfast != null)
-            {
-                totalBreakfastCal = userBreakfast.Foods.Sum(x => x.FoodCalories);
-                lblBreakfast.Text = $"{totalBreakfastCal}kcal";
-            }
-
-            var userMorningSnack = user.Meals.FirstOrDefault(x => x.MealName == "Morning Snack" && x.Date.Date == dt);
-            if (userMorningSnack != null)
-            {
-                totalMorningSnackCal = userMorningSnack.Foods.Sum(x => x.FoodCalories);
-                lblMorningSnack.Text = $"{totalMorningSnackCal}kcal";
-            }
-
-            var userLunch = user.Meals.FirstOrDefault(x => x.MealName == "Lunch" && x.Date.Date == dt);
-            if (userLunch != null)
-            {
-                totalLunchCal = userLunch.Foods.Sum(x => x.FoodCalories);
-                lblLunch.Text = $"{totalLunchCal}kcal";
-            }
-
-
-            var userAfternoonSnack = user.Meals.FirstOrDefault(x => x.MealName == "Afternoon Snack" && x.Date.Date == dt);
-            if (userAfternoonSnack != null)
-            {
-                totalAfternoonSnackCal = userAfternoonSnack.Foods.Sum(x => x.FoodCalories);
-                lblAfternoonSnack.Text = $"{totalAfternoonSnackCal}kcal";
-            }
-
-
-            var userDinner = user.Meals.FirstOrDefault(x => x.MealName == "Dinner" && x.Date.Date == dt);
-            if (userDinner != null)
-            {
-                totalDinnerCal = userDinner.Foods.Sum(x => x.FoodCalories);
-                lblDinner.Text = $"{totalDinnerCal}kcal";
-            }
-
-            double totalCal = totalBreakfastCal + totalMorningSnackCal + totalLunchCal + totalAfternoonSnackCal + totalDinnerCal;
-            lblTotalCalories.Text = $"{totalCal}kcal";
-        }
-
-        private void cmbMeals_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListFoodsByMeals();
-        }
-
         private void rbMeal_Click(object sender, EventArgs e)
         {
             FillComboWithMeals();
             cmbByMeal.Enabled = true;
             cmbByCategory.Enabled = false;
         }
-
         private void FillComboWithMeals()
         {
             cmbByMeal.DataSource = mealNames;
         }
-
         private void rbCategory_Click(object sender, EventArgs e)
         {
             FillComboWithCategories();
             cmbByCategory.Enabled = true;
             cmbByMeal.Enabled = false;
         }
-
         private void FillComboWithCategories()
         {
             cmbByCategory.DataSource = db.FoodCategories.ToList();
             cmbByCategory.DisplayMember = "CategoryName";
         }
-
         private void cmbByCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Food> foodList = new List<Food>();
             FoodCategory foodCategory = (FoodCategory)cmbByCategory.SelectedItem;
-            List<Meal> mealList = db.Meals.Where(x => x.MealName == selectedText).ToList();
-            foreach (var meal in mealList)
+            List<Food> foodList = db.Foods.Where(x => x.FoodCategory.CategoryName == foodCategory.CategoryName && x.FoodRole != "0").ToList();
+            List<Food> finalFoods = new List<Food>();
+
+            for (int i = 0; i < foodList.Count; i++)
             {
-                foreach (var food in meal.Foods)
+                if (!finalFoods.Any(x => x.FoodName == foodList[i].FoodName))
                 {
-                    foodList.Add(food);
+                    finalFoods.Add(foodList[i]);
                 }
+            }
+
+            dgvFoods.DataSource = finalFoods.Select(x => new
+            {
+                x.FoodName,
+                x.FoodCalories
+            }).ToList();
+        }
+        private void cmbTimeInt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            switch (cmbTimeInt.SelectedIndex)
+            {
+                case 0:
+                    dt = DateTime.Now.AddDays(-7);
+                    break;
+                case 1:
+                    dt = DateTime.Now.AddMonths(-1);
+                    break;
+                default:
+                    MessageBox.Show("asdasda");
+                    break;
+            }
+            CalculateAveragesForAll("Breakfast", lblTotalBreakfast, dt);
+            CalculateAveragesForAll("Morning Snack", lblTotalMSnack, dt);
+            CalculateAveragesForAll("Lunch", lblTotalLunch, dt);
+            CalculateAveragesForAll("Afternoon Snack", lblTotalASnack, dt);
+            CalculateAveragesForAll("Dinner", lblTotalDinner, dt);
+            CalculateAveragesForUsers("Breakfast", lblUserBreakfast, dt);
+            CalculateAveragesForUsers("Morning Snack", lblUserMSnack, dt);
+            CalculateAveragesForUsers("Lunch", lblUserLunch, dt);
+            CalculateAveragesForUsers("Afternoon Snack", lblUserASnack, dt);
+            CalculateAveragesForUsers("Dinner", lblUserDinner, dt);
+        }
+        private void CalculateAveragesForAll(string mealName, Label label, DateTime dt)
+        {
+            List<Meal> mealList = db.Meals.Where(x => x.MealName == mealName && DbFunctions.TruncateTime(x.Date) > dt.Date).ToList();
+            double totalCal = mealList.Sum(z => z.TotalCalories);
+
+            if (totalCal > 0)
+            {
+                int totalMeal = mealList.Count();
+                double avg = totalCal / totalMeal;
+                label.Text = $"{avg:n2} kcal";
+            }
+        }
+        private void CalculateAveragesForUsers(string mealName, Label label, DateTime dt)
+        {
+            List<Meal> userMealList = user.Meals.Where(x => x.MealName == mealName && x.Date.Date > dt.Date).ToList();
+            double totalCal = userMealList.Sum(z => z.TotalCalories);
+
+            if (totalCal > 0)
+            {
+                int totalMeal = userMealList.Count();
+                double avg = totalCal / totalMeal;
+                label.Text = $"{avg:n2} kcal";
             }
         }
     }

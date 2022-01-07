@@ -32,15 +32,6 @@ namespace NutriCal
 
             Text = $"Welcome {userNameUpper} {user.UserSurname.ToUpper()}";
 
-            AddReportOptions();
-        }
-        private void AddReportOptions()
-        {
-            cmbReport.Items.Add("Case 0");
-            cmbReport.Items.Add("Case 1");
-            cmbReport.Items.Add("Case 2");
-            cmbReport.Items.Add("Case 3");
-            cmbReport.SelectedIndex = -1;
         }
 
         #region DataGridViewArea
@@ -286,15 +277,5 @@ namespace NutriCal
             historyForm.ShowDialog();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            //if (cmbReport.SelectedIndex == -1)
-            //{
-            //    MessageBox.Show("Please choose one of these.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //HistoryForm historyForm = new HistoryForm(db, cmbReport.SelectedIndex, user);
-            //historyForm.ShowDialog();
-        }
     }
 }

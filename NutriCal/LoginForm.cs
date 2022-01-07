@@ -11,21 +11,20 @@ using System.Windows.Forms;
 
 namespace NutriCal
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
         NutriCalDbContext db = new NutriCalDbContext();
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
         }
         private void LnkLblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Register register = new Register(db);
+            RegisterForm register = new RegisterForm(db);
             register.Show();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //TODO: Enter tuşuyla giriş.
             UserLogin loggedIn = db.UserLogins.FirstOrDefault(x => x.Email == txtEmail.Text && x.Password == txtPassword.Text);
 
             if (loggedIn == null)
