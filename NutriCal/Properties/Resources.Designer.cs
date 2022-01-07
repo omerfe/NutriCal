@@ -303,6 +303,16 @@ namespace NutriCal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reports {
+            get {
+                object obj = ResourceManager.GetObject("reports", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Soda_Splash_G03_watermarked_2k {
             get {
                 object obj = ResourceManager.GetObject("Soda_Splash_G03_watermarked_2k", resourceCulture);

@@ -68,10 +68,8 @@ namespace NutriCal
 
         private void btnAddExercise_Click(object sender, EventArgs e)
         {
-            //TODO: Gerekli tokatlamaları yap
+           
             bool isAddAsNewChecked = chbAddAsNew.Checked;
-
-
             if (exercise != null || isAddAsNewChecked)
             {
                 string exerciseName = (exercise == null) ? txtCustomExerciseName.Text : lblExerciseName.Text;
@@ -97,7 +95,6 @@ namespace NutriCal
                 userExercise.Exercise.Duration = (int)nmuDuration.Value;
                 userExercise.Exercise.ExerciseName = txtCustomExerciseName.Text;
                 MessageBox.Show($"{userExercise.Exercise.ExerciseName} updated successfull!");
-                //db.UserExercises = userExercise;
             }
             db.SaveChanges();
             Close();
