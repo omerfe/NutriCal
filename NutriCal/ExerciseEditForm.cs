@@ -68,7 +68,7 @@ namespace NutriCal
 
         private void btnAddExercise_Click(object sender, EventArgs e)
         {
-           
+            //TODO: BOŞ GEÇİYO
             bool isAddAsNewChecked = chbAddAsNew.Checked;
             if (exercise != null || isAddAsNewChecked)
             {

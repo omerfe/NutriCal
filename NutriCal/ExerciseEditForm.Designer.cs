@@ -46,19 +46,20 @@ namespace NutriCal
             // 
             // txtCustomExerciseName
             // 
-            this.txtCustomExerciseName.Location = new System.Drawing.Point(22, 17);
-            this.txtCustomExerciseName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCustomExerciseName.Location = new System.Drawing.Point(18, 15);
+            this.txtCustomExerciseName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCustomExerciseName.Name = "txtCustomExerciseName";
-            this.txtCustomExerciseName.Size = new System.Drawing.Size(253, 29);
+            this.txtCustomExerciseName.Size = new System.Drawing.Size(208, 29);
             this.txtCustomExerciseName.TabIndex = 18;
             this.txtCustomExerciseName.TextChanged += new System.EventHandler(this.txtCustomExerciseName_TextChanged);
             // 
             // btnAddExercise
             // 
-            this.btnAddExercise.Location = new System.Drawing.Point(26, 260);
-            this.btnAddExercise.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAddExercise.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAddExercise.Location = new System.Drawing.Point(18, 185);
+            this.btnAddExercise.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnAddExercise.Name = "btnAddExercise";
-            this.btnAddExercise.Size = new System.Drawing.Size(672, 57);
+            this.btnAddExercise.Size = new System.Drawing.Size(550, 50);
             this.btnAddExercise.TabIndex = 17;
             this.btnAddExercise.Text = "Add";
             this.btnAddExercise.UseVisualStyleBackColor = true;
@@ -67,23 +68,26 @@ namespace NutriCal
             // lblExerciseName
             // 
             this.lblExerciseName.AutoSize = true;
-            this.lblExerciseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblExerciseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblExerciseName.Location = new System.Drawing.Point(309, 18);
-            this.lblExerciseName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblExerciseName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblExerciseName.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblExerciseName.Location = new System.Drawing.Point(253, 16);
+            this.lblExerciseName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblExerciseName.Name = "lblExerciseName";
-            this.lblExerciseName.Size = new System.Drawing.Size(99, 29);
+            this.lblExerciseName.Size = new System.Drawing.Size(99, 32);
             this.lblExerciseName.TabIndex = 16;
             this.lblExerciseName.Text = "Walking";
             // 
             // btnHideExerciseDetails
             // 
             this.btnHideExerciseDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHideExerciseDetails.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnHideExerciseDetails.FlatAppearance.BorderSize = 0;
             this.btnHideExerciseDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHideExerciseDetails.Location = new System.Drawing.Point(626, 5);
-            this.btnHideExerciseDetails.Margin = new System.Windows.Forms.Padding(6);
+            this.btnHideExerciseDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHideExerciseDetails.Location = new System.Drawing.Point(533, -4);
+            this.btnHideExerciseDetails.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnHideExerciseDetails.Name = "btnHideExerciseDetails";
-            this.btnHideExerciseDetails.Size = new System.Drawing.Size(72, 55);
+            this.btnHideExerciseDetails.Size = new System.Drawing.Size(59, 48);
             this.btnHideExerciseDetails.TabIndex = 15;
             this.btnHideExerciseDetails.Text = "X";
             this.btnHideExerciseDetails.UseVisualStyleBackColor = true;
@@ -91,34 +95,36 @@ namespace NutriCal
             // 
             // nmuDuration
             // 
-            this.nmuDuration.Location = new System.Drawing.Point(531, 125);
-            this.nmuDuration.Margin = new System.Windows.Forms.Padding(6);
+            this.nmuDuration.Location = new System.Drawing.Point(434, 109);
+            this.nmuDuration.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.nmuDuration.Maximum = new decimal(new int[] {
             240,
             0,
             0,
             0});
             this.nmuDuration.Name = "nmuDuration";
-            this.nmuDuration.Size = new System.Drawing.Size(114, 29);
+            this.nmuDuration.Size = new System.Drawing.Size(93, 29);
             this.nmuDuration.TabIndex = 14;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(646, 126);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(529, 110);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 24);
+            this.label3.Size = new System.Drawing.Size(40, 21);
             this.label3.TabIndex = 12;
             this.label3.Text = "min";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(451, 127);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(359, 111);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 24);
+            this.label4.Size = new System.Drawing.Size(78, 21);
             this.label4.TabIndex = 13;
             this.label4.Text = "Duration";
             // 
@@ -130,43 +136,47 @@ namespace NutriCal
             0,
             0,
             65536});
-            this.nmuBurnedCalorie.Location = new System.Drawing.Point(161, 122);
-            this.nmuBurnedCalorie.Margin = new System.Windows.Forms.Padding(6);
+            this.nmuBurnedCalorie.Location = new System.Drawing.Point(142, 107);
+            this.nmuBurnedCalorie.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.nmuBurnedCalorie.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.nmuBurnedCalorie.Name = "nmuBurnedCalorie";
-            this.nmuBurnedCalorie.Size = new System.Drawing.Size(114, 29);
+            this.nmuBurnedCalorie.Size = new System.Drawing.Size(93, 29);
             this.nmuBurnedCalorie.TabIndex = 11;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(276, 124);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(233, 110);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 24);
+            this.label2.Size = new System.Drawing.Size(41, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "kcal";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 126);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(18, 110);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 24);
+            this.label1.Size = new System.Drawing.Size(122, 21);
             this.label1.TabIndex = 10;
             this.label1.Text = "Burned Energy";
             // 
             // chbAddAsNew
             // 
             this.chbAddAsNew.AutoSize = true;
-            this.chbAddAsNew.Location = new System.Drawing.Point(26, 65);
+            this.chbAddAsNew.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chbAddAsNew.Location = new System.Drawing.Point(21, 57);
+            this.chbAddAsNew.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chbAddAsNew.Name = "chbAddAsNew";
-            this.chbAddAsNew.Size = new System.Drawing.Size(206, 28);
+            this.chbAddAsNew.Size = new System.Drawing.Size(182, 25);
             this.chbAddAsNew.TabIndex = 19;
             this.chbAddAsNew.Text = "Add as new exercise";
             this.chbAddAsNew.UseVisualStyleBackColor = true;
@@ -174,10 +184,10 @@ namespace NutriCal
             // 
             // ExerciseEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(742, 349);
+            this.ClientSize = new System.Drawing.Size(582, 252);
             this.Controls.Add(this.chbAddAsNew);
             this.Controls.Add(this.txtCustomExerciseName);
             this.Controls.Add(this.btnAddExercise);
@@ -189,9 +199,9 @@ namespace NutriCal
             this.Controls.Add(this.nmuBurnedCalorie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ExerciseEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ExerciseEditForm";

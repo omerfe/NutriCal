@@ -1,13 +1,9 @@
 ﻿using NutriCal.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NutriCal
@@ -28,6 +24,7 @@ namespace NutriCal
             InitializeComponent();
             CreateExerciseList();
             GetTheMostRecentExercises();
+            tcExercises.SelectedIndex = 1;
         }
 
         private void GetTheMostRecentExercises()

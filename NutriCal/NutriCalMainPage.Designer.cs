@@ -38,7 +38,6 @@ namespace NutriCal
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.lblCalorieCalc = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -146,19 +145,6 @@ namespace NutriCal
             this.pictureBox8.TabIndex = 8;
             this.pictureBox8.TabStop = false;
             // 
-            // lblCalorieCalc
-            // 
-            this.lblCalorieCalc.AutoSize = true;
-            this.lblCalorieCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalorieCalc.ForeColor = System.Drawing.Color.Tan;
-            this.lblCalorieCalc.Location = new System.Drawing.Point(59, 486);
-            this.lblCalorieCalc.Name = "lblCalorieCalc";
-            this.lblCalorieCalc.Size = new System.Drawing.Size(272, 37);
-            this.lblCalorieCalc.TabIndex = 9;
-            this.lblCalorieCalc.Text = "Calorie Calculator";
-            this.lblCalorieCalc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCalorieCalc.Visible = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -171,8 +157,7 @@ namespace NutriCal
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::NutriCal.Properties.Resources.Gold_Splash_G03_watermarked_2k__1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(464, 535);
-            this.Controls.Add(this.lblCalorieCalc);
+            this.ClientSize = new System.Drawing.Size(464, 531);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -195,7 +180,6 @@ namespace NutriCal
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -208,7 +192,6 @@ namespace NutriCal
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label lblCalorieCalc;
         private System.Windows.Forms.Timer timer1;
     }
 }

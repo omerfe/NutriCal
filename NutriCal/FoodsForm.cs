@@ -32,8 +32,8 @@ namespace NutriCal
 
         private void GetMealProps()
         {
-            Text = meal.MealName;
-            lblMealName.Text = meal.MealName;
+            Text = DateTime.Now.ToString("dd.MM.yyyy");
+            groupBox1.Text = meal.MealName;
             pboSelectedMeal.Image = mealPicture;
         }
         private void UpdateFoods()
@@ -77,8 +77,7 @@ namespace NutriCal
         private void cboFoods_SelectedIndexChanged(object sender, EventArgs e)
         {
             Food selectedFood = cboFoods.SelectedItem as Food;
-            lblPorsion.Text = $"Porsion\n({selectedFood.Porsion})";
-            lblFood.Text = selectedFood.FoodName;
+            lblPorsion.Text = $"Porsion ({selectedFood.Porsion})";
             pboFood.Load(selectedFood.FoodImage);
         }
         private void btnAdd_Click(object sender, EventArgs e)

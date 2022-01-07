@@ -39,15 +39,10 @@ namespace NutriCal
             dgvSummary.Columns[1].Width = (int)(dgvSummary.Width * 0.23);
             dgvSummary.Columns[2].Width = (int)(dgvSummary.Width * 0.1);
             dgvSummary.Columns[3].Width = (int)(dgvSummary.Width * 0.14);
-            dgvSummary.Columns[4].Width = (int)(dgvSummary.Width * 0.1);
+            dgvSummary.Columns[4].Width = (int)(dgvSummary.Width * 0.2);
             dgvSummary.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvSummary.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-        private void dgvSummary_SizeChanged(object sender, EventArgs e)
-        {
-            SetWidthDataGrid();
-        }
-
         #endregion
 
         #region Food Area
@@ -201,6 +196,7 @@ namespace NutriCal
         }
         private void btnGetEnergyHistory_Click(object sender, EventArgs e)
         {
+            //TODO: history olunca budget düzenlenecek
             if (cmbCalorieBurnType.SelectedIndex == -1)
             {
                 MessageBox.Show("Please choose energy type and time difference.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -275,6 +271,5 @@ namespace NutriCal
             GetExercisesByChoosenTime(mcDate.SelectionRange.Start);
             GetFoodsByChoosenTime(mcDate.SelectionRange.Start);
         }
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
     }
 }

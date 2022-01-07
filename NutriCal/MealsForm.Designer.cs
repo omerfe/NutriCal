@@ -49,104 +49,86 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(118, 27);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(130, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 29);
+            this.label1.Size = new System.Drawing.Size(74, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "MEALS";
             // 
             // pboBreakfast
             // 
-            this.pboBreakfast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pboBreakfast.Image = global::NutriCal.Properties.Resources.breakfast;
-            this.pboBreakfast.Location = new System.Drawing.Point(170, 98);
+            this.pboBreakfast.Location = new System.Drawing.Point(174, 75);
+            this.pboBreakfast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pboBreakfast.Name = "pboBreakfast";
-            this.pboBreakfast.Size = new System.Drawing.Size(140, 108);
+            this.pboBreakfast.Size = new System.Drawing.Size(100, 100);
             this.pboBreakfast.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboBreakfast.TabIndex = 6;
             this.pboBreakfast.TabStop = false;
             // 
             // pboMorningSnack
             // 
-            this.pboMorningSnack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pboMorningSnack.Image = global::NutriCal.Properties.Resources.morningsnack;
-            this.pboMorningSnack.Location = new System.Drawing.Point(170, 235);
+            this.pboMorningSnack.Location = new System.Drawing.Point(174, 209);
+            this.pboMorningSnack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pboMorningSnack.Name = "pboMorningSnack";
-            this.pboMorningSnack.Size = new System.Drawing.Size(140, 108);
+            this.pboMorningSnack.Size = new System.Drawing.Size(100, 100);
             this.pboMorningSnack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboMorningSnack.TabIndex = 7;
             this.pboMorningSnack.TabStop = false;
             // 
             // pboLunch
             // 
-            this.pboLunch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pboLunch.Image = global::NutriCal.Properties.Resources.lunch;
-            this.pboLunch.Location = new System.Drawing.Point(171, 370);
+            this.pboLunch.Location = new System.Drawing.Point(174, 351);
+            this.pboLunch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pboLunch.Name = "pboLunch";
-            this.pboLunch.Size = new System.Drawing.Size(140, 108);
+            this.pboLunch.Size = new System.Drawing.Size(100, 100);
             this.pboLunch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboLunch.TabIndex = 8;
             this.pboLunch.TabStop = false;
             // 
             // pboAfternoonSnack
             // 
-            this.pboAfternoonSnack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pboAfternoonSnack.Image = global::NutriCal.Properties.Resources.afternoonsnack;
-            this.pboAfternoonSnack.Location = new System.Drawing.Point(170, 503);
+            this.pboAfternoonSnack.Location = new System.Drawing.Point(174, 506);
+            this.pboAfternoonSnack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pboAfternoonSnack.Name = "pboAfternoonSnack";
-            this.pboAfternoonSnack.Size = new System.Drawing.Size(140, 108);
+            this.pboAfternoonSnack.Size = new System.Drawing.Size(100, 100);
             this.pboAfternoonSnack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboAfternoonSnack.TabIndex = 9;
             this.pboAfternoonSnack.TabStop = false;
             // 
             // pboDinner
             // 
-            this.pboDinner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pboDinner.Image = global::NutriCal.Properties.Resources.dinner;
-            this.pboDinner.Location = new System.Drawing.Point(170, 639);
+            this.pboDinner.Location = new System.Drawing.Point(174, 656);
+            this.pboDinner.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pboDinner.Name = "pboDinner";
-            this.pboDinner.Size = new System.Drawing.Size(140, 108);
+            this.pboDinner.Size = new System.Drawing.Size(100, 100);
             this.pboDinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboDinner.TabIndex = 10;
             this.pboDinner.TabStop = false;
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(44, 55);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(23, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(232, 24);
+            this.label7.Size = new System.Drawing.Size(308, 25);
             this.label7.TabIndex = 1;
             this.label7.Text = "-------------------------------------";
             // 
             // btnMorningSnack
             // 
-            this.btnMorningSnack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMorningSnack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnMorningSnack.Location = new System.Drawing.Point(25, 262);
+            this.btnMorningSnack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMorningSnack.Location = new System.Drawing.Point(51, 226);
+            this.btnMorningSnack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMorningSnack.Name = "btnMorningSnack";
-            this.btnMorningSnack.Size = new System.Drawing.Size(100, 53);
+            this.btnMorningSnack.Size = new System.Drawing.Size(97, 60);
             this.btnMorningSnack.TabIndex = 3;
             this.btnMorningSnack.Text = "Morning Snack";
             this.btnMorningSnack.UseVisualStyleBackColor = true;
@@ -154,13 +136,11 @@
             // 
             // btnAfternoonSnack
             // 
-            this.btnAfternoonSnack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAfternoonSnack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAfternoonSnack.Location = new System.Drawing.Point(25, 534);
+            this.btnAfternoonSnack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAfternoonSnack.Location = new System.Drawing.Point(51, 529);
+            this.btnAfternoonSnack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAfternoonSnack.Name = "btnAfternoonSnack";
-            this.btnAfternoonSnack.Size = new System.Drawing.Size(100, 53);
+            this.btnAfternoonSnack.Size = new System.Drawing.Size(97, 60);
             this.btnAfternoonSnack.TabIndex = 5;
             this.btnAfternoonSnack.Text = "Afternoon Snack";
             this.btnAfternoonSnack.UseVisualStyleBackColor = true;
@@ -168,13 +148,11 @@
             // 
             // btnBreakfast
             // 
-            this.btnBreakfast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBreakfast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBreakfast.Location = new System.Drawing.Point(25, 125);
+            this.btnBreakfast.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBreakfast.Location = new System.Drawing.Point(51, 88);
+            this.btnBreakfast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBreakfast.Name = "btnBreakfast";
-            this.btnBreakfast.Size = new System.Drawing.Size(100, 53);
+            this.btnBreakfast.Size = new System.Drawing.Size(97, 60);
             this.btnBreakfast.TabIndex = 2;
             this.btnBreakfast.Text = "Breakfast";
             this.btnBreakfast.UseVisualStyleBackColor = true;
@@ -182,13 +160,11 @@
             // 
             // btnLunch
             // 
-            this.btnLunch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLunch.Location = new System.Drawing.Point(25, 401);
+            this.btnLunch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLunch.Location = new System.Drawing.Point(51, 373);
+            this.btnLunch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLunch.Name = "btnLunch";
-            this.btnLunch.Size = new System.Drawing.Size(100, 53);
+            this.btnLunch.Size = new System.Drawing.Size(97, 60);
             this.btnLunch.TabIndex = 4;
             this.btnLunch.Text = "Lunch";
             this.btnLunch.UseVisualStyleBackColor = true;
@@ -196,13 +172,11 @@
             // 
             // btnDinner
             // 
-            this.btnDinner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDinner.Location = new System.Drawing.Point(25, 667);
+            this.btnDinner.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDinner.Location = new System.Drawing.Point(51, 673);
+            this.btnDinner.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDinner.Name = "btnDinner";
-            this.btnDinner.Size = new System.Drawing.Size(100, 53);
+            this.btnDinner.Size = new System.Drawing.Size(97, 60);
             this.btnDinner.TabIndex = 6;
             this.btnDinner.Text = "Dinner";
             this.btnDinner.UseVisualStyleBackColor = true;
@@ -210,9 +184,9 @@
             // 
             // MealsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 767);
+            this.ClientSize = new System.Drawing.Size(348, 793);
             this.Controls.Add(this.btnDinner);
             this.Controls.Add(this.btnLunch);
             this.Controls.Add(this.btnBreakfast);
@@ -225,8 +199,9 @@
             this.Controls.Add(this.pboMorningSnack);
             this.Controls.Add(this.pboBreakfast);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "MealsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Meals";

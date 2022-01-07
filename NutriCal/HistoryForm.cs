@@ -1,15 +1,9 @@
-﻿using MassTransit.Util;
-using NutriCal.Enums;
-using NutriCal.Models;
+﻿using NutriCal.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NutriCal
@@ -134,7 +128,6 @@ namespace NutriCal
         }
         private void cmbByCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             FoodCategory foodCategory = (FoodCategory)cmbByCategory.SelectedItem;
             List<Food> foodList = db.Foods.Where(x => x.FoodCategory.CategoryName == foodCategory.CategoryName && x.FoodRole != "0").ToList();
             List<Food> finalFoods = new List<Food>();
@@ -202,9 +195,6 @@ namespace NutriCal
                 double avg = totalCal / totalMeal;
                 label.Text = $"{avg:n2} kcal";
             }
-=======
-            
->>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
         }
     }
 }

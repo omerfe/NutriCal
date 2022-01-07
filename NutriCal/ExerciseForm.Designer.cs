@@ -46,6 +46,7 @@ namespace NutriCal
             this.cmsRecentExercises = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateExerciseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.tcExercises.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostRecents)).BeginInit();
@@ -57,10 +58,11 @@ namespace NutriCal
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(15, 14);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(6);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSearch.Location = new System.Drawing.Point(79, 12);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(700, 29);
+            this.txtSearch.Size = new System.Drawing.Size(1279, 29);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -95,19 +97,22 @@ namespace NutriCal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcExercises.Controls.Add(this.tabPage1);
             this.tcExercises.Controls.Add(this.tabPage2);
-            this.tcExercises.Location = new System.Drawing.Point(15, 93);
+            this.tcExercises.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tcExercises.Location = new System.Drawing.Point(12, 80);
+            this.tcExercises.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tcExercises.Name = "tcExercises";
             this.tcExercises.SelectedIndex = 0;
-            this.tcExercises.Size = new System.Drawing.Size(704, 509);
+            this.tcExercises.Size = new System.Drawing.Size(1349, 575);
             this.tcExercises.TabIndex = 3;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dgvMostRecents);
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(696, 472);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1341, 541);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Most Recent";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -118,12 +123,13 @@ namespace NutriCal
             this.dgvMostRecents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMostRecents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMostRecents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMostRecents.Location = new System.Drawing.Point(3, 3);
+            this.dgvMostRecents.Location = new System.Drawing.Point(2, 3);
+            this.dgvMostRecents.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvMostRecents.MultiSelect = false;
             this.dgvMostRecents.Name = "dgvMostRecents";
             this.dgvMostRecents.RowHeadersVisible = false;
             this.dgvMostRecents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMostRecents.Size = new System.Drawing.Size(690, 466);
+            this.dgvMostRecents.Size = new System.Drawing.Size(1337, 535);
             this.dgvMostRecents.TabIndex = 0;
             this.dgvMostRecents.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvMostRecents_MouseClick);
             // 
@@ -131,9 +137,10 @@ namespace NutriCal
             // 
             this.tabPage2.Controls.Add(this.lsvExercises);
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(696, 472);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage2.Size = new System.Drawing.Size(1092, 454);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Browse All";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -144,9 +151,10 @@ namespace NutriCal
             this.lsvExercises.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvExercises.HideSelection = false;
             this.lsvExercises.LargeImageList = this.imgExercises;
-            this.lsvExercises.Location = new System.Drawing.Point(3, 3);
+            this.lsvExercises.Location = new System.Drawing.Point(2, 3);
+            this.lsvExercises.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lsvExercises.Name = "lsvExercises";
-            this.lsvExercises.Size = new System.Drawing.Size(690, 466);
+            this.lsvExercises.Size = new System.Drawing.Size(1088, 448);
             this.lsvExercises.TabIndex = 2;
             this.lsvExercises.UseCompatibleStateImageBehavior = false;
             this.lsvExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvExercises_MouseDoubleClick);
@@ -154,13 +162,14 @@ namespace NutriCal
             // btnAddCustomExercise
             // 
             this.btnAddCustomExercise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddCustomExercise.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAddCustomExercise.BackColor = System.Drawing.SystemColors.Control;
             this.btnAddCustomExercise.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCustomExercise.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAddCustomExercise.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAddCustomExercise.Location = new System.Drawing.Point(511, 53);
+            this.btnAddCustomExercise.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAddCustomExercise.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAddCustomExercise.Location = new System.Drawing.Point(1175, 46);
+            this.btnAddCustomExercise.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAddCustomExercise.Name = "btnAddCustomExercise";
-            this.btnAddCustomExercise.Size = new System.Drawing.Size(200, 32);
+            this.btnAddCustomExercise.Size = new System.Drawing.Size(180, 35);
             this.btnAddCustomExercise.TabIndex = 3;
             this.btnAddCustomExercise.Text = "Add Custom Exercise";
             this.btnAddCustomExercise.UseVisualStyleBackColor = false;
@@ -190,16 +199,28 @@ namespace NutriCal
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Search";
+            // 
             // ExerciseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 626);
+            this.ClientSize = new System.Drawing.Size(1370, 676);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.tcExercises);
             this.Controls.Add(this.btnAddCustomExercise);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ExerciseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EXERCISES";
@@ -226,5 +247,6 @@ namespace NutriCal
         private System.Windows.Forms.ContextMenuStrip cmsRecentExercises;
         private System.Windows.Forms.ToolStripMenuItem updateExerciseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }

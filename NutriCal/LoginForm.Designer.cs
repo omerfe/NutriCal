@@ -41,9 +41,11 @@ namespace NutriCal
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(159, 296);
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogin.Location = new System.Drawing.Point(260, 469);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(112, 37);
             this.btnLogin.TabIndex = 12;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -52,9 +54,10 @@ namespace NutriCal
             // LnkLblRegister
             // 
             this.LnkLblRegister.AutoSize = true;
-            this.LnkLblRegister.Location = new System.Drawing.Point(5, 334);
+            this.LnkLblRegister.Location = new System.Drawing.Point(93, 477);
+            this.LnkLblRegister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LnkLblRegister.Name = "LnkLblRegister";
-            this.LnkLblRegister.Size = new System.Drawing.Size(46, 13);
+            this.LnkLblRegister.Size = new System.Drawing.Size(67, 21);
             this.LnkLblRegister.TabIndex = 11;
             this.LnkLblRegister.TabStop = true;
             this.LnkLblRegister.Text = "Register";
@@ -62,36 +65,42 @@ namespace NutriCal
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(134, 258);
+            this.txtPassword.Location = new System.Drawing.Point(196, 384);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.Size = new System.Drawing.Size(176, 29);
             this.txtPassword.TabIndex = 10;
-            this.txtPassword.Text = "Aa1234**";
+            this.txtPassword.Text = "12345A++a";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(134, 216);
+            this.txtEmail.Location = new System.Drawing.Point(196, 331);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(176, 29);
             this.txtEmail.TabIndex = 9;
             this.txtEmail.Text = "sa@gmail.com";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 261);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(93, 387);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(86, 21);
             this.label2.TabIndex = 8;
             this.label2.Text = "Password:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 219);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(93, 334);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(57, 21);
             this.label1.TabIndex = 7;
             this.label1.Text = "Email:";
             // 
@@ -100,18 +109,19 @@ namespace NutriCal
             this.pbLogin.BackgroundImage = global::NutriCal.Properties.Resources.GoldU;
             this.pbLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLogin.Image = global::NutriCal.Properties.Resources.GoldSign;
-            this.pbLogin.Location = new System.Drawing.Point(52, 33);
+            this.pbLogin.Location = new System.Drawing.Point(97, 31);
+            this.pbLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbLogin.Name = "pbLogin";
-            this.pbLogin.Size = new System.Drawing.Size(182, 161);
+            this.pbLogin.Size = new System.Drawing.Size(273, 260);
             this.pbLogin.TabIndex = 13;
             this.pbLogin.TabStop = false;
             // 
-            // Login
+            // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 357);
+            this.ClientSize = new System.Drawing.Size(464, 531);
             this.Controls.Add(this.pbLogin);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.LnkLblRegister);
@@ -119,9 +129,12 @@ namespace NutriCal
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Login";
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Login";
+            this.Text = "Nutrical Login";
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
