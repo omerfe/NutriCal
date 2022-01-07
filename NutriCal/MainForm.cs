@@ -29,9 +29,9 @@ namespace NutriCal
             GetExercisesByChoosenTime(DateTime.Now);
             SortHiddenTimesOnDataGrid();
             string userNameUpper = user.UserName.Substring(0, 1).ToUpper() + user.UserName.Substring(1);
-
+            GetBothFoodExerciseOfToday();
             Text = $"Welcome {userNameUpper} {user.UserSurname.ToUpper()}";
-
+            
             AddReportOptions();
         }
         private void AddReportOptions()

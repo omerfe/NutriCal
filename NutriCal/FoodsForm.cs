@@ -28,7 +28,6 @@ namespace NutriCal
             GetMealProps();
             CreateFoodCategoryList();
             UpdateFoods();
-
         }
 
         private void GetMealProps()
@@ -39,15 +38,15 @@ namespace NutriCal
         }
         private void UpdateFoods()
         {
-            if (meal.Foods.Count > 0)
+            // database ilk çalıştırıldığında exception verebilir
+            if (meal.Foods.Count >= 0)
             {
                 dgvFood.DataSource = meal.Foods.Select(x => new
                 {
                     Name = x.FoodName,
-                    Porsion = $"{nudPorsion.Value} {x.Porsion}(s)",
+                    Porsion = $"{x.Quantity} {x.Porsion}(s)",
                     Category = x.FoodCategory.CategoryName,
-                    Calories = $"{x.FoodCalories * (double)nudPorsion.Value}kcal"
-
+                    Calories = $"{x.FoodCalories * x.Quantity}kcal"
                 }).ToList();
             }
         }
@@ -62,19 +61,17 @@ namespace NutriCal
             FoodCategory selectedCategory = cboFoodCategories.SelectedItem as FoodCategory;
             cboFoods.DisplayMember = "FoodName";
 
-            //TODO: düzelt
             List<Food> foods = db.Foods.Where(x => x.FoodCategoryId == selectedCategory.FoodCategoryId && (x.FoodRole == "0" || x.FoodRole == user.UserId.ToString())).ToList();
             List<Food> finalFoods = new List<Food>();
+
             for (int i = 0; i < foods.Count; i++)
             {
-                for (int j = i + 1; j < foods.Count + 1; j++)
+                if (!finalFoods.Any(x => x.FoodName == foods[i].FoodName))
                 {
-                    if (!finalFoods.Any(x=>x.FoodName == foods[i].FoodName))
-                    {
-                        finalFoods.Add(foods[i]);
-                    }
+                    finalFoods.Add(foods[i]);
                 }
             }
+
             cboFoods.DataSource = finalFoods;
         }
         private void cboFoods_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,6 +87,7 @@ namespace NutriCal
             Food food = new Food()
             {
                 FoodName = selectedFood.FoodName,
+                FoodImage = selectedFood.FoodImage,
                 FoodCategory = selectedFood.FoodCategory,
                 Porsion = selectedFood.Porsion,
                 FoodRole = user.UserId.ToString(),
@@ -98,7 +96,7 @@ namespace NutriCal
             };
             meal.Foods.Add(food);
             meal.TotalCalories += food.FoodCalories;
-            MessageBox.Show("Test");
+
             db.SaveChanges();
             UpdateFoods();
         }
@@ -107,10 +105,34 @@ namespace NutriCal
             new FoodEditForm(new FoodCategory(), new Food(), db, user, meal).ShowDialog();
             UpdateFoods();
         }
-        private void btnSaveMeal_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Your meal has been saved!");
-            Close();
+            if (dgvFood.SelectedRows.Count > 0)
+            {
+                string selectedFoodName = dgvFood.SelectedRows[0].Cells[0].Value.ToString();
+                Food selectedFood = meal.Foods.FirstOrDefault(x => x.FoodName == selectedFoodName);
+                DialogResult dr = MessageBox.Show($"Are you sure you wanted to delete {selectedFoodName}?", "Warning!", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                    meal.Foods.Remove(selectedFood);
+                meal.TotalCalories -= selectedFood.FoodCalories;
+                db.SaveChanges();
+            }
+            UpdateFoods();
+        }
+        private void FoodsForm_Load(object sender, EventArgs e)
+        {
+            dgvFood.ClearSelection();
+        }
+        private void btnUpdateFood_Click(object sender, EventArgs e)
+        {
+            if (dgvFood.SelectedRows.Count > 0)
+            {
+                string selectedFoodName = dgvFood.SelectedRows[0].Cells[0].Value.ToString();
+                Food selectedFood = meal.Foods.FirstOrDefault(x => x.FoodName == selectedFoodName);
+                new FoodEditForm(selectedFood.FoodCategory, selectedFood, db, user, meal).ShowDialog();
+            }
+            db.SaveChanges();
+            UpdateFoods();
         }
     }
 }

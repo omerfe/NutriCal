@@ -194,16 +194,7 @@ namespace NutriCal
 
         private void cmbByCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Food> foodList = new List<Food>();
-            FoodCategory foodCategory = (FoodCategory)cmbByCategory.SelectedItem;
-            List<Meal> mealList = db.Meals.Where(x => x.MealName == selectedText).ToList();
-            foreach (var meal in mealList)
-            {
-                foreach (var food in meal.Foods)
-                {
-                    foodList.Add(food);
-                }
-            }
+            
         }
     }
 }
