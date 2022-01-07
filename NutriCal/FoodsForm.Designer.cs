@@ -33,13 +33,14 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.pboSelectedMeal = new System.Windows.Forms.PictureBox();
             this.cboFoodCategories = new System.Windows.Forms.ComboBox();
-            this.btnSaveMeal = new System.Windows.Forms.Button();
+            this.btnUpdateFood = new System.Windows.Forms.Button();
             this.nudPorsion = new System.Windows.Forms.NumericUpDown();
             this.lblPorsion = new System.Windows.Forms.Label();
             this.dgvFood = new System.Windows.Forms.DataGridView();
             this.btnAddCustom = new System.Windows.Forms.Button();
             this.lblFood = new System.Windows.Forms.Label();
             this.pboFood = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboSelectedMeal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPorsion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
@@ -48,15 +49,14 @@
             // 
             // lblMealName
             // 
-            this.lblMealName.AutoSize = true;
-            this.lblMealName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.lblMealName.Location = new System.Drawing.Point(515, 18);
+            this.lblMealName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblMealName.Location = new System.Drawing.Point(508, 18);
             this.lblMealName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblMealName.Name = "lblMealName";
-            this.lblMealName.Size = new System.Drawing.Size(139, 29);
+            this.lblMealName.Size = new System.Drawing.Size(203, 29);
             this.lblMealName.TabIndex = 0;
-            this.lblMealName.Text = "MealName";
-            this.lblMealName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMealName.Text = "Afternoon Snack";
+            this.lblMealName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // cboFoods
             // 
@@ -74,7 +74,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAdd.Location = new System.Drawing.Point(480, 195);
+            this.btnAdd.Location = new System.Drawing.Point(446, 195);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(79, 82);
@@ -85,7 +85,7 @@
             // 
             // pboSelectedMeal
             // 
-            this.pboSelectedMeal.Location = new System.Drawing.Point(502, 61);
+            this.pboSelectedMeal.Location = new System.Drawing.Point(577, 50);
             this.pboSelectedMeal.Name = "pboSelectedMeal";
             this.pboSelectedMeal.Size = new System.Drawing.Size(152, 104);
             this.pboSelectedMeal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -105,22 +105,22 @@
             this.cboFoodCategories.TabIndex = 1;
             this.cboFoodCategories.SelectedIndexChanged += new System.EventHandler(this.cboFoodCategories_SelectedIndexChanged);
             // 
-            // btnSaveMeal
+            // btnUpdateFood
             // 
-            this.btnSaveMeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSaveMeal.Location = new System.Drawing.Point(556, 653);
-            this.btnSaveMeal.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btnSaveMeal.Name = "btnSaveMeal";
-            this.btnSaveMeal.Size = new System.Drawing.Size(98, 43);
-            this.btnSaveMeal.TabIndex = 8;
-            this.btnSaveMeal.Text = "Save Meal";
-            this.btnSaveMeal.UseVisualStyleBackColor = true;
-            this.btnSaveMeal.Click += new System.EventHandler(this.btnSaveMeal_Click);
+            this.btnUpdateFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUpdateFood.Location = new System.Drawing.Point(613, 653);
+            this.btnUpdateFood.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnUpdateFood.Name = "btnUpdateFood";
+            this.btnUpdateFood.Size = new System.Drawing.Size(98, 43);
+            this.btnUpdateFood.TabIndex = 8;
+            this.btnUpdateFood.Text = "Update Food";
+            this.btnUpdateFood.UseVisualStyleBackColor = true;
+            this.btnUpdateFood.Click += new System.EventHandler(this.btnUpdateFood_Click);
             // 
             // nudPorsion
             // 
             this.nudPorsion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudPorsion.Location = new System.Drawing.Point(306, 250);
+            this.nudPorsion.Location = new System.Drawing.Point(306, 248);
             this.nudPorsion.Minimum = new decimal(new int[] {
             1,
             0,
@@ -143,7 +143,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPorsion.AutoSize = true;
             this.lblPorsion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPorsion.Location = new System.Drawing.Point(302, 195);
+            this.lblPorsion.Location = new System.Drawing.Point(302, 193);
             this.lblPorsion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPorsion.Name = "lblPorsion";
             this.lblPorsion.Size = new System.Drawing.Size(91, 24);
@@ -152,18 +152,23 @@
             // 
             // dgvFood
             // 
+            this.dgvFood.AllowUserToAddRows = false;
+            this.dgvFood.AllowUserToDeleteRows = false;
             this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFood.Location = new System.Drawing.Point(28, 285);
+            this.dgvFood.MultiSelect = false;
             this.dgvFood.Name = "dgvFood";
-            this.dgvFood.Size = new System.Drawing.Size(626, 357);
+            this.dgvFood.ReadOnly = true;
+            this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFood.Size = new System.Drawing.Size(683, 357);
             this.dgvFood.TabIndex = 11;
             // 
             // btnAddCustom
             // 
             this.btnAddCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAddCustom.Location = new System.Drawing.Point(571, 195);
+            this.btnAddCustom.Location = new System.Drawing.Point(628, 195);
             this.btnAddCustom.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnAddCustom.Name = "btnAddCustom";
             this.btnAddCustom.Size = new System.Drawing.Size(83, 82);
@@ -178,7 +183,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFood.AutoSize = true;
-            this.lblFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.lblFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lblFood.Location = new System.Drawing.Point(23, 18);
             this.lblFood.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFood.Name = "lblFood";
@@ -188,25 +193,38 @@
             // 
             // pboFood
             // 
-            this.pboFood.Location = new System.Drawing.Point(23, 61);
+            this.pboFood.Location = new System.Drawing.Point(1, 50);
             this.pboFood.Name = "pboFood";
             this.pboFood.Size = new System.Drawing.Size(152, 104);
             this.pboFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboFood.TabIndex = 14;
             this.pboFood.TabStop = false;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDelete.Location = new System.Drawing.Point(537, 194);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(79, 82);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Delete Food";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FoodsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 710);
+            this.ClientSize = new System.Drawing.Size(741, 710);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.pboFood);
             this.Controls.Add(this.lblFood);
             this.Controls.Add(this.btnAddCustom);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.lblPorsion);
             this.Controls.Add(this.nudPorsion);
-            this.Controls.Add(this.btnSaveMeal);
+            this.Controls.Add(this.btnUpdateFood);
             this.Controls.Add(this.cboFoodCategories);
             this.Controls.Add(this.pboSelectedMeal);
             this.Controls.Add(this.btnAdd);
@@ -217,6 +235,7 @@
             this.Name = "FoodsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FoodsForm";
+            this.Load += new System.EventHandler(this.FoodsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pboSelectedMeal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPorsion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
@@ -233,12 +252,13 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox pboSelectedMeal;
         private System.Windows.Forms.ComboBox cboFoodCategories;
-        private System.Windows.Forms.Button btnSaveMeal;
+        private System.Windows.Forms.Button btnUpdateFood;
         private System.Windows.Forms.NumericUpDown nudPorsion;
         private System.Windows.Forms.Label lblPorsion;
         private System.Windows.Forms.DataGridView dgvFood;
         private System.Windows.Forms.Button btnAddCustom;
         private System.Windows.Forms.Label lblFood;
         private System.Windows.Forms.PictureBox pboFood;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

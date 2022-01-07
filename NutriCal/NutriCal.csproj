@@ -284,12 +284,14 @@
     <Content Include="Resources\GoldSign.png" />
     <Content Include="Resources\GoldT.png" />
     <Content Include="Resources\GoldU.png" />
-    <None Include="Resources\logout.png" />
     <None Include="Resources\info.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\logout.png" />
     <Content Include="Resources\lunch.png" />
     <Content Include="Resources\Marquee Sign Letter C.G03.watermarked.2k.png" />
     <Content Include="Resources\morningsnack.png" />
     <Content Include="Resources\Olive Oil Drops.G03.watermarked.2k.png" />
+    <None Include="Resources\reports.png" />
     <Content Include="Resources\Soda Splash.G03.watermarked.2k.png" />
     <Content Include="Resources\Water Splash.G04.watermarked.2k.png" />
     <Content Include="Resources\White Splash.G07.watermarked.2k.png" />

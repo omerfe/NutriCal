@@ -40,8 +40,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.chkAddAsNew = new System.Windows.Forms.CheckBox();
             this.cboPorsion = new System.Windows.Forms.ComboBox();
+            this.lblTotalCalories = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPorsion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCalories)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             // lblCalories
             // 
             this.lblCalories.AutoSize = true;
-            this.lblCalories.Location = new System.Drawing.Point(12, 335);
+            this.lblCalories.Location = new System.Drawing.Point(12, 356);
             this.lblCalories.Name = "lblCalories";
             this.lblCalories.Size = new System.Drawing.Size(117, 20);
             this.lblCalories.TabIndex = 4;
@@ -84,7 +85,7 @@
             // nudPorsion
             // 
             this.nudPorsion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudPorsion.Location = new System.Drawing.Point(16, 290);
+            this.nudPorsion.Location = new System.Drawing.Point(16, 311);
             this.nudPorsion.Minimum = new decimal(new int[] {
             1,
             0,
@@ -99,15 +100,32 @@
             0,
             0,
             0});
+            this.nudPorsion.ValueChanged += new System.EventHandler(this.nudPorsion_ValueChanged);
             // 
             // nudCalories
             // 
             this.nudCalories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudCalories.Location = new System.Drawing.Point(16, 360);
+            this.nudCalories.Location = new System.Drawing.Point(16, 381);
+            this.nudCalories.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudCalories.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudCalories.Name = "nudCalories";
             this.nudCalories.Size = new System.Drawing.Size(212, 26);
             this.nudCalories.TabIndex = 7;
             this.nudCalories.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudCalories.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCalories.ValueChanged += new System.EventHandler(this.nudCalories_ValueChanged);
             // 
             // label4
             // 
@@ -146,32 +164,23 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(16, 411);
+            this.btnCancel.Location = new System.Drawing.Point(16, 442);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 30);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(140, 411);
+            this.btnAdd.Location = new System.Drawing.Point(140, 442);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 30);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // chkAddAsNew
-            // 
-            this.chkAddAsNew.AutoSize = true;
-            this.chkAddAsNew.Location = new System.Drawing.Point(16, 458);
-            this.chkAddAsNew.Name = "chkAddAsNew";
-            this.chkAddAsNew.Size = new System.Drawing.Size(177, 24);
-            this.chkAddAsNew.TabIndex = 14;
-            this.chkAddAsNew.Text = "Add as a new food";
-            this.chkAddAsNew.UseVisualStyleBackColor = true;
             // 
             // cboPorsion
             // 
@@ -183,13 +192,33 @@
             this.cboPorsion.TabIndex = 15;
             this.cboPorsion.SelectedIndexChanged += new System.EventHandler(this.cboPorsion_SelectedIndexChanged);
             // 
+            // lblTotalCalories
+            // 
+            this.lblTotalCalories.AutoSize = true;
+            this.lblTotalCalories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTotalCalories.Location = new System.Drawing.Point(12, 410);
+            this.lblTotalCalories.Name = "lblTotalCalories";
+            this.lblTotalCalories.Size = new System.Drawing.Size(109, 20);
+            this.lblTotalCalories.TabIndex = 16;
+            this.lblTotalCalories.Text = "Total Calories:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 288);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 20);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Quantity:";
+            // 
             // FoodEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 492);
+            this.ClientSize = new System.Drawing.Size(245, 497);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTotalCalories);
             this.Controls.Add(this.cboPorsion);
-            this.Controls.Add(this.chkAddAsNew);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtCustomFoodImage);
@@ -228,7 +257,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.CheckBox chkAddAsNew;
         private System.Windows.Forms.ComboBox cboPorsion;
+        private System.Windows.Forms.Label lblTotalCalories;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -27,47 +27,91 @@ namespace NutriCal
             this.db = db;
             this.user = user;
             this.meal = meal;
-            PrepareAddForm();
+            LoadElements();
+            if (food.FoodId > 0)
+                PrepareEditForm();
+            else
+                PrepareAddForm();
         }
 
-
-
-        private void PrepareAddForm()
+        private void LoadElements()
         {
             cboCategory.DataSource = db.FoodCategories.ToList();
             cboCategory.DisplayMember = "CategoryName";
+            cboPorsion.DataSource = Enum.GetValues(typeof(Enums.Porsions));
+        }
+        private void PrepareEditForm()
+        {
+            Text = $"Editing: {food.FoodName}";
+            LoadElements();
+            cboCategory.SelectedItem = foodCategory;
+            cboCategory.Enabled = false;
+            txtCustomFoodName.Text = food.FoodName;
+            txtCustomFoodName.Enabled = false;
+            txtCustomFoodImage.Text = food.FoodImage;
+            cboPorsion.SelectedItem = food.Porsion;
+            cboPorsion.Enabled = false;
+            nudPorsion.Value = food.Quantity;
+            nudCalories.Value = (decimal)food.FoodCalories;
+            nudCalories.Enabled = false;
+            btnAdd.Text = "Save";
+        }
+        private void PrepareAddForm()
+        {
+            Text = "Adding Custom Food:";
             txtCustomFoodName.Text = "Enter Food Name:";
             txtCustomFoodImage.Text = "Enter Food Image URL:";
-
-            foreach (var item in Enum.GetValues(typeof(Enums.Porsions)))
-            {
-                cboPorsion.Items.Add(item);
-            }
+            LoadElements();
             cboPorsion.SelectedIndex = 0;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Food newFood = new Food()
+            if (btnAdd.Text == "Save")
             {
-                FoodCategory = cboCategory.SelectedItem as FoodCategory,
-                FoodName = txtCustomFoodName.Text,
-                FoodImage = txtCustomFoodImage.Text,
-                Porsion = (Enums.Porsions)cboPorsion.SelectedItem,
-                Quantity = (int)nudPorsion.Value,
-                FoodCalories = (double)nudCalories.Value,
-                FoodRole = user.UserId.ToString()
-            };
+                food.FoodCategory = cboCategory.SelectedItem as FoodCategory;
+                food.FoodName = txtCustomFoodName.Text;
+                food.FoodImage = txtCustomFoodImage.Text;
+                food.Porsion = (Enums.Porsions)cboPorsion.SelectedItem;
+                food.Quantity = (int)nudPorsion.Value;
+                food.FoodCalories = (double)nudCalories.Value;
+                food.FoodRole = user.UserId.ToString();
+                MessageBox.Show($"{food.FoodName} updated successfully!");
+                Close();
+            }
+            else
+            {
+                Food newFood = new Food()
+                {
+                    FoodCategory = cboCategory.SelectedItem as FoodCategory,
+                    FoodName = txtCustomFoodName.Text,
+                    FoodImage = txtCustomFoodImage.Text,
+                    Porsion = (Enums.Porsions)cboPorsion.SelectedItem,
+                    Quantity = (int)nudPorsion.Value,
+                    FoodCalories = (double)nudCalories.Value,
+                    FoodRole = user.UserId.ToString()
+                };
 
-            db.Foods.Add(newFood);
-            meal.Foods.Add(newFood);
+                db.Foods.Add(newFood);
+                meal.Foods.Add(newFood);
+                MessageBox.Show($"{newFood.FoodName} added successfully!");
+            }
             db.SaveChanges();
-            MessageBox.Show($"{newFood.FoodName} added successfully!");
         }
-
-
         private void cboPorsion_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblCalories.Text = $"Calorie(s) per {cboPorsion.SelectedItem}:";
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        private void nudPorsion_ValueChanged(object sender, EventArgs e)
+        {
+            lblTotalCalories.Text = $"Total Calories: { nudPorsion.Value * nudCalories.Value }";
+        }
+        private void nudCalories_ValueChanged(object sender, EventArgs e)
+        {
+            lblTotalCalories.Text = $"Total Calories: { nudPorsion.Value * nudCalories.Value }";
         }
     }
 }

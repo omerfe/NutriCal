@@ -134,6 +134,7 @@ namespace NutriCal
         }
         private void cmbByCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             FoodCategory foodCategory = (FoodCategory)cmbByCategory.SelectedItem;
             List<Food> foodList = db.Foods.Where(x => x.FoodCategory.CategoryName == foodCategory.CategoryName && x.FoodRole != "0").ToList();
             List<Food> finalFoods = new List<Food>();
@@ -201,6 +202,9 @@ namespace NutriCal
                 double avg = totalCal / totalMeal;
                 label.Text = $"{avg:n2} kcal";
             }
+=======
+            
+>>>>>>> 93ea2775903c54b5f2b66d45abad62823fad5dff
         }
     }
 }
